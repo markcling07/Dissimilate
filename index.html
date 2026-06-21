@@ -608,14 +608,12 @@
                         <span class="slide-badge">${art.category} • ${art.readTime}</span>
                         <h2 class="slide-title">${art.title}</h2>
                         <p class="slide-desc">${art.description}</p>
-                        <div class="slide-footer">
-                            <div class="slide-author">
-                                <div class="author-avatar-mini">${art.author[0]}</div>
-                                <span>By ${art.author}</span>
-                            </div>
-                            <a href="${art.path}" class="slide-btn">Read Publication <span class="arrow">→</span></a>
+                        <div class="slide-author">
+                            <div class="author-avatar-mini">${art.author[0]}</div>
+                            <span>By ${art.author}</span>
                         </div>
                     </div>
+                    <a href="${art.path}" class="slide-btn">Read</a>
                 `;
                 carouselSlides.appendChild(slide);
                 
