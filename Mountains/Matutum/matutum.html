@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mt. Matutum</title>
+    <link rel="stylesheet" href="matutum.css">
+</head>
+<body>
+    <main class="essay-page">
+        <article class="paper">
+                <header class="paper-header">
+                <h1>Mt. Matutum</h1>
+            
+            </header>
+
+            <section>
+                <p class="intro">Rising like an island of green from the surrounding plains, Mt. Matutum is a solitary stratovolcano in southern Mindanao. Its slopes hold an uncommon concentration of life and story: crater lakes and mossy forests, fruiting trees that feed birds and people, and talus fields that remember older eruptions. <strong>From a distance the cone reads as a single shape; up close it is a living, layered landscape.</strong></p>
+
+                <h2>Geology and Water</h2>
+
+                <figure class="left">
+                    <img src="IMG/Matutum_Forest2.jpg" alt="Matutum slopes">
+                    <figcaption>The slopes of Matutum</figcaption>
+                </figure>
+                <p>Matutum’s geology is the slow grammar that shaped local life. Rainfall funnels into the crater and into clear streams that feed rice terraces and lowland rivers. Volcanic soils here are rich and deep; they make the surrounding plains unusually fertile, and for generations people have read seasons by the mountain’s weather.</p>
+
+                <h2>Culture and Conservation</h2>
+                <p>For the indigenous communities nearby, Matutum is more than a landmark. It is a repository of place-names and rites, a source of wood and medicine, and — increasingly — a focus of conservation. Local custodians and small conservation groups work together to limit destructive logging and to protect the watershed that downstream towns depend on.</p>
+
+                <h2>On the Trail</h2>
+                <p>Climbing Matutum is quietly demanding: routes move from cultivated lower slopes into steep, brushy ridges, and finally into a cooler, moss-draped upper forest. Hikers are rewarded with expansive views—on clear days, the planes of South Cotabato unfold below, and the neighboring peaks of Mindanao appear like distant islands.</p>
+                <figure class="right">
+                    <img src="IMG/Matutum_Forest3.jpg" alt="Matutum close-up">
+                    <figcaption>The mountain's patient complexity</figcaption>
+                </figure>
+                <p>Visitors should travel lightly and respectfully: pack out what you bring, hire local guides, and accept that the mountain’s pace is slower than the road’s. When communities and visitors work together, Matutum remains intact for the next generation.</p>
+                <p>Visitors should travel lightly and respectfully: pack out what you bring, hire local guides, and accept that the mountain’s pace is slower than the road’s. When communities and visitors work together, Matutum remains intact for the next generation.</p>
+
+
+                <p class="meta">This essay is a brief tribute to a mountain many pass without seeing. Matutum’s value is measured in water, song, and the patient complexity of its slopes.</p>
+
+                <a class="back-link" href="../../diss.html">← Back to Dashboard</a>
+            </section>
+        </article>
+    </main>
+    <script>
+        let currentPopped = null;
+        
+        document.querySelectorAll('figure img').forEach(img => {
+            img.addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                // If already popped, close it
+                if (this.classList.contains('popped')) {
+                    closePopup();
+                    return;
+                }
+                
+                // Close any previously popped image
+                if (currentPopped) {
+                    closePopup();
+                }
+                
+                // Create overlay
+                const overlay = document.createElement('div');
+                overlay.className = 'popup-overlay';
+                document.body.appendChild(overlay);
+                
+                // Pop the image
+                this.classList.add('popped');
+                currentPopped = this;
+                
+                // Close on overlay click
+                overlay.addEventListener('click', closePopup);
+                
+                // Close on escape key
+                document.addEventListener('keydown', handleEscape);
+            });
+        });
+        
+        function closePopup() {
+            if (currentPopped) {
+                currentPopped.classList.remove('popped');
+                currentPopped = null;
+            }
+            const overlay = document.querySelector('.popup-overlay');
+            if (overlay) overlay.remove();
+            document.removeEventListener('keydown', handleEscape);
+        }
+        
+        function handleEscape(e) {
+            if (e.key === 'Escape') closePopup();
+        }
+    </script>
+</body>
+</html>

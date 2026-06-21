@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dissimilate — Curated Essays</title>
+    <link rel="stylesheet" href="diss.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+
+
+        <!-- Right Column: Content Area -->
+        <main class="main-content">
+            
+            <!-- Hero Splash Section with Carousel -->
+            <section class="hero-splash" id="hero-splash">
+                
+                <div class="carousel-container" id="carousel-container">
+                    <div class="carousel-slides" id="carousel-slides">
+                        <!-- Slides will be rendered dynamically by JavaScript -->
+                    </div>
+                    
+                    <!-- Pagination Dots -->
+                    <div class="carousel-dots" id="carousel-dots">
+                        <!-- Dots will be rendered dynamically by JavaScript -->
+                    </div>
+                </div>
+
+
+            </section>
+
+            <!-- Lower Content Library (Pushed Down) -->
+            <section class="library-section" id="library-section">
+                <!-- Header with Search & Title -->
+                <header class="content-header">
+                    <div class="search-wrapper">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="search-input" class="search-input" placeholder="Search title, author, category...">
+                    </div>
+                </header>
+
+                <!-- Filters Section -->
+                <div class="filter-section">
+                    
+                    <!-- Category pill buttons -->
+                    <div class="category-pills" id="category-pills">
+                        <button class="pill-btn active" data-category="all">All Categories</button>
+                        <button class="pill-btn" data-category="Psychology">Psychology</button>
+                        <button class="pill-btn" data-category="Order and Chaos">Order &amp; Chaos</button>
+                        <button class="pill-btn" data-category="Success and Suffering">Success &amp; Suffering</button>
+                        <button class="pill-btn" data-category="Mountains">Mountains</button>
+                    </div>
+                </div>
+
+                <!-- Essay Cards Grid -->
+                <h3 class="authors-title" id="grid-title">All Curated Publications</h3>
+                <div class="cards-grid" id="cards-grid">
+                    <!-- Rendered dynamically -->
+                </div>
+            </section>
+
+            <!-- Authors Section -->
+            <section class="authors-showcase" id="authors-section">
+                <h3 class="authors-title">Meet Our Authors</h3>
+                <div class="authors-grid">
+                    
+                    <div class="author-showcase-card" data-author="Makima">
+                        <div class="author-header">
+                            <div class="author-avatar">M</div>
+                            <span class="author-badge">Featured</span>
+                        </div>
+                        <h4 class="author-showcase-name">Makima</h4>
+                        <p class="author-showcase-bio">Exploring the intricate psychology of human nature, control mechanisms, and the art of influence through structured essays.</p>
+                        <a href="javascript:void(0)" class="author-showcase-link filter-author-btn" data-author="Makima">Filter Essays →</a>
+                    </div>
+
+                    <div class="author-showcase-card" data-author="Kuvira">
+                        <div class="author-header">
+                            <div class="author-avatar">K</div>
+                            <span class="author-badge">Featured</span>
+                        </div>
+                        <h4 class="author-showcase-name">Kuvira</h4>
+                        <p class="author-showcase-bio">On leadership, authority, the burden of order, and the political philosophy of restoring balance in times of chaos.</p>
+                        <a href="javascript:void(0)" class="author-showcase-link filter-author-btn" data-author="Kuvira">Filter Essays →</a>
+                    </div>
+
+                    <div class="author-showcase-card" data-author="Obito">
+                        <div class="author-header">
+                            <div class="author-avatar">O</div>
+                            <span class="author-badge">Contributor</span>
+                        </div>
+                        <h4 class="author-showcase-name">Obito</h4>
+                        <p class="author-showcase-bio">Thoughtful, personal perspectives on growth, legacy, success, suffering, and finding meaning in transformation.</p>
+                        <a href="javascript:void(0)" class="author-showcase-link filter-author-btn" data-author="Obito">Filter Essays →</a>
+                    </div>
+
+                    <div class="author-showcase-card" data-author="Explorer">
+                        <div class="author-header">
+                            <div class="author-avatar">E</div>
+                            <span class="author-badge">Contributor</span>
+                        </div>
+                        <h4 class="author-showcase-name">Explorer</h4>
+                        <p class="author-showcase-bio">Documenting climbs and landscapes across high peaks, with a focus on ecological preservation and indigenous narratives.</p>
+                        <a href="javascript:void(0)" class="author-showcase-link filter-author-btn" data-author="Explorer">Filter Essays →</a>
+                    </div>
+
+
+                    <div class="author-showcase-card" data-author="Star">
+                        <div class="author-header">
+                            <div class="author-avatar">S</div>
+                            <span class="author-badge">New Climber</span>
+                        </div>
+                        <h4 class="author-showcase-name">Star</h4>
+                        <p class="author-showcase-bio">A passionate trail runner and outdoor enthusiast logging major mountain traverses and fairytale biodiversity routes.</p>
+                        <a href="javascript:void(0)" class="author-showcase-link filter-author-btn" data-author="Star">Filter Essays →</a>
+                    </div>
+                </div>
+            </section>
+
+
+
+        </main>
+
+    </div>
+
+    <!-- JavaScript logic -->
+    <script>
+        // Database of essays and pages
+        const articles = [
+            {
+                id: "human-animal",
+                title: "The Architecture of the Human Animal",
+                author: "Makima",
+                category: "Psychology",
+                readTime: "8 min read",
+                path: "Essays/Psychology/Makima/The Architecture of the Human Animal/The-Architecture-of-the-Human-Animal.html",
+                description: "An exploration of human incompleteness, the addictive nature of validation, fear as stability, and the structural tethers of dependency.",
+                type: "essay",
+                badge: "Featured",
+                isFeaturedHero: true,
+                img: "Essays/Psychology/Makima/The Architecture of the Human Animal/IMG/Makima-main.jpg",
+                carouselImg: "Essays/Psychology/Makima/The Architecture of the Human Animal/IMG/Makima-BG.webp",
+                isDraft: false
+            },
+            {
+                id: "restoring-order",
+                title: "The Burden of Restoring Order",
+                author: "Kuvira",
+                category: "Order and Chaos",
+                readTime: "12 min read",
+                path: "Essays/Order and Chaos/Kuvira/The Burden of Restoring Order/The-Burden-of-Restoring-Order.html",
+                description: "A profound record of what became necessary to unite a fractured Earth Kingdom and defend against chaos, reflecting on Ba Sing Se's illusions.",
+                type: "essay",
+                badge: "Featured",
+                isFeaturedHero: false,
+                img: "Essays/Order and Chaos/Kuvira/The Burden of Restoring Order/IMG/Kuvira-1.jpg",
+                carouselImg: "Essays/Order and Chaos/Kuvira/The Burden of Restoring Order/IMG/BaSingSe-BG.jpg",
+                isDraft: false
+            },
+            {
+                id: "envy-crown",
+                title: "People Envy the Crown, Not the Weight",
+                author: "Obito",
+                category: "Success and Suffering",
+                readTime: "5 min read",
+                path: "Essays/Success and Suffering/People Envy the Crown/People-Envy-the-Crown.html",
+                description: "Why does empathy disappear once success is achieved? An inquiry into the invisible tax of success and the heavy burden of power.",
+                type: "essay",
+                badge: "New",
+                isFeaturedHero: false,
+                img: "Essays/Success and Suffering/People Envy the Crown/IMG/People_envy_depp.jpg",
+                carouselImg: "Essays/Success and Suffering/People Envy the Crown/IMG/People_envy_bg.jpg",
+                isDraft: false
+            },
+            {
+                id: "mt-matutum",
+                title: "Mt. Matutum: A Living, Layered Cone",
+                author: "Obito",
+                category: "Mountains",
+                readTime: "4 min read",
+                path: "Mountains/Matutum/matutum.html",
+                description: "Rising like an island of green, Mt. Matutum is a stratovolcano holding crater lakes, mossy forests, and patient complexity on its slopes.",
+                type: "mountain",
+                badge: "Curated",
+                isFeaturedHero: false,
+                img: "Mountains/Matutum/IMG/MatutumBG.webp",
+                carouselImg: "Mountains/Matutum/IMG/MatutumBG.webp",
+                isDraft: false
+            },
+            {
+                id: "mt-apo",
+                title: "Mt. Apo: Roof of the Philippines",
+                author: "Explorer",
+                category: "Mountains",
+                readTime: "15 min read",
+                path: "Mountains/Apo/Apo.html",
+                description: "A travel log documenting the ascent of the highest peak in the Philippines, climbing through sulfuric vents and ancient mossy woodlands.",
+                type: "mountain",
+                badge: "Curated",
+                isFeaturedHero: false,
+                img: "Mountains/Apo/IMG/Mount_Apo_BG.jpg",
+                carouselImg: "Mountains/Apo/IMG/Mount_Apo_BG.jpg",
+                isDraft: false
+            },
+            {
+                id: "mt-makiling-star",
+                title: "Mt. Makiling Traverse",
+                author: "Star",
+                category: "Mountains",
+                readTime: "6 min read",
+                path: "Authors/Star/Makiling/index.html",
+                description: "A travel log documenting the traverse of Mt. Makiling via Sipit Trail Batangas, hiking through dense canopy, rare Rafflesia blooms, and trail running the descent.",
+                type: "mountain",
+                badge: "New",
+                isFeaturedHero: false,
+                img: "Authors/Star/Makiling/IMG/Kaygandamo,makiling.webp",
+                carouselImg: "Authors/Star/Makiling/IMG/Kaygandamo,makiling.webp",
+                isDraft: false
+            },
+            {
+                id: "mt-kotkot-bukaw-star",
+                title: "Mt. Kotkot × Mt. Bukaw Full Circuit",
+                author: "Star",
+                category: "Mountains",
+                readTime: "5 min read",
+                path: "Authors/Star/Kotkot × Bukaw/index.html",
+                description: "A travel log documenting the twin hike full circuit traverse, trail running in the rain, Negron team adventures, and scenic mountain views.",
+                type: "mountain",
+                badge: "New",
+                isFeaturedHero: false,
+                img: "Authors/Star/Kotkot × Bukaw/IMG/Feature.png",
+                carouselImg: "Authors/Star/Kotkot × Bukaw/IMG/Feature.png",
+                isDraft: false
+            },
+            {
+                id: "mt-negron-star",
+                title: "Mt. Negron Traverse",
+                author: "Star",
+                category: "Mountains",
+                readTime: "7 min read",
+                path: "Authors/Star/Negron/index.html",
+                description: "A travel log documenting the grueling 38-40KM backtrail traverse, 16 river crossings, 90° steep assaults, Jek and Josh's trail support, and a magical 3AM river dip.",
+                type: "mountain",
+                badge: "New",
+                isFeaturedHero: false,
+                img: "Authors/Star/Negron/IMG/683775034_17936003910232409_7597785375817899291_n.webp",
+                carouselImg: "Authors/Star/Negron/IMG/683775034_17936003910232409_7597785375817899291_n.webp",
+                isDraft: false
+            }
+        ];
+
+        // State Management
+        let currentTab = "all"; // "all" or "drafts"
+        let currentCategory = "all"; // "all", "Psychology", "Order and Chaos", "Success and Suffering", "Mountains"
+        let currentAuthor = "all"; // "all", "Makima", "Kuvira", "Obito"
+        let searchQuery = "";
+
+        // Carousel variables
+        let carouselIndex = 0;
+        let carouselTimer = null;
+
+        // Elements
+        const carouselSlides = document.getElementById("carousel-slides");
+        const carouselDots = document.getElementById("carousel-dots");
+        const carouselContainer = document.getElementById("carousel-container");
+        
+        const cardsGrid = document.getElementById("cards-grid");
+        const searchInput = document.getElementById("search-input");
+        const categoryPills = document.getElementById("category-pills");
+        const gridTitle = document.getElementById("grid-title");
+
+        // Initialization
+        window.addEventListener("DOMContentLoaded", () => {
+            renderCarousel();
+            renderFeed();
+            setupEventListeners();
+            
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem("theme") || "light";
+            document.documentElement.setAttribute("data-theme", savedTheme);
+        });
+
+        // Event Listeners Setup
+        function setupEventListeners() {
+            // Scroll event on main content to reveal/hide sidebar
+            const mainContent = document.querySelector(".main-content");
+            const dashboardContainer = document.querySelector(".dashboard-container");
+
+            mainContent.addEventListener("scroll", () => {
+                if (mainContent.scrollTop > 80) {
+                    dashboardContainer.classList.add("scrolled");
+                } else {
+                    dashboardContainer.classList.remove("scrolled");
+                }
+            });
+
+            // Search input
+            searchInput.addEventListener("input", (e) => {
+                searchQuery = e.target.value.toLowerCase().trim();
+                renderFeed();
+            });
+
+            // Category Pills
+            categoryPills.addEventListener("click", (e) => {
+                if (e.target.classList.contains("pill-btn")) {
+                    // Update active class
+                    document.querySelectorAll(".pill-btn").forEach(btn => btn.classList.remove("active"));
+                    e.target.classList.add("active");
+
+                    currentCategory = e.target.getAttribute("data-category");
+                    renderFeed();
+                }
+            });
+
+            // Touch gestures for swipe
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            function handleSwipe() {
+                const threshold = 50; // minimum pixels to swipe
+                if (touchEndX < touchStartX - threshold) {
+                    nextSlide(); // swipe left -> next slide
+                }
+                if (touchEndX > touchStartX + threshold) {
+                    prevSlide(); // swipe right -> previous slide
+                }
+            }
+
+            carouselContainer.addEventListener("touchstart", (e) => {
+                touchStartX = e.changedTouches[0].clientX;
+            }, { passive: true });
+
+            carouselContainer.addEventListener("touchend", (e) => {
+                touchEndX = e.changedTouches[0].clientX;
+                handleSwipe();
+            }, { passive: true });
+
+            // Mouse drag gestures for swipe on desktop
+            let isDragging = false;
+            let dragStartX = 0;
+
+            carouselContainer.addEventListener("mousedown", (e) => {
+                isDragging = true;
+                dragStartX = e.clientX;
+                carouselContainer.style.cursor = "grabbing";
+            });
+
+            carouselContainer.addEventListener("mouseup", (e) => {
+                if (!isDragging) return;
+                isDragging = false;
+                carouselContainer.style.cursor = "pointer";
+                const dragEndX = e.clientX;
+                const threshold = 50;
+                if (dragEndX < dragStartX - threshold) {
+                    nextSlide();
+                } else if (dragEndX > dragStartX + threshold) {
+                    prevSlide();
+                }
+            });
+
+            carouselContainer.addEventListener("mouseleave", () => {
+                if (isDragging) {
+                    isDragging = false;
+                    carouselContainer.style.cursor = "pointer";
+                }
+            });
+
+            // Author showcase card filter clicks
+            document.querySelectorAll(".filter-author-btn").forEach(btn => {
+                btn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    currentAuthor = e.target.getAttribute("data-author");
+                    
+                    // Reset category pills back to 'all'
+                    document.querySelectorAll(".pill-btn").forEach(btn => btn.classList.remove("active"));
+                    document.querySelector('[data-category="all"]').classList.add("active");
+                    currentCategory = "all";
+
+                    // Update grid title
+                    gridTitle.textContent = `Essays by ${currentAuthor}`;
+                    
+                    // Scroll grid into view smoothly
+                    document.getElementById("library-section").scrollIntoView({ behavior: "smooth" });
+                    
+                    renderFeed();
+                });
+            });
+
+        }
+
+        // Reset all states
+        function resetFilters() {
+            currentTab = "all";
+            currentCategory = "all";
+            currentAuthor = "all";
+            searchQuery = "";
+            searchInput.value = "";
+            gridTitle.textContent = "All Curated Publications";
+            
+            document.querySelectorAll(".pill-btn").forEach(btn => btn.classList.remove("active"));
+            document.querySelector('[data-category="all"]').classList.add("active");
+        }
+
+        // Carousel Render & Control Logic
+        function renderCarousel() {
+            const featuredList = articles.filter(art => !art.isDraft); // the 4 active articles
+            carouselSlides.innerHTML = "";
+            carouselDots.innerHTML = "";
+            
+            featuredList.forEach((art, idx) => {
+                // Create slide element
+                const slide = document.createElement("div");
+                slide.className = `carousel-slide ${idx === 0 ? 'active' : ''}`;
+                slide.style.backgroundImage = `linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75)), url('${art.carouselImg || art.img}')`;
+                
+                slide.innerHTML = `
+                    <div class="slide-content">
+                        <span class="slide-badge">${art.category} • ${art.readTime}</span>
+                        <h2 class="slide-title">${art.title}</h2>
+                        <p class="slide-desc">${art.description}</p>
+                        <div class="slide-footer">
+                            <div class="slide-author">
+                                <div class="author-avatar-mini">${art.author[0]}</div>
+                                <span>By ${art.author}</span>
+                            </div>
+                            <a href="${art.path}" class="slide-btn">Read Publication <span class="arrow">→</span></a>
+                        </div>
+                    </div>
+                `;
+                carouselSlides.appendChild(slide);
+                
+                // Create pagination dot
+                const dot = document.createElement("button");
+                dot.className = `dot ${idx === 0 ? 'active' : ''}`;
+                dot.setAttribute("data-slide", idx);
+                dot.ariaLabel = `Go to slide ${idx + 1}`;
+                carouselDots.appendChild(dot);
+            });
+
+            // Set up dot events
+            document.querySelectorAll(".dot").forEach(dot => {
+                dot.addEventListener("click", (e) => {
+                    const targetIdx = parseInt(e.target.getAttribute("data-slide"));
+                    goToSlide(targetIdx);
+                });
+            });
+
+            startCarouselAutoPlay();
+        }
+
+        function goToSlide(idx) {
+            const slides = document.querySelectorAll(".carousel-slide");
+            const dots = document.querySelectorAll(".dot");
+            if (slides.length === 0) return;
+            
+            // Wrap index bounds
+            if (idx >= slides.length) idx = 0;
+            if (idx < 0) idx = slides.length - 1;
+            
+            carouselIndex = idx;
+            
+            // Change active state on slides and dots
+            slides.forEach((slide, sIdx) => {
+                if (sIdx === idx) {
+                    slide.classList.add("active");
+                } else {
+                    slide.classList.remove("active");
+                }
+            });
+            
+            dots.forEach((dot, dIdx) => {
+                if (dIdx === idx) {
+                    dot.classList.add("active");
+                } else {
+                    dot.classList.remove("active");
+                }
+            });
+
+            resetCarouselTimer();
+        }
+
+        function nextSlide() {
+            goToSlide(carouselIndex + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(carouselIndex - 1);
+        }
+
+        function startCarouselAutoPlay() {
+            carouselTimer = setInterval(nextSlide, 7000); // cycle every 7 seconds
+        }
+
+        function resetCarouselTimer() {
+            clearInterval(carouselTimer);
+            startCarouselAutoPlay();
+        }
+
+        // Rendering Core Engine
+        function renderFeed() {
+            // 1. Filter articles based on state
+            const filtered = articles.filter(art => {
+
+
+                // Category filter
+                if (currentCategory !== "all") {
+                    if (currentCategory === "essay-group") {
+                        if (art.type !== "essay") return false;
+                    } else if (art.category !== currentCategory) {
+                        return false;
+                    }
+                }
+
+                // Author filter
+                if (currentAuthor !== "all" && art.author !== currentAuthor) {
+                    return false;
+                }
+
+                // Search query filter
+                if (searchQuery !== "") {
+                    const titleMatch = art.title.toLowerCase().includes(searchQuery);
+                    const authorMatch = art.author.toLowerCase().includes(searchQuery);
+                    const catMatch = art.category.toLowerCase().includes(searchQuery);
+                    const descMatch = art.description.toLowerCase().includes(searchQuery);
+                    return titleMatch || authorMatch || catMatch || descMatch;
+                }
+
+                return true;
+            });
+
+            // 2. Render Cards Grid
+            cardsGrid.innerHTML = "";
+            
+            if (filtered.length === 0) {
+                cardsGrid.innerHTML = `
+                    <div class="no-results">
+                        <div class="no-results-icon">📂</div>
+                        <h4 class="no-results-title">No Publications Found</h4>
+                        <p class="no-results-desc">We couldn't find anything matching your filters or search query. Try resetting your search.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(art => {
+                const card = document.createElement("a");
+                card.href = art.path;
+                card.className = `essay-card ${art.isDraft ? 'draft' : ''}`;
+                
+                // Set image section
+                let imgHtml = "";
+                if (art.img) {
+                    imgHtml = `<img src="${art.img}" alt="${art.title}" class="card-img">`;
+                } else {
+                    imgHtml = `<div class="card-img-placeholder">📝</div>`;
+                }
+
+                card.innerHTML = `
+                    <div class="card-img-wrapper">
+                        ${imgHtml}
+                        <span class="card-badge ${art.isDraft ? 'draft-badge' : ''}">${art.badge}</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <span class="card-category">${art.category}</span>
+                            <span>${art.readTime}</span>
+                        </div>
+                        <h2 class="card-title">${art.title}</h2>
+                        <p class="card-desc">${art.description}</p>
+                        <div class="card-footer">
+                            <div class="card-author">
+                                <div class="author-avatar-mini">${art.author[0]}</div>
+                                <span>${art.author}</span>
+                            </div>
+                            <div class="card-action">
+                                <span>${art.isDraft ? 'View Outline' : 'Read Work'}</span>
+                                <span class="arrow">→</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                cardsGrid.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>

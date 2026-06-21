@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star's Author Profile Cards</title>
+    <meta name="description" content="A premium showcase of author profile cards for Star, featuring three distinct design styles: Minimalist Wanderer, Forest Mystic, and Retro Explorer.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Syne:wght@500;700;800&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="showcase-container">
+        <header class="showcase-header">
+            <h1>Star's Profile Cards</h1>
+            <p>Three distinct styles designed for the Mt. Makiling traverse journal.</p>
+        </header>
+
+        <div class="cards-grid">
+            
+            <!-- CARD 1: MINIMALIST WANDERER -->
+            <div class="card-showcase-box">
+                <div class="card-minimalist">
+                    <div class="card-minimalist-header">
+                        <div class="avatar-ring">
+                            <img class="card-avatar" src="../Makiling/IMG/Person.webp" alt="Star">
+                        </div>
+                        <div class="identity-info">
+                            <h4 class="card-name">Star</h4>
+                            <span class="card-handle">@stardweller</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card-minimalist-body">
+                        <p class="card-bio">A designer and outdoor explorer who lives for alpine ridges, mossy forests, and running down mountain slopes. Always seeking the next wild trail and a warm brew.</p>
+                        
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <span class="stat-lbl">Peak Elevation</span>
+                                <span class="stat-val">1,109m</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-lbl">Peaks Climbed</span>
+                                <span class="stat-val">32 scaled</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-lbl">Favorite Traverse</span>
+                                <span class="stat-val">Mt. Makiling</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-minimalist-footer">
+                        <div class="social-links">
+                            <a href="https://instagram.com/star" target="_blank" class="social-btn instagram" aria-label="Instagram">
+                                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                            </a>
+                            <a href="https://strava.com/athletes/star" target="_blank" class="social-btn strava" aria-label="Strava">
+                                <svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.108-6.02L8.3 13.6h4.67l-2.69-5.32c-.37-.73-1.077-1.18-1.854-1.18-.778 0-1.485.45-1.855 1.18zM0 13.6l5.148 10.172 5.15-10.172H7.234L5.148 9.484 3.06 13.6H0z"/></svg>
+                            </a>
+                            <a href="https://github.com/star" target="_blank" class="social-btn github" aria-label="GitHub">
+                                <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                        </div>
+                        <button class="btn-action minimalist-btn-action" onclick="toggleMinimalistDrawer(this)">Read Journal</button>
+                    </div>
+
+                    <!-- Drawer (hidden slide up) -->
+                    <div class="minimalist-drawer">
+                        <h5>Trail Entry — May 31</h5>
+                        <p>"No clearing, no problem. Makiling was still pure magic. The descent was an absolute blast because we ended up trail running most of it."</p>
+                        <button class="drawer-close-btn" onclick="closeMinimalistDrawer(this)">&times;</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 2: FOREST MYSTIC -->
+            <div class="card-showcase-box">
+                <div class="card-forest">
+                    <div class="forest-bg-glow"></div>
+                    <div class="forest-leaf-svg">
+                        <svg viewBox="0 0 100 100" fill="currentColor">
+                            <path d="M50 0C55 20 70 35 90 40C70 45 55 60 50 100C45 60 30 45 10 40C30 35 45 20 50 0Z" opacity="0.08"/>
+                        </svg>
+                    </div>
+                    
+                    <div class="card-forest-content">
+                        <div class="forest-badge">
+                            <svg class="compass-needle" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.3 0-7.8-3.3-7.9-7.5l2.4 1c.5-.9 1.4-1.5 2.5-1.5 1.7 0 3 1.3 3 3 0 1.1-.6 2-1.5 2.5l1 2.4c4.2-.1 7.5-3.6 7.5-7.9 0-4.4-3.6-8-8-8s-8 3.6-8 8c0 1.2.3 2.3.7 3.3l1.5-.6c-.2-.8-.2-1.7-.2-2.7 0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6zm1.5-8.5l2.5-4.5-4.5 2.5-2.5 4.5 4.5-2.5z"/></svg>
+                            <span>EXPLORER STATUS: ACTIVE</span>
+                        </div>
+
+                        <div class="forest-avatar-box">
+                            <img class="card-avatar" src="../Makiling/IMG/Person1.webp" alt="Star">
+                            <span class="status-dot-active"></span>
+                        </div>
+
+                        <h4 class="card-name forest-title">Star</h4>
+                        <span class="card-handle forest-subtitle">@stardweller</span>
+
+                        <p class="card-bio forest-bio">A designer and outdoor explorer who lives for alpine ridges, mossy forests, and running down mountain slopes. Always seeking the next wild trail and a warm brew.</p>
+
+                        <div class="forest-stats-grid">
+                            <div class="forest-stat">
+                                <span class="lbl">Peak Elevation</span>
+                                <span class="val">1,109m</span>
+                            </div>
+                            <div class="forest-stat">
+                                <span class="lbl">Peaks Climbed</span>
+                                <span class="val">32 scaled</span>
+                            </div>
+                            <div class="forest-stat">
+                                <span class="lbl">Favorite Traverse</span>
+                                <span class="val">Mt. Makiling</span>
+                            </div>
+                        </div>
+
+                        <div class="forest-footer">
+                            <div class="social-icons-row">
+                                <a href="https://instagram.com/star" target="_blank" class="forest-social" aria-label="Instagram">IG</a>
+                                <a href="https://strava.com/athletes/star" target="_blank" class="forest-social" aria-label="Strava">ST</a>
+                                <a href="https://github.com/star" target="_blank" class="forest-social" aria-label="GitHub">GH</a>
+                            </div>
+                            <div class="audio-micro">
+                                <button class="btn-forest-pulse" onclick="playForestChirp(this)">Forest Audio</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 3: RETRO EXPLORER -->
+            <div class="card-showcase-box">
+                <div class="card-retro">
+                    <div class="retro-stamp">
+                        <svg viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3"/>
+                            <circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" stroke-width="1"/>
+                            <text x="50%" y="45%" text-anchor="middle" font-size="8" font-family="monospace">MAY 31</text>
+                            <text x="50%" y="60%" text-anchor="middle" font-size="7" font-weight="bold" letter-spacing="1">HIKE COMPLETED</text>
+                            <path id="stampCurve" d="M 20,50 A 30,30 0 0,1 80,50" fill="none"/>
+                            <text font-size="6" fill="currentColor">
+                                <textPath href="#stampCurve" startOffset="50%" text-anchor="middle">MT. MAKILING</textPath>
+                            </text>
+                        </svg>
+                    </div>
+
+                    <div class="polaroid-frame">
+                        <img class="card-avatar polaroid-img" src="../Makiling/IMG/Person2.webp" alt="Star">
+                        <div class="polaroid-caption">Star — 2026</div>
+                    </div>
+
+                    <div class="retro-details">
+                        <div class="retro-header">
+                            <h4 class="card-name retro-name">Star</h4>
+                            <span class="card-handle retro-handle">@stardweller</span>
+                        </div>
+
+                        <p class="card-bio retro-bio">A designer and outdoor explorer who lives for alpine ridges, mossy forests, and running down mountain slopes. Always seeking the next wild trail and a warm brew.</p>
+
+                        <div class="retro-checklist">
+                            <div class="checklist-item">
+                                <span class="checkbox checked">&#9745;</span>
+                                <span class="check-text">Mt. Makiling Traverse</span>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checkbox checked">&#9745;</span>
+                                <span class="check-text">Scale elevation: 1,109m</span>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checkbox checked">&#9745;</span>
+                                <span class="check-text">Count: 32 scaled</span>
+                            </div>
+                        </div>
+
+                        <div class="retro-footer">
+                            <div class="retro-socials">
+                                <a href="https://instagram.com/star" target="_blank">Instagram</a>
+                                <span>/</span>
+                                <a href="https://strava.com/athletes/star" target="_blank">Strava</a>
+                                <span>/</span>
+                                <a href="https://github.com/star" target="_blank">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Web Audio & Core Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
