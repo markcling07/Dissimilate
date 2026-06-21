@@ -211,6 +211,8 @@ body {
 }
 
 .slide-btn {
+    position: relative;
+    z-index: 2;
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -512,6 +514,8 @@ body {
 }
 
 .slide-btn {
+    position: relative;
+    z-index: 2;
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -1100,6 +1104,4 @@ body {
     .card-title {
         font-size: 1.2rem;
     }
-}
-
 }
