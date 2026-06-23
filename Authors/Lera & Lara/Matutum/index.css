@@ -252,8 +252,8 @@ html, body {
 
 .hero-subtext {
     font-family: var(--font-heading);
-    font-size: clamp(1.8rem, 5.5vw, 3.5rem);
-    color: var(--accent-blue);
+    font-size: clamp(2.2rem, 6vw, 4.2rem);
+    color: #4b1c71;
     line-height: 1.35;
     font-style: italic;
     font-weight: 300;
@@ -848,7 +848,7 @@ html, body {
     }
     
     .hero-subtext {
-        font-size: clamp(2.2rem, 7vw, 3rem) !important;
+        font-size: clamp(2.5rem, 8.5vw, 3.8rem) !important;
     }
 
     .hero-editorial-spread {
