@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mt. Batulao Traverse — Interactive Photo Journal</title>
+    <meta name="description" content="An interactive photo journal documenting Oli's climb of Mt. Batulao in Nasugbu, Batangas—featuring ridge walks, vertical rock scrambles, and peak horseback rides.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Floating Background Mist Layers (Styled as Warm Haze for Batulao) -->
+    <div class="mist-container">
+        <div class="mist-layer mist-1"></div>
+        <div class="mist-layer mist-2"></div>
+    </div>
+
+    <!-- Ambient Sound Button -->
+    <button id="soundToggle" class="sound-toggle" aria-label="Toggle ambient mountain wind sound">
+        <span class="sound-icon">🔈</span> Ambient Wind
+    </button>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <p class="hero-date">May 10, 2026</p>
+                <h1 class="hero-title">Mt. Batulao Traverse</h1>
+                <p class="hero-subtitle">Walking the Jagged Spines of Nasugbu</p>
+                
+                <!-- Quick Stats Grid -->
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <span class="stat-value">811</span>
+                        <span class="stat-unit">MASL</span>
+                        <span class="stat-desc">Summit Elevation</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value">4 / 9</span>
+                        <span class="stat-unit">Difficulty</span>
+                        <span class="stat-desc">Minor Hike</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value">12</span>
+                        <span class="stat-unit">Peaks</span>
+                        <span class="stat-desc">Grassland Ridges</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Showcase Section -->
+        <section class="section story-section">
+            <div class="container story-wrapper">
+                <div class="story-grid">
+                    <div class="story-text">
+                        <h2 class="showcase-title"><span>Bato sa Araw:</span><br>Rocks in the Sun</h2>
+                        <p class="showcase-tagline">Mt. Batulao's name derives from the spectacular play of light as the sun rises between its dual rocky peaks.</p>
+                    </div>
+                    <div class="story-featured-card">
+                        <div class="featured-img-wrapper">
+                            <img class="featured-img gallery-img-original lightbox-trigger" src="att.g5GGD4C7_JL3LCrdzJxIkCNqIrMzNmpi-UofNoQD4vY.JPG" alt="Oli sitting on the ridge looking out at the sun" data-caption="Gazing out at the rolling hills of Batangas as the warm sun bakes the ridges.">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Narrative & Storytelling Intro Section -->
+        <section class="section story-section" style="padding-top: 5rem; padding-bottom: 8rem;">
+            <div class="container story-wrapper">
+                <div class="story-body-content">
+                    <div class="story-text">
+                        <p class="lead-text">“Batulao felt like walking on the spine of a sleeping giant, baked under the Batangas sun and cooled by the fierce Pacific winds.”</p>
+                    </div>
+                    
+                    <div class="gallery-grid-small" style="margin-top: 2rem;">
+                        <div class="gallery-item-original">
+                            <img class="gallery-img-original lightbox-trigger" src="att.Z6ZueIxiJ-VHq9GBETXfz99PKMVJyQjC7Thi7Wry9_o.JPG" alt="Rolling green hills of Mt. Batulao" data-caption="The jagged green ridges and hiking trails carved along the mountain's spine.">
+                        </div>
+                        <div class="gallery-item-original">
+                            <img class="gallery-img-original lightbox-trigger" src="att.ZnxclV3baMHVCHBncBZ3ipsAGNby0Xk0_O5S3UPFuJc.JPG" alt="Oli scaling a vertical rock face" data-caption="Scrambling up one of the steep rocky faces along the old trail climb.">
+                        </div>
+                        <div class="gallery-item-original">
+                            <img class="gallery-img-original crop-top lightbox-trigger" src="att.Ik6pR-vgWqoXbgC8PJ2JzxSbcwg9zeCj8-Q6i_kEpOk.JPG" alt="Oli sitting on a ridge cliff edge" data-caption="Taking a breather on a rocky ledge, enjoying the panoramic views.">
+                        </div>
+                        <div class="gallery-item-original">
+                            <img class="gallery-img-original lightbox-trigger" src="att.nWXGEMhZ8_0yWTbCZLZ4sisFbn6VymAA48CE8goa5Fs.JPG" alt="Heart-shaped snack at the peak" data-caption="A heart-shaped snack held against the backdrop of rolling green hills.">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scrapbook Narrative Section -->
+        <section class="section scrapbook-section">
+            <div class="container">
+                
+                <!-- Chapter 1: The Spines of Batulao -->
+                <div class="scrapbook-chapter">
+                    <div class="scrapbook-grid-split">
+                        <div class="scrapbook-text">
+                            <span class="chapter-number">01</span>
+                            <span class="chapter-meta">TRAIL LOG — THE RIDGEWALK</span>
+                            <h3 class="scrapbook-title">The Spines of Batulao</h3>
+                            <p class="scrapbook-desc">Mt. Batulao rises dramatically from the plains of Nasugbu. The trail immediately greets you with open, rolling grasslands. Walking along its narrow dirt spines is a thrilling exercise in balance, with the grass bowing to the powerful, dry gusts that sweep across the ridges.</p>
+                        </div>
+                        <div class="collage-frame">
+                            <img class="collage-img-base gallery-img-original lightbox-trigger" src="att.Z6ZueIxiJ-VHq9GBETXfz99PKMVJyQjC7Thi7Wry9_o.JPG" alt="Scenic green hills of Mt. Batulao" data-caption="The endless ridges of Mt. Batulao stretching under the blue skies.">
+                            <img class="collage-img-overlay gallery-img-original lightbox-trigger" src="att.Ik6pR-vgWqoXbgC8PJ2JzxSbcwg9zeCj8-Q6i_kEpOk.JPG" alt="Oli sitting on a rocky ledge" data-caption="Relaxing on the ridge, fully surrounded by open Batangas sky.">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 2: The Scramble & The Spire -->
+                <div class="scrapbook-chapter">
+                    <div class="scrapbook-grid-split reversed">
+                        <div class="collage-frame" style="height: auto;">
+                            <div class="filmstrip-grid">
+                                <div class="filmstrip-card">
+                                    <img class="filmstrip-img gallery-img-original lightbox-trigger" src="att.ZnxclV3baMHVCHBncBZ3ipsAGNby0Xk0_O5S3UPFuJc.JPG" alt="Scrambling up a vertical rock wall" data-caption="Finding secure holds on the rocky walls approaching Peak 8.">
+                                </div>
+                                <div class="filmstrip-card">
+                                    <img class="filmstrip-img gallery-img-original lightbox-trigger" src="att.yrHG4JZs5C-InFjnJdlj_6RK1g8ZvzjCXammSG5fGlo.JPG" alt="Lying flat on a rock pinnacle" data-caption="Planking flat on the rock pinnacle—holding on for a fun photo.">
+                                </div>
+                                <div class="filmstrip-card">
+                                    <img class="filmstrip-img gallery-img-original lightbox-trigger" src="att.VhgYfHzd1h5mKzTRH7jX_phOPkTC5aqgr7owuYaelEs.JPG" alt="Lying down on the pinnacle, smiling" data-caption="Striking a relaxed, gravity-defying pose on the mountain's edge.">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="scrapbook-text">
+                            <span class="chapter-number">02</span>
+                            <span class="chapter-meta">TRAIL LOG — ACTION & POSES</span>
+                            <h3 class="scrapbook-title">The Scramble & The Spire</h3>
+                            <p class="scrapbook-desc">Climbing Batulao means getting your hands dirty. The trail features steep, vertical rock faces that require active scrambling. Reaching the narrow stone spires, we couldn't resist playing around. From standard heroic poses to lying flat on top of the rocks like cliffhangers, the rocky ridges became our personal playground.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 3: The Summit Sanctuary -->
+                <div class="scrapbook-chapter">
+                    <div class="scrapbook-grid-split">
+                        <div class="scrapbook-text">
+                            <span class="chapter-number">03</span>
+                            <span class="chapter-meta">TRAIL LOG — THE APEX</span>
+                            <h3 class="scrapbook-title">The Summit Sanctuary</h3>
+                            <p class="scrapbook-desc">At 811 meters above sea level, the summit offers an unmatched 360-degree panorama of Batangas, Cavite, and the distant South China Sea. The iconic wooden sign marks the highest point, a sanctuary in the sky where the wind blows with intense force under a canopy of drifting clouds.</p>
+                        </div>
+                        <div class="collage-frame">
+                            <img class="collage-img-base gallery-img-original lightbox-trigger" src="att.dgU_Dk5AJcJHV_ho_i5utI6umU6r4tLfU1P9jDu0d6M.JPG" alt="Oli at the Mt. Batulao Summit sign" data-caption="Triumphant at the 811 MASL summit under dynamic cloud sweeps.">
+                            <img class="collage-img-overlay gallery-img-original lightbox-trigger" src="att.SnoRF5J26Cpu8TWAiEjSsUwGWnK_mv9zj1fiV24vXEM.JPG" alt="Oli close up at the summit sign" data-caption="Welcoming the winds behind the wooden summit landmark.">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 4: Peak Delicacies -->
+                <div class="scrapbook-chapter">
+                    <div class="scrapbook-grid-split reversed">
+                        <div class="collage-frame">
+                            <img class="collage-img-base gallery-img-original lightbox-trigger" src="att.LrKhI0sxllY7nUJVK4V4Fa2hnuPoogEe3FRUhbEze3k.JPG" alt="Yumburger at the summit" data-caption="The ultimate trail reward: a Jollibee Yumburger at the peak.">
+                            <img class="collage-img-overlay gallery-img-original lightbox-trigger" src="att.nWXGEMhZ8_0yWTbCZLZ4sisFbn6VymAA48CE8goa5Fs.JPG" alt="Heart-shaped cookie at the peak" data-caption="Enjoying a sweet, heart-shaped snack overlooking the green hills.">
+                        </div>
+                        <div class="scrapbook-text">
+                            <span class="chapter-number">04</span>
+                            <span class="chapter-meta">TRAIL LOG — SUMMIT SNACKS</span>
+                            <h3 class="scrapbook-title">Peak Delicacies</h3>
+                            <p class="scrapbook-desc">While most hikers settle for trail mix or energy gels, we brought a classic Filipino treat to the peak: a Jollibee Yumburger. There is something magical about unwrapping a warm burger at 811 MASL, accompanied by a sweet heart-shaped pastry, while enjoying the cool ridge breeze. It remains the best meal on any trail.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 5: Saddle & Soil -->
+                <div class="scrapbook-chapter">
+                    <div class="scrapbook-grid-split">
+                        <div class="scrapbook-text">
+                            <span class="chapter-number">05</span>
+                            <span class="chapter-meta">TRAIL LOG — THE DESCENT</span>
+                            <h3 class="scrapbook-title">Saddle & Soil</h3>
+                            <p class="scrapbook-desc">To wrap up the traverse, we embarked on a unique side quest: horseback riding along the ridge descent. The local mountain horses navigate the steep, narrow dirt paths with absolute certainty. Riding high above the green valleys under a vast blue sky was the perfect, calming finale to an adventurous climb.</p>
+                        </div>
+                        <div class="collage-frame">
+                            <img class="collage-img-base gallery-img-original lightbox-trigger" src="att.gcqZau-CVo40cf443u2uMduXxm7LITFBq5r4F67uJ1M.JPG" alt="Oli riding a horse on the mountain ridge" data-caption="Descending via horseback along the dusty ridge trails of Mt. Batulao.">
+                            <img class="collage-img-overlay gallery-img-original lightbox-trigger" src="att.KRxLdkWVgtFAZCUKKpwocq4YEPQ4_LbB3yx6mWtY93M.JPG" alt="Oli smiling on the horse" data-caption="A joyful ride high on the mountain trails under a bright sun.">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 6: Closing Quote Card -->
+                <div class="scrapbook-chapter" style="margin-top: 6rem;">
+                    <div class="scrapbook-full-bleed" style="background-image: url('att.Iq6RBK-YtKceZbCGWAkKNf7ukYEGK9uvXADhah8XyjI.JPG');">
+                        <div class="full-bleed-content">
+                            <p class="closing-quote-text">“Between the warm rocks and the solar wind, we found our footing.”</p>
+                            <p class="closing-meta">Log Entry May 10, 2026 — Mt. Batulao Traverse Completed</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Interactive Dashboard / Gear / Stats Section -->
+        <section id="interactive" class="section interactive-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Interactive Tools</span>
+                    <h2 class="section-title">Trail Dashboard & Packing Assistant</h2>
+                    <p class="section-subtitle">Interact with our dynamic tools to inspect trail elevations, calculate statistics, and check off required hiking gear.</p>
+                </div>
+
+                <div class="interactive-grid">
+                    <!-- Interactive GPS Stats Card -->
+                    <div class="card dashboard-card">
+                        <h3>Elevation & Terrain Dashboard</h3>
+                        <p class="card-desc">Slide or hover across the elevation model to analyze slopes and checkpoints.</p>
+                        
+                        <div class="dashboard-meter">
+                            <div class="meter-labels">
+                                <span>KC Hill Start (200m)</span>
+                                <span>Batulao Summit (811m)</span>
+                                <span>New Trail Base (200m)</span>
+                            </div>
+                            <input type="range" id="elevationSlider" min="0" max="100" value="50" class="custom-slider">
+                            
+                            <div class="stats-display" id="statsDisplay">
+                                <div class="stat-box">
+                                    <span class="box-label">Checkpoint</span>
+                                    <span class="box-val" id="cpLabel">Sto. Tomas Base</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="box-label">Current Height</span>
+                                    <span class="box-val" id="cpHeight">200m</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="box-label">Estimated Grade</span>
+                                    <span class="box-val" id="cpGrade">15% Slope</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="terrain-graph">
+                            <div class="graph-bar" style="height: 25%;"></div>
+                            <div class="graph-bar" style="height: 45%;"></div>
+                            <div class="graph-bar" style="height: 80%;"></div>
+                            <div class="graph-bar active" style="height: 100%;"></div>
+                            <div class="graph-bar" style="height: 70%;"></div>
+                            <div class="graph-bar" style="height: 45%;"></div>
+                            <div class="graph-bar" style="height: 25%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Checklist Card -->
+                    <div class="card checklist-card">
+                        <h3>Hiker Packing List</h3>
+                        <p class="card-desc">Check off the essential items we brought for this challenging Mt. Batulao climb.</p>
+                        
+                        <div class="checklist-items">
+                            <label class="checklist-item">
+                                <input type="checkbox" checked>
+                                <span class="custom-checkbox"></span>
+                                <span class="item-text">Jollibee Yumburger (Essential summit reward meal)</span>
+                            </label>
+                            <label class="checklist-item">
+                                <input type="checkbox" checked>
+                                <span class="custom-checkbox"></span>
+                                <span class="item-text">2.0L Water (Ridge trail is highly exposed to the sun)</span>
+                            </label>
+                            <label class="checklist-item">
+                                <input type="checkbox" checked>
+                                <span class="custom-checkbox"></span>
+                                <span class="item-text">Sun Protection (Sunscreen, wide-brim hat, sleeves)</span>
+                            </label>
+                            <label class="checklist-item">
+                                <input type="checkbox">
+                                <span class="custom-checkbox"></span>
+                                <span class="item-text">Windbreaker Jacket (Strong wind gusts on ridge peaks)</span>
+                            </label>
+                            <label class="checklist-item">
+                                <input type="checkbox" checked>
+                                <span class="custom-checkbox"></span>
+                                <span class="item-text">Trail Running Shoes (Heavy grip needed for loose gravel descents)</span>
+                            </label>
+                            <label class="checklist-item">
+                                <input type="checkbox" checked>
+                                <span class="custom-checkbox"></span>
+                                <span class="item-text">Camera / Phone (For gravity-defying peak photos)</span>
+                            </label>
+                        </div>
+                        <div class="checklist-footer">
+                            <span id="packProgressText">5 of 6 items packed</span>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" id="packProgressBar" style="width: 83%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Back to Main Page Button -->
+        <div class="back-to-main-container">
+            <a href="../../../index.html" class="back-to-main-btn">
+                <span class="btn-icon">←</span> DISS
+            </a>
+        </div>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox-modal">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <button class="lightbox-prev" id="lightboxPrev">&#10094;</button>
+        <button class="lightbox-next" id="lightboxNext">&#10095;</button>
+        <div class="lightbox-content-wrapper">
+            <img id="lightboxImg" class="lightbox-img" src="" alt="">
+            <p id="lightboxCaption" class="lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
