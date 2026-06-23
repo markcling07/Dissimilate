@@ -372,6 +372,10 @@ html, body {
     color: var(--accent-gold);
 }
 
+.highlight-purple {
+    color: #4b1c71;
+}
+
 /* ==========================================================================
    PHOTO MOSAICS (Asymmetric Grid Galleries)
    ========================================================================== */
@@ -511,18 +515,75 @@ html, body {
 .essay-epilogue {
     background-color: #eae5db;
     border-radius: 12px;
-    padding: 5rem 10%;
+    padding: 5rem 6%;
     margin: 8rem 0;
     border: 1px solid rgba(28, 59, 136, 0.08);
     box-shadow: inset 0 10px 30px rgba(0,0,0,0.02);
 }
 
 .epilogue-wrapper {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.epilogue-text-column {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    position: sticky;
+    top: 120px;
+    align-self: start;
+}
+
+.epilogue-image-column {
+    position: relative;
+    height: 580px;
+    width: 100%;
+}
+
+.epilogue-image-column .card-inner {
+    position: absolute;
+    width: 80%;
+    transition: var(--transition-smooth);
+}
+
+/* Card 1: Peak Assembly (top-left layer) */
+.epilogue-image-column .card-inner:nth-child(1) {
+    top: 0;
+    left: 0;
+    transform: rotate(-3deg);
+    z-index: 1;
+}
+
+/* Card 2: Mossy Forest (middle-right layer) */
+.epilogue-image-column .card-inner:nth-child(2) {
+    top: 100px;
+    right: 0;
+    transform: rotate(4deg);
+    z-index: 2;
+}
+
+/* Card 3: Posing on the Trail (bottom-center layer) */
+.epilogue-image-column .card-inner:nth-child(3) {
+    bottom: 0;
+    left: 8%;
+    transform: rotate(-2deg);
+    z-index: 3;
+}
+
+/* Hover Interactivity */
+.epilogue-image-column .card-inner:hover {
+    z-index: 10 !important;
+    transform: scale(1.05) rotate(0deg) !important;
+    box-shadow: 0 30px 60px rgba(28, 59, 136, 0.25) !important;
+}
+
+.epilogue-image-column .editorial-img {
+    aspect-ratio: 4 / 3;
 }
 
 .epilogue-header {
@@ -566,8 +627,10 @@ html, body {
 }
 
 .signature {
-    font-family: var(--font-gothic);
-    font-size: 2.5rem;
+    font-family: var(--font-heading);
+    font-weight: 100;
+    font-style: italic;
+    font-size: 2.8rem;
     color: var(--accent-blue);
     line-height: 1;
 }
@@ -611,7 +674,7 @@ html, body {
 }
 
 .diss-btn {
-    background-color: var(--accent-blue);
+    background-color: #4b1c71;
     color: var(--bg-color) !important;
     padding: 0.45rem 1.2rem;
     border-radius: 20px;
@@ -620,14 +683,14 @@ html, body {
     letter-spacing: 0.05em;
     text-decoration: none;
     transition: var(--transition-smooth);
-    border: 1px solid var(--accent-blue);
+    border: 1px solid #4b1c71;
     display: inline-block;
-    box-shadow: 0 4px 10px rgba(28, 59, 136, 0.15);
+    box-shadow: 0 4px 10px rgba(75, 28, 113, 0.15);
 }
 
 .diss-btn:hover {
     background-color: transparent;
-    color: var(--accent-blue) !important;
+    color: #4b1c71 !important;
     box-shadow: none;
     transform: translateY(-1px);
 }
@@ -1103,6 +1166,35 @@ html, body {
         padding: 3rem 5% !important;
         margin: 0rem 0 !important;
         border: none !important;
+    }
+
+    .epilogue-wrapper {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+    }
+
+    .epilogue-image-column {
+        height: 480px !important;
+        margin-top: 2rem !important;
+    }
+
+    .epilogue-image-column .card-inner {
+        width: 75% !important;
+    }
+
+    .epilogue-image-column .card-inner:nth-child(1) {
+        top: 0 !important;
+        left: 0 !important;
+    }
+
+    .epilogue-image-column .card-inner:nth-child(2) {
+        top: 80px !important;
+        right: 0 !important;
+    }
+
+    .epilogue-image-column .card-inner:nth-child(3) {
+        bottom: 0 !important;
+        left: 12% !important;
     }
 
     .chapter-section {
