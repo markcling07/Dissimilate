@@ -3,6 +3,7 @@
 // Lightbox Modal Elements
 const modal = document.getElementById("image-modal");
 const modalImg = document.getElementById("modal-img");
+const modalImgWrapper = document.getElementById("modal-img-wrapper");
 const modalCaption = document.getElementById("modal-caption");
 const modalClose = document.getElementById("modal-close");
 const modalPrev = document.getElementById("modal-prev");
@@ -68,9 +69,11 @@ modalNext.addEventListener("click", (e) => {
 });
 
 modal.addEventListener("click", (e) => {
-    if (e.target === modal || e.target === modalClose) {
-        closeModal();
+    // If clicking outside the active image, the caption text, or navigation buttons, close the modal
+    if (e.target.closest('#modal-img') || e.target.closest('.modal-caption') || e.target.closest('.modal-nav')) {
+        return;
     }
+    closeModal();
 });
 
 // Keyboard Navigation
