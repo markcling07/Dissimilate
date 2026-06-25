@@ -23,372 +23,302 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
-    <!-- Desktop Frame Wrapper to simulate mobile viewport context -->
-    <div class="desktop-wrapper">
-        <div class="phone-frame">
-            <!-- Notch/Speaker Simulation for realistic touch -->
-            <div class="phone-notch"></div>
-            
-            <div class="phone-content-scrollable">
-                
-                <!-- Main Header Navigation -->
-                <header class="app-header">
-                    <a href="../../../index.html" class="back-btn" aria-label="Go Back to Home">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="19" y1="12" x2="5" y2="12"></line>
-                            <polyline points="12 19 5 12 12 5"></polyline>
-                        </svg>
-                    </a>
-                    <span class="brand-title">DISSIMILATE</span>
-                    <button class="bookmark-action" aria-label="Bookmark Publication">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-                        </svg>
-                    </button>
-                </header>
+    <!-- Sticky site navigation -->
+    <header class="site-nav" id="site-nav">
+        <a href="../../../index.html" class="nav-back" aria-label="Go Back to Home">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span>Back</span>
+        </a>
+        <span class="nav-brand">DISSIMILATE</span>
+        <span class="nav-meta">2,954m · Mt. Apo</span>
+    </header>
 
-                <main class="main-content">
-                    
-                    <!-- Cover Splash Card: Mimics the design reference -->
-                    <section class="cover-card-section">
-                        <div class="premium-card">
-                            <div class="card-image-container">
-                                <!-- Slideshow carousel -->
-                                <div class="card-carousel-slides">
-                                    <img src="IMG/HL.PNG" alt="Genesis sitting next to Mount Apo Summit sign" class="carousel-slide active" data-index="0">
-                                    <img src="IMG/Solo.jpg" alt="Genesis sitting next to a giant mossy tree" class="carousel-slide" data-index="1">
-                                    <img src="IMG/Solo4.jfif" alt="Genesis standing in front of the volcanic crater wall" class="carousel-slide" data-index="2">
-                                </div>
-                                <div class="carousel-dots-overlay">
-                                    <span class="carousel-dot active"></span>
-                                    <span class="carousel-dot"></span>
-                                    <span class="carousel-dot"></span>
-                                </div>
-                            </div>
-                            
-                            <div class="card-body">
-                                <div class="card-badges-row">
-                                    <div class="left-badges">
-                                        <span class="badge-pill outline-badge">Kapatagan Trail</span>
-                                        <span class="badge-pill outline-badge">Dec 2025</span>
-                                    </div>
-                                    <span class="badge-pill dark-badge">2,954m MASL</span>
-                                </div>
-                                
-                                <h1 class="card-title">The Flame & The Moss</h1>
-                                <p class="card-description">
-                                    An immersive log of the climb up Mount Apo, conquering steep forest sanctuaries, sulfuric vapor-vents, and standing above the clouds.
-                                </p>
-                                
-                                <button class="card-action-btn" id="start-journey-btn">
-                                    Begin Journey
-                                </button>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Profile Section -->
-                    <section class="profile-card-section">
-                        <div class="profile-card">
-                            <img src="IMG/Solo.jpg" alt="Genesis Jay S. Quilo" class="profile-avatar">
-                            <div class="profile-info">
-                                <h3 class="profile-name">
-                                    Genesis Jay S. Quilo
-                                    <span class="verified-icon">✓</span>
-                                </h3>
-                                <p class="profile-bio">Member of Weakend Hikers. Documenting the beauty of high peaks and sharing the spirit of outdoor camaraderie.</p>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Chapter Selection Menu -->
-                    <section class="chapter-navigation">
-                        <div class="tab-scroll-container">
-                            <button class="nav-tab active" data-chapter="1">
-                                <span>I. The Ascent</span>
-                            </button>
-                            <button class="nav-tab" data-chapter="2">
-                                <span>II. The Camp</span>
-                            </button>
-                            <button class="nav-tab" data-chapter="3">
-                                <span>III. The Summit</span>
-                            </button>
-                        </div>
-                    </section>
-
-                    <!-- CHAPTER CONTENTS -->
-                    
-                    <!-- Chapter 1: The Ascent -->
-                    <section class="chapter-content active" id="chapter-1">
-                        <div class="card-layout">
-                            <div class="premium-card">
-                                <div class="card-image-container">
-                                    <img src="IMG/600240845_18306349747267931_1075385343419891764_n.jpg" alt="Weakend Hikers Group before the climb" class="gallery-trigger" data-caption="Weakend Hikers assembled and packing heavy, outside the registration point in Kapatagan.">
-                                    <span class="card-image-tag">Ready for Adventure</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-badges-row">
-                                        <div class="left-badges">
-                                            <span class="badge-pill outline-badge">Kapatagan, Digos</span>
-                                            <span class="badge-pill outline-badge">Day 1</span>
-                                        </div>
-                                    </div>
-                                    <h2 class="card-subtitle">Gathering at the Foothills</h2>
-                                    <p class="card-paragraph">
-                                        Our journey began in Digos City, Davao del Sur, at the registration point of the Digos-Kapatagan trail. Standing in the cool shadow of the dormant giant, our packs were heavy but our spirits were unmatched. We registered as mountaineers, did final checks on our gear, and posed for a pre-climb photo, ready to conquer the highest summit in the country.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="premium-card">
-                                <div class="card-image-container">
-                                    <img src="IMG/590376679_18306349801267931_2046124094984286418_n.jpg" alt="Hiking through the forest in the rain" class="gallery-trigger" data-caption="Rainfall in the rainforest: Navigating the slippery trails under one open umbrella.">
-                                    <span class="card-image-tag">Rainy Forest Trail</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-badges-row">
-                                        <div class="left-badges">
-                                            <span class="badge-pill outline-badge">Tropical Canopy</span>
-                                            <span class="badge-pill outline-badge">Wet Ascent</span>
-                                        </div>
-                                    </div>
-                                    <h2 class="card-subtitle">Through the Downpour</h2>
-                                    <p class="card-paragraph">
-                                        As we entered the dense, humid rainforest, the skies opened up, unleashing a tropical downpour. The path quickly transformed into a slick, clay slope. With rain jackets pulled tight and a single umbrella shared among friends, we pushed upward. The cold water dripped down our necks, but the steady squelch of our boots on wet earth became our marching rhythm.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Chapter 2: The Camp -->
-                    <section class="chapter-content" id="chapter-2">
-                        <div class="card-layout">
-                            <div class="premium-card">
-                                <div class="card-image-container">
-                                    <img src="IMG/Solo.jpg" alt="Genesis sitting next to giant tree" class="gallery-trigger" data-caption="Genesis catching a breather on the massive root system of an ancient dipterocarp tree.">
-                                    <span class="card-image-tag">Mossy Sanctuary</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-badges-row">
-                                        <div class="left-badges">
-                                            <span class="badge-pill outline-badge">1,800m MASL</span>
-                                            <span class="badge-pill outline-badge">Ancient Forest</span>
-                                        </div>
-                                    </div>
-                                    <h2 class="card-subtitle">Guardian of the Trails</h2>
-                                    <p class="card-paragraph">
-                                        As the elevation climbed past 1,800 meters, we entered the mossy forest zone. The air cooled dramatically. Here, trees stand draped in thick, green blankets of moss. I sat on a massive, sprawling root system, catching a breather and holding my green water bottle. The silent, ancient trees seemed to watch over our passage.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="premium-card">
-                                <div class="card-image-container">
-                                    <img src="IMG/Solo3.jfif" alt="Genesis flex posing under Welcome Gudi-Gudi sign" class="gallery-trigger" data-caption="Flex posing at the entrance of Gudi-Gudi Camp. Safe and ready for a cold night.">
-                                    <span class="card-image-tag">Camp Gudi-Gudi</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-badges-row">
-                                        <div class="left-badges">
-                                            <span class="badge-pill outline-badge">Welcome Archway</span>
-                                            <span class="badge-pill outline-badge">Campsite</span>
-                                        </div>
-                                    </div>
-                                    <h2 class="card-subtitle">Reaching Gudi-Gudi</h2>
-                                    <p class="card-paragraph">
-                                        By late afternoon, we reached Camp Gudi-Gudi, a well-known resting haven along the Kapatagan trail. The campsite was wrapped in a mystical shroud of fog. Standing beneath the rustic wooden archway, I struck a victory pose. We set up our tents and prepared to seek refuge from the falling temperature.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="premium-card">
-                                <div class="card-image-container">
-                                    <div class="card-carousel-slides">
-                                        <img src="IMG/att.fnuCvfDdHV9LwyO-xQ5819IwyxIF4QJFmeehicQ1ths.jpg" alt="Group at Gudi Gudi campsite" class="carousel-slide active" data-index="0" data-caption="Cooking prep: setting up the table with rice and food dishes under Gudi-Gudi camp welcome banner.">
-                                        <img src="IMG/att.s9_TPYq3WRJ7GhJvnDIJfKNcew4MJihZm5-U8s4jopk.jpg" alt="Dinner at Gudi Gudi campsite under tarp" class="carousel-slide" data-index="1" data-caption="Dinner under the tarp: Warm food, hot coffee, and high spirits as the mountain air turns cold.">
-                                        <img src="IMG/att.awlogx3lGu_LwQJbnVIkrEQdKMxmHnn4phzsYDelYKE.jpg" alt="Selfie eating dinner at table" class="carousel-slide" data-index="2" data-caption="Dinner selfie under the tarp. Everyone is exhausted but smiling!">
-                                    </div>
-                                    <div class="carousel-dots-overlay">
-                                        <span class="carousel-dot active"></span>
-                                        <span class="carousel-dot"></span>
-                                        <span class="carousel-dot"></span>
-                                    </div>
-                                    <span class="card-image-tag">Camp Cooking</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-badges-row">
-                                        <div class="left-badges">
-                                            <span class="badge-pill outline-badge">Tarp Haven</span>
-                                            <span class="badge-pill outline-badge">Camaraderie</span>
-                                        </div>
-                                    </div>
-                                    <h2 class="card-subtitle">The Fireside Circle</h2>
-                                    <p class="card-paragraph">
-                                        At night, the campsite temperature plummeted. We gathered under a large, simple tarp stretched over a rough wooden picnic table. Guided by headlamps, we prepared a feast of warm rice and local dishes. Huddled together, sharing hot food, coffee, and stories, the bitter cold outside was forgotten in the warmth of our collective friendship.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Chapter 3: The Summit -->
-                    <section class="chapter-content" id="chapter-3">
-                        <div class="card-layout">
-                            <div class="premium-card">
-                                <div class="card-image-container">
-                                    <img src="IMG/600457116_18306349885267931_3197883941366499080_n.jpg" alt="Dawn assault with headlamps" class="gallery-trigger" data-caption="3:00 AM Dawn Assault: Huddled close to the rocks with headlamps cutting through the darkness.">
-                                    <span class="card-image-tag">Summit Assault</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-badges-row">
-                                        <div class="left-badges">
-                                            <span class="badge-pill outline-badge">3:00 AM Start</span>
-                                            <span class="badge-pill outline-badge">Headlamps Lit</span>
-                                        </div>
-                                    </div>
-                                    <h2 class="card-subtitle">The Cold Ascent</h2>
-                                    <p class="card-paragraph">
-                                        Our alarms went off at 3:00 AM. In pitch darkness and shivering cold, we geared up for the final summit assault. With headlamps casting narrow beams of light onto the rocky terrain, we began the steep scramble. The air grew thinner and smelling of sulfur as we neared the active vents of the mountain.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="premium-card">
-                                <div class="card-image-container">
-                                    <div class="card-carousel-slides">
-                                        <img src="IMG/HL.PNG" alt="Genesis sitting next to Summit sign" class="carousel-slide active" data-index="0" data-caption="Genesis Jay S. Quilo sitting next to the Mount Apo Summit sign at 2,954 meters.">
-                                        <img src="IMG/att.0lZYtJBOmUNNJ_gwECvExGD9z_GO-4RHT3KGOk9adt0.jpg" alt="Group selfie at summit sign" class="carousel-slide" data-index="1" data-caption="Victory group selfie around the peak sign, smiling under a beautiful morning sky.">
-                                        <img src="IMG/att.6GuNoBsZIZG41PuvSEqSTIksonaMLHPvPvU5_FP_QpA.jpg" alt="Full group at the summit next to sign" class="carousel-slide" data-index="2" data-caption="The complete team at the Roof of the Philippines.">
-                                    </div>
-                                    <div class="carousel-dots-overlay">
-                                        <span class="carousel-dot active"></span>
-                                        <span class="carousel-dot"></span>
-                                        <span class="carousel-dot"></span>
-                                    </div>
-                                    <span class="card-image-tag">Peak Conquered</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-badges-row">
-                                        <div class="left-badges">
-                                            <span class="badge-pill outline-badge">2,954 MASL</span>
-                                            <span class="badge-pill outline-badge">Digos City Peak</span>
-                                        </div>
-                                    </div>
-                                    <h2 class="card-subtitle">Roof of the Philippines</h2>
-                                    <p class="card-paragraph">
-                                        As the sun rose, we stood at the summit of Mt. Apo at 2,954 meters above sea level. The feeling was indescribable—standing above a sea of clouds, next to the famous green summit sign. The wind was biting, but we celebrated our triumph together, taking a victory selfie and posing for a group photo.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="premium-card">
-                                <div class="card-image-container">
-                                    <div class="card-carousel-slides">
-                                        <img src="IMG/Solo4.jfif" alt="Genesis standing in front of volcanic crater wall" class="carousel-slide active" data-index="0" data-caption="Genesis posing in front of the volcanic crater wall in a Mount Apo jersey.">
-                                        <img src="IMG/att.s9HgnOfsHrvG3oCxYo_DQnIqJCJDxsHbkoG-TNfpAHE.jpg" alt="Group photo in front of crater wall" class="carousel-slide" data-index="1" data-caption="Group shot in the volcanic crater bed, with the raw, towering rocky wall in the background.">
-                                        <img src="IMG/590368396_18306349810267931_9127131544762047500_n.jpg" alt="Group photo in the valley path" class="carousel-slide" data-index="2" data-caption="Walking through the dwarfed bonsai forest and volcanic valley paths of Apo's peak.">
-                                    </div>
-                                    <div class="carousel-dots-overlay">
-                                        <span class="carousel-dot active"></span>
-                                        <span class="carousel-dot"></span>
-                                        <span class="carousel-dot"></span>
-                                    </div>
-                                    <span class="card-image-tag">Volcanic Crater</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-badges-row">
-                                        <div class="left-badges">
-                                            <span class="badge-pill outline-badge">Crater Basin</span>
-                                            <span class="badge-pill outline-badge">Bonsai Forest</span>
-                                        </div>
-                                    </div>
-                                    <h2 class="card-subtitle">Into the Caldera</h2>
-                                    <p class="card-paragraph">
-                                        After celebrating at the peak, we descended into the dry volcanic crater basin. The scenery changed instantly—surrounded by towering, raw vertical rock faces. We put on our commemorative orange Mt. Apo climb shirts, capturing the stark beauty of the volcanic caldera. Pushing through the dwarfed bonsai trees, we felt the geological power of this sacred mountain.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="premium-card">
-                                <div class="card-image-container">
-                                    <img src="IMG/Hands.jpg" alt="Fists together in circle" class="gallery-trigger" data-caption="Fists in the circle: A silent promise of trust, teamwork, and adventure kept.">
-                                    <span class="card-image-tag">Solidarity</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-badges-row">
-                                        <div class="left-badges">
-                                            <span class="badge-pill outline-badge">Weakend Hikers</span>
-                                            <span class="badge-pill outline-badge">One Team</span>
-                                        </div>
-                                    </div>
-                                    <h2 class="card-subtitle">The Circle of Trust</h2>
-                                    <p class="card-paragraph">
-                                        Climbing the highest peak in the country is not an individual journey; it is a story of teamwork. Before our descent, we gathered in a tight circle, putting our fists together. Each hand represented hours of pushing through rain, carrying heavy loads, and supporting each other. A bond forged in the sulfur winds of Mount Apo.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Certificate Card -->
-                            <div class="premium-card highlight-card">
-                                <div class="card-image-container">
-                                    <img src="IMG/Cert.jpg" alt="Genesis Jay S. Quilo Certificate of Climb" class="gallery-trigger" data-caption="The official certificate of climb, awarded on December 15, 2025.">
-                                    <span class="card-image-tag">Certificate of Climb</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-badges-row">
-                                        <div class="left-badges">
-                                            <span class="badge-pill outline-badge">Dec 15, 2025</span>
-                                            <span class="badge-pill outline-badge">Digos City Mayor</span>
-                                        </div>
-                                    </div>
-                                    <h2 class="card-subtitle">The Proof of Conquest</h2>
-                                    <p class="card-paragraph">
-                                        "Genesis Jay S. Quilo has successfully conquered Mt. Apo, the highest peak in the Philippines. Towering 2,954 meters above sea level via the DIGOS-KAPATAGAN TRAIL." Hand-signed by Tourism Officer Perla May Griffin and Mayor Josef F. Cagas. A token of accomplishment, a reminder of the summit.
-                                    </p>
-                                    <button class="card-action-btn outline-btn gallery-trigger-btn" data-target-img="IMG/Cert.jpg">
-                                        View Certificate
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Footer Section -->
-                    <footer class="essay-footer">
-                        <div class="footer-stats">
-                            <div class="stat-item">
-                                <span class="stat-num">2,954m</span>
-                                <span class="stat-lbl">MASL</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-num">Digos</span>
-                                <span class="stat-lbl">Trail</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-num">2 Days</span>
-                                <span class="stat-lbl">Duration</span>
-                            </div>
-                        </div>
-                        <p class="colophon">
-                            Published in the journal of Dissimilate. Personal archives of Genesis Jay S. Quilo. December 2025 expedition, Davao del Sur, Mindanao, Philippines.
-                        </p>
-                        <a href="../../../index.html" class="home-nav-btn">
-                            Exit Log
-                        </a>
-                    </footer>
-
-                </main>
+    <!-- HERO -->
+    <section class="hero" id="top">
+        <div class="hero-bg">
+            <img src="IMG/BG.jpg" alt="Mount Apo landscape" class="carousel-slide active">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-kicker">A Dissimilate Climb Journal</p>
+            <h1 class="hero-title">The Flame<br>&amp; The Moss</h1>
+            <p class="hero-sub">An immersive log of the climb up Mount Apo — conquering steep forest sanctuaries, sulfuric vapor-vents, and standing above the clouds.</p>
+            <div class="hero-stats">
+                <span>Kapatagan Trail</span>
+                <span class="sep">·</span>
+                <span>Dec 2025</span>
+                <span class="sep">·</span>
+                <span>2,954m MASL</span>
             </div>
         </div>
-    </div>
+        <a href="#chapter-1" class="scroll-cue" aria-label="Begin the journey">
+            <span>Begin journey</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </a>
+    </section>
 
-    <!-- Lightbox Modal for fullscreen media exploration -->
+    <!-- AUTHOR -->
+    <section class="author-strip">
+        <img src="IMG/Solo.jpg" alt="Genesis Jay S. Quilo" class="author-avatar">
+        <div class="author-info">
+            <h2 class="author-name">Genesis Jay S. Quilo <span class="verified" aria-label="Verified">✓</span></h2>
+            <p class="author-bio">Member of Weakend Hikers. Documenting the beauty of high peaks and sharing the spirit of outdoor camaraderie.</p>
+        </div>
+    </section>
+
+    <!-- CHAPTER PROGRESS BAR -->
+    <nav class="chapter-bar" id="chapter-bar">
+        <a href="#chapter-1" class="chapter-link active" data-chapter="chapter-1"><b>I.</b> The Ascent</a>
+        <a href="#chapter-2" class="chapter-link" data-chapter="chapter-2"><b>II.</b> The Camp</a>
+        <a href="#chapter-3" class="chapter-link" data-chapter="chapter-3"><b>III.</b> The Summit</a>
+    </nav>
+
+    <main>
+
+        <!-- CHAPTER 1 -->
+        <section class="chapter" id="chapter-1">
+            <header class="chapter-head reveal">
+                <span class="chapter-numeral">I</span>
+                <div>
+                    <p class="chapter-eyebrow">Chapter One</p>
+                    <h2 class="chapter-name">The Ascent</h2>
+                </div>
+            </header>
+
+            <article class="story reveal">
+                <figure class="story-media">
+                    <img src="IMG/600240845_18306349747267931_1075385343419891764_n.jpg" alt="Weakend Hikers Group before the climb" class="gallery-trigger" data-caption="Weakend Hikers assembled and packing heavy, outside the registration point in Kapatagan.">
+                    <span class="media-tag">Ready for Adventure</span>
+                </figure>
+                <div class="story-text">
+                    <div class="badges">
+                        <span class="badge">Kapatagan, Digos</span>
+                        <span class="badge">Day 1</span>
+                    </div>
+                    <h3 class="story-title">Gathering at the Foothills</h3>
+                    <p>Our journey began in Digos City, Davao del Sur, at the registration point of the Digos-Kapatagan trail. Standing in the cool shadow of the dormant giant, our packs were heavy but our spirits were unmatched. We registered as mountaineers, did final checks on our gear, and posed for a pre-climb photo, ready to conquer the highest summit in the country.</p>
+                </div>
+            </article>
+
+            <article class="story reveal">
+                <figure class="story-media">
+                    <img src="IMG/590376679_18306349801267931_2046124094984286418_n.jpg" alt="Hiking through the forest in the rain" class="gallery-trigger" data-caption="Rainfall in the rainforest: Navigating the slippery trails under one open umbrella.">
+                    <span class="media-tag">Rainy Forest Trail</span>
+                </figure>
+                <div class="story-text">
+                    <div class="badges">
+                        <span class="badge">Tropical Canopy</span>
+                        <span class="badge">Wet Ascent</span>
+                    </div>
+                    <h3 class="story-title">Through the Downpour</h3>
+                    <p>As we entered the dense, humid rainforest, the skies opened up, unleashing a tropical downpour. The path quickly transformed into a slick, clay slope. With rain jackets pulled tight and a single umbrella shared among friends, we pushed upward. The cold water dripped down our necks, but the steady squelch of our boots on wet earth became our marching rhythm.</p>
+                </div>
+            </article>
+        </section>
+
+        <!-- CHAPTER 2 -->
+        <section class="chapter" id="chapter-2">
+            <header class="chapter-head reveal">
+                <span class="chapter-numeral">II</span>
+                <div>
+                    <p class="chapter-eyebrow">Chapter Two</p>
+                    <h2 class="chapter-name">The Camp</h2>
+                </div>
+            </header>
+
+            <article class="story reveal">
+                <figure class="story-media">
+                    <img src="IMG/Solo.jpg" alt="Genesis sitting next to giant tree" class="gallery-trigger" data-caption="Genesis catching a breather on the massive root system of an ancient dipterocarp tree.">
+                    <span class="media-tag">Mossy Sanctuary</span>
+                </figure>
+                <div class="story-text">
+                    <div class="badges">
+                        <span class="badge">1,800m MASL</span>
+                        <span class="badge">Ancient Forest</span>
+                    </div>
+                    <h3 class="story-title">Guardian of the Trails</h3>
+                    <p>As the elevation climbed past 1,800 meters, we entered the mossy forest zone. The air cooled dramatically. Here, trees stand draped in thick, green blankets of moss. I sat on a massive, sprawling root system, catching a breather and holding my green water bottle. The silent, ancient trees seemed to watch over our passage.</p>
+                </div>
+            </article>
+
+            <article class="story reveal">
+                <figure class="story-media">
+                    <img src="IMG/Solo3.jfif" alt="Genesis flex posing under Welcome Gudi-Gudi sign" class="gallery-trigger" data-caption="Flex posing at the entrance of Gudi-Gudi Camp. Safe and ready for a cold night.">
+                    <span class="media-tag">Camp Gudi-Gudi</span>
+                </figure>
+                <div class="story-text">
+                    <div class="badges">
+                        <span class="badge">Welcome Archway</span>
+                        <span class="badge">Campsite</span>
+                    </div>
+                    <h3 class="story-title">Reaching Gudi-Gudi</h3>
+                    <p>By late afternoon, we reached Camp Gudi-Gudi, a well-known resting haven along the Kapatagan trail. The campsite was wrapped in a mystical shroud of fog. Standing beneath the rustic wooden archway, I struck a victory pose. We set up our tents and prepared to seek refuge from the falling temperature.</p>
+                </div>
+            </article>
+
+            <article class="story reveal">
+                <figure class="story-media">
+                    <div class="carousel" data-carousel>
+                        <img src="IMG/att.fnuCvfDdHV9LwyO-xQ5819IwyxIF4QJFmeehicQ1ths.jpg" alt="Group at Gudi Gudi campsite" class="carousel-slide active" data-index="0" data-caption="Cooking prep: setting up the table with rice and food dishes under Gudi-Gudi camp welcome banner.">
+                        <img src="IMG/att.s9_TPYq3WRJ7GhJvnDIJfKNcew4MJihZm5-U8s4jopk.jpg" alt="Dinner at Gudi Gudi campsite under tarp" class="carousel-slide" data-index="1" data-caption="Dinner under the tarp: Warm food, hot coffee, and high spirits as the mountain air turns cold.">
+                        <img src="IMG/att.awlogx3lGu_LwQJbnVIkrEQdKMxmHnn4phzsYDelYKE.jpg" alt="Selfie eating dinner at table" class="carousel-slide" data-index="2" data-caption="Dinner selfie under the tarp. Everyone is exhausted but smiling!">
+                        <div class="carousel-dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                    <span class="media-tag">Camp Cooking</span>
+                </figure>
+                <div class="story-text">
+                    <div class="badges">
+                        <span class="badge">Tarp Haven</span>
+                        <span class="badge">Camaraderie</span>
+                    </div>
+                    <h3 class="story-title">The Fireside Circle</h3>
+                    <p>At night, the campsite temperature plummeted. We gathered under a large, simple tarp stretched over a rough wooden picnic table. Guided by headlamps, we prepared a feast of warm rice and local dishes. Huddled together, sharing hot food, coffee, and stories, the bitter cold outside was forgotten in the warmth of our collective friendship.</p>
+                </div>
+            </article>
+        </section>
+
+        <!-- CHAPTER 3 -->
+        <section class="chapter" id="chapter-3">
+            <header class="chapter-head reveal">
+                <span class="chapter-numeral">III</span>
+                <div>
+                    <p class="chapter-eyebrow">Chapter Three</p>
+                    <h2 class="chapter-name">The Summit</h2>
+                </div>
+            </header>
+
+            <article class="story reveal">
+                <figure class="story-media">
+                    <img src="IMG/600457116_18306349885267931_3197883941366499080_n.jpg" alt="Dawn assault with headlamps" class="gallery-trigger" data-caption="3:00 AM Dawn Assault: Huddled close to the rocks with headlamps cutting through the darkness.">
+                    <span class="media-tag">Summit Assault</span>
+                </figure>
+                <div class="story-text">
+                    <div class="badges">
+                        <span class="badge">3:00 AM Start</span>
+                        <span class="badge">Headlamps Lit</span>
+                    </div>
+                    <h3 class="story-title">The Cold Ascent</h3>
+                    <p>Our alarms went off at 3:00 AM. In pitch darkness and shivering cold, we geared up for the final summit assault. With headlamps casting narrow beams of light onto the rocky terrain, we began the steep scramble. The air grew thinner and smelling of sulfur as we neared the active vents of the mountain.</p>
+                </div>
+            </article>
+
+            <article class="story reveal">
+                <figure class="story-media">
+                    <div class="carousel" data-carousel>
+                        <img src="IMG/HL.PNG" alt="Genesis sitting next to Summit sign" class="carousel-slide active" data-index="0" data-caption="Genesis Jay S. Quilo sitting next to the Mount Apo Summit sign at 2,954 meters.">
+                        <img src="IMG/att.0lZYtJBOmUNNJ_gwECvExGD9z_GO-4RHT3KGOk9adt0.jpg" alt="Group selfie at summit sign" class="carousel-slide" data-index="1" data-caption="Victory group selfie around the peak sign, smiling under a beautiful morning sky.">
+                        <img src="IMG/att.6GuNoBsZIZG41PuvSEqSTIksonaMLHPvPvU5_FP_QpA.jpg" alt="Full group at the summit next to sign" class="carousel-slide" data-index="2" data-caption="The complete team at the Roof of the Philippines.">
+                        <div class="carousel-dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                    <span class="media-tag">Peak Conquered</span>
+                </figure>
+                <div class="story-text">
+                    <div class="badges">
+                        <span class="badge">2,954 MASL</span>
+                        <span class="badge">Digos City Peak</span>
+                    </div>
+                    <h3 class="story-title">Roof of the Philippines</h3>
+                    <p>As the sun rose, we stood at the summit of Mt. Apo at 2,954 meters above sea level. The feeling was indescribable—standing above a sea of clouds, next to the famous green summit sign. The wind was biting, but we celebrated our triumph together, taking a victory selfie and posing for a group photo.</p>
+                </div>
+            </article>
+
+            <article class="story reveal">
+                <figure class="story-media">
+                    <div class="carousel" data-carousel>
+                        <img src="IMG/Solo4.jfif" alt="Genesis standing in front of volcanic crater wall" class="carousel-slide active" data-index="0" data-caption="Genesis posing in front of the volcanic crater wall in a Mount Apo jersey.">
+                        <img src="IMG/att.s9HgnOfsHrvG3oCxYo_DQnIqJCJDxsHbkoG-TNfpAHE.jpg" alt="Group photo in front of crater wall" class="carousel-slide" data-index="1" data-caption="Group shot in the volcanic crater bed, with the raw, towering rocky wall in the background.">
+                        <img src="IMG/590368396_18306349810267931_9127131544762047500_n.jpg" alt="Group photo in the valley path" class="carousel-slide" data-index="2" data-caption="Walking through the dwarfed bonsai forest and volcanic valley paths of Apo's peak.">
+                        <div class="carousel-dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                    <span class="media-tag">Volcanic Crater</span>
+                </figure>
+                <div class="story-text">
+                    <div class="badges">
+                        <span class="badge">Crater Basin</span>
+                        <span class="badge">Bonsai Forest</span>
+                    </div>
+                    <h3 class="story-title">Into the Caldera</h3>
+                    <p>After celebrating at the peak, we descended into the dry volcanic crater basin. The scenery changed instantly—surrounded by towering, raw vertical rock faces. We put on our commemorative orange Mt. Apo climb shirts, capturing the stark beauty of the volcanic caldera. Pushing through the dwarfed bonsai trees, we felt the geological power of this sacred mountain.</p>
+                </div>
+            </article>
+
+            <article class="story reveal">
+                <figure class="story-media">
+                    <img src="IMG/Hands.jpg" alt="Fists together in circle" class="gallery-trigger" data-caption="Fists in the circle: A silent promise of trust, teamwork, and adventure kept.">
+                    <span class="media-tag">Solidarity</span>
+                </figure>
+                <div class="story-text">
+                    <div class="badges">
+                        <span class="badge">Weakend Hikers</span>
+                        <span class="badge">One Team</span>
+                    </div>
+                    <h3 class="story-title">The Circle of Trust</h3>
+                    <p>Climbing the highest peak in the country is not an individual journey; it is a story of teamwork. Before our descent, we gathered in a tight circle, putting our fists together. Each hand represented hours of pushing through rain, carrying heavy loads, and supporting each other. A bond forged in the sulfur winds of Mount Apo.</p>
+                </div>
+            </article>
+
+            <!-- Certificate highlight -->
+            <article class="story certificate reveal">
+                <figure class="story-media">
+                    <img src="IMG/Cert.jpg" alt="Genesis Jay S. Quilo Certificate of Climb" class="gallery-trigger" data-caption="The official certificate of climb, awarded on December 15, 2025.">
+                    <span class="media-tag">Certificate of Climb</span>
+                </figure>
+                <div class="story-text">
+                    <div class="badges">
+                        <span class="badge">Dec 15, 2025</span>
+                        <span class="badge">Digos City Mayor</span>
+                    </div>
+                    <h3 class="story-title">The Proof of Conquest</h3>
+                    <p>"Genesis Jay S. Quilo has successfully conquered Mt. Apo, the highest peak in the Philippines. Towering 2,954 meters above sea level via the DIGOS-KAPATAGAN TRAIL." Hand-signed by Tourism Officer Perla May Griffin and Mayor Josef F. Cagas. A token of accomplishment, a reminder of the summit.</p>
+                    <button class="ghost-btn gallery-trigger-btn" data-target-img="IMG/Cert.jpg">View Certificate</button>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-stats">
+            <div class="stat">
+                <span class="stat-num">2,954m</span>
+                <span class="stat-lbl">MASL</span>
+            </div>
+            <div class="stat">
+                <span class="stat-num">Digos</span>
+                <span class="stat-lbl">Trail</span>
+            </div>
+            <div class="stat">
+                <span class="stat-num">2 Days</span>
+                <span class="stat-lbl">Duration</span>
+            </div>
+        </div>
+        <p class="colophon">Published in the journal of Dissimilate. Personal archives of Genesis Jay S. Quilo. December 2025 expedition, Davao del Sur, Mindanao, Philippines.</p>
+        <a href="../../../index.html" class="exit-btn">← Exit Log</a>
+    </footer>
+
+    <!-- Lightbox Modal -->
     <div id="image-modal" class="modal hidden">
         <button class="modal-close" id="modal-close" aria-label="Close Lightbox">&times;</button>
         <div class="modal-nav prev" id="modal-prev" aria-label="Previous Image">&lsaquo;</div>
