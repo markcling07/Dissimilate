@@ -67,61 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // ── 2. ELEVATION SLIDER ──────────────────────────────────
-    const slider = document.getElementById('elevationSlider');
-    const cpLabel = document.getElementById('cpLabel');
-    const cpHeight = document.getElementById('cpHeight');
-    const cpGrade = document.getElementById('cpGrade');
-    const graphBars = document.querySelectorAll('.graph-bar');
-
-    const checkpoints = [
-        { range: [0, 12],   label: 'Trailhead',     height: '200m',  grade: 'Flat' },
-        { range: [13, 25],  label: 'Peak 3',         height: '380m',  grade: 'Easy Incline' },
-        { range: [26, 38],  label: 'Peak 5',         height: '500m',  grade: 'Moderate' },
-        { range: [39, 50],  label: 'Peak 7',         height: '620m',  grade: 'Moderate' },
-        { range: [51, 62],  label: "Diana's Peak 8", height: '710m',  grade: 'Steep' },
-        { range: [63, 75],  label: 'Summit Peak',    height: '811m',  grade: 'Summit Ridge' },
-        { range: [76, 88],  label: 'Descent Ridge',  height: '550m',  grade: 'Steep Down' },
-        { range: [89, 95],  label: 'Lower Trail',    height: '320m',  grade: 'Easy' },
-        { range: [96, 100], label: 'Base Return',    height: '200m',  grade: 'Flat' },
-    ];
-
-    if (slider) {
-        slider.addEventListener('input', () => {
-            const val = parseInt(slider.value);
-            const cp = checkpoints.find(c => val >= c.range[0] && val <= c.range[1]);
-            if (cp) {
-                cpLabel.textContent = cp.label;
-                cpHeight.textContent = cp.height;
-                cpGrade.textContent = cp.grade;
-            }
-
-            // Highlight the matching bar
-            const barIndex = Math.floor((val / 100) * (graphBars.length - 1));
-            graphBars.forEach((bar, i) => {
-                bar.classList.toggle('active', i === barIndex);
-            });
-        });
-    }
-
-
-    // ── 3. PACKING CHECKLIST ─────────────────────────────────
-    const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
-    const progressText = document.getElementById('packProgressText');
-    const progressBar = document.getElementById('packProgressBar');
-
-    function updatePack() {
-        const total = checkboxes.length;
-        const checked = Array.from(checkboxes).filter(cb => cb.checked).length;
-        if (progressText) progressText.textContent = `${checked} of ${total} items packed`;
-        if (progressBar) progressBar.style.width = `${(checked / total) * 100}%`;
-    }
-
-    checkboxes.forEach(cb => cb.addEventListener('change', updatePack));
-    updatePack(); // initial sync
-
-
-    // ── 4. SCROLL FADE-IN ────────────────────────────────────
+    // ── 2. SCROLL FADE-IN ────────────────────────────────────
     const fadeEls = document.querySelectorAll('.fade-in');
 
     const observer = new IntersectionObserver((entries) => {
@@ -139,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeEls.forEach(el => observer.observe(el));
 
 
-    // ── 5. NAVBAR SCROLL EFFECT ──────────────────────────────
+    // ── 3. NAVBAR SCROLL EFFECT ──────────────────────────────
     const topbar = document.getElementById('topbar');
     let lastScroll = 0;
 
@@ -156,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // ── 6. ACTIVE NAV LINK HIGHLIGHT ─────────────────────────
+    // ── 4. ACTIVE NAV LINK HIGHLIGHT ─────────────────────────
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.topbar-link');
 
@@ -176,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sections.forEach(sec => navObserver.observe(sec));
 
-    // ── 7. MOBILE CAROUSEL ──────────────────────────────────
+    // ── 5. MOBILE CAROUSEL ──────────────────────────────────
     function initCarousel(carouselEl) {
         const track = carouselEl.querySelector('.carousel-track');
         const slides = carouselEl.querySelectorAll('.carousel-slide');
