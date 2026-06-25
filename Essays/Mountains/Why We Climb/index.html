@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why We Climb — An Anthology of Dissimilate's Trails</title>
+    <meta name="description" content="A general essay on the call of the heights, drawing on the climbing logs of Genesis, Oli, Star, and Lera & Lara across Dissimilate.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://markcling07.github.io/Dissimilate/Essays/Mountains/Why%20We%20Climb/">
+    <meta property="og:title" content="Why We Climb — An Anthology of Dissimilate's Trails">
+    <meta property="og:description" content="Four trails, one summit feeling — voices from Dissimilate's mountain logs.">
+    <meta property="og:image" content="https://markcling07.github.io/Dissimilate/Mountains/Apo/IMG/Mount_Apo_BG.jpg">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap');
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Urbanist', sans-serif;
+            color: #1f2933;
+        }
+
+        .essay-page {
+            width: min(100%, 52rem);
+            margin: 0 auto;
+            padding: 0rem 1rem;
+        }
+
+        .paper { background: #ffffff; }
+
+        .paper-header {
+            border-bottom: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            line-height: 1.25;
+            color: #ffffff;
+            padding: 3rem 1rem;
+            min-height: 37rem;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            text-align: center;
+            background-image:
+                linear-gradient(135deg, rgba(17, 24, 39, 0.85), rgba(31, 41, 55, 0.45)),
+                url("../../../Mountains/Apo/IMG/Mount_Apo_BG.jpg");
+            background-size: cover;
+            background-position: center 50%;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            width: 100vw;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; min-height: 40rem; padding: 2rem 1rem; }
+        }
+
+        section {
+            margin-top: 2rem;
+            padding: 0 1.5rem 1.5rem 1.5rem;
+        }
+
+        h2 {
+            margin-block-start: 2rem;
+            margin-block-end: 1rem;
+            font-size: 1.3rem;
+            color: #1f2933;
+            clear: both;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin: 1rem 0;
+        }
+
+        p.intro {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #2d3748;
+            font-weight: 500;
+        }
+
+        p.meta {
+            margin: 1.5rem 0 0 0;
+            color: #5b6874;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        /* Pull quotes pulled from each author */
+        .essay-quote {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            font-style: italic;
+            color: #1f2933;
+            border-left: 3px solid #dc2626;
+            padding-left: 1.1rem;
+            margin: 1.5rem 0;
+        }
+        .essay-quote .src {
+            display: block;
+            font-style: normal;
+            font-size: 0.85rem;
+            color: #5b6874;
+            margin-top: 0.6rem;
+            font-weight: 600;
+        }
+
+        figure {
+            margin: 0 1.5rem 1rem 0;
+            background: #f9fafb;
+            border-radius: 6px;
+        }
+        figure.left {
+            float: left;
+            width: 40%;
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        figure.right {
+            float: right;
+            width: 40%;
+            margin: 0 0 1rem 1.5rem;
+        }
+        figure img {
+            width: 100%;
+            border-radius: 6px;
+            object-fit: cover;
+            display: block;
+            cursor: pointer;
+        }
+        figcaption {
+            font-size: 13px;
+            color: #5b6874;
+            margin-top: 0.5rem;
+            padding: 0.75rem;
+        }
+
+        .credit-link {
+            color: #dc2626;
+            text-decoration: underline;
+            transition: color 0.2s ease;
+        }
+        .credit-link:hover { color: #b91c1c; }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: #1f2933;
+            text-decoration: underline;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        .back-link:hover { color: #dc2626; }
+
+        strong { font-weight: 700; color: #1f2933; }
+        em { font-style: italic; }
+
+        /* Click-to-zoom popup */
+        figure img.popped {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1001;
+            max-width: 90vw;
+            max-height: 90vh;
+            width: auto;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+        .popup-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            figure.left, figure.right { float: none; width: 100%; margin: 1.5rem 0; }
+        }
+    </style>
+</head>
+<body>
+    <main class="essay-page">
+        <article class="paper">
+            <header class="paper-header">
+                <h1>Why We Climb</h1>
+            </header>
+
+            <section>
+                <p class="intro">A mountain asks the same question of everyone who climbs it: how badly do you want to see the other side of the effort? The peaks in this journal could not be more different — a volcanic giant breathing sulfur, a grassy ridge stitched with small summits, a mossy sanctuary forest, a midnight traverse crossed sixteen times by river. Yet read side by side, the four climbing logs in Dissimilate keep arriving at the same handful of truths.</p>
+
+                <h2>The view you have to earn</h2>
+                <figure class="left">
+                    <img src="../../../Authors/Genesis/Apo/IMG/Solo.jpg" alt="Genesis on Mt. Apo">
+                    <figcaption>Genesis on Mt. Apo — <a class="credit-link" href="../../../Authors/Genesis/Apo/index.html">The Flame &amp; The Moss</a></figcaption>
+                </figure>
+                <p>Every climber writes about the summit, but the best of them write about what it <strong>costs</strong>. On Mt. Apo, the roof of the Philippines, Genesis reaches the top at first light:</p>
+                <p class="essay-quote">"As the sun rose, we stood at the summit of Mt. Apo at 2,954 meters above sea level. The feeling was indescribable — standing above a sea of clouds."<span class="src">— Genesis, <a class="credit-link" href="../../../Authors/Genesis/Apo/index.html">The Flame &amp; The Moss</a></span></p>
+
+                <figure class="right">
+                    <img src="../../../Authors/Oli/Batulao/IMG/Sun1.JPG" alt="Golden hour on Mt. Batulao">
+                    <figcaption>Golden hour on Mt. Batulao — <a class="credit-link" href="../../../Authors/Oli/Batulao/index.html">Framing the Heights</a></figcaption>
+                </figure>
+                <p>Oli, walking the open spine of Mt. Batulao, reaches the same conclusion in fewer words — that the reward is rationed only to those who pay for it:</p>
+                <p class="essay-quote">"360 degrees of green pyramidal peaks. The flatlands of Batangas. Some views you just have to earn."<span class="src">— Oli, <a class="credit-link" href="../../../Authors/Oli/Batulao/index.html">Framing the Heights</a></span></p>
+
+                <h2>It was never about the top</h2>
+                <figure class="left">
+                    <img src="../../../Authors/Star/DisplayProf.webp" alt="Star, trail runner">
+                    <figcaption>Star, on the Mt. Negron traverse — <a class="credit-link" href="../../../Authors/Star/Negron/index.html">Mt. Negron Traverse</a></figcaption>
+                </figure>
+                <p>For Star, the lesson is sharper, learned the hard way on the brutal Mt. Negron traverse — the kind of climb that talks you into quitting:</p>
+                <p class="essay-quote">"There were moments I genuinely wanted to give up… In the end, it wasn't just about reaching the summit, but everything it took to get there that made it unforgettable."<span class="src">— Star, <a class="credit-link" href="../../../Authors/Star/Negron/index.html">Mt. Negron Traverse</a></span></p>
+                <p>And tellingly, Star's most vivid memory from that climb isn't a peak at all. It's a <em>river</em> — proof that the trail's best moments don't always wait for the highest point:</p>
+                <p class="essay-quote">"It's still printed in my mind — the moonlight reflecting on the water, us lying in the river, and the sound and feel of it against our exhausted bodies. It felt magical."<span class="src">— Star, <a class="credit-link" href="../../../Authors/Star/Negron/index.html">Mt. Negron Traverse</a></span></p>
+
+                <h2>No regrets at the top</h2>
+                <figure class="right">
+                    <img src="../../../Authors/Lera & Lara/Matutum/IMG/Top7.jpg" alt="The crest of Mt. Matutum">
+                    <figcaption>The crest of Mt. Matutum — <a class="credit-link" href="../../../Authors/Lera & Lara/Matutum/index.html">Crest of the Dormant Giant</a></figcaption>
+                </figure>
+                <p>Sometimes the whole climb distills into a single, quiet verdict. Twin sisters Lera &amp; Lara, having second-guessed the long approach through the pineapple fields, close the question for good once they reach the dormant giant's crest:</p>
+                <p class="essay-quote">"Turns out we made the right decision."<span class="src">— Lera &amp; Lara, <a class="credit-link" href="../../../Authors/Lera &amp; Lara/Matutum/index.html">Crest of the Dormant Giant</a></span></p>
+
+                <p class="meta">Mountains, rivers, the quiet sanctuary forests in between — the destination changes, but the lesson holds. We climb to be made smaller and larger at once, and to come back down carrying something worth writing about. Four trails, one summit feeling.</p>
+
+                <a class="back-link" href="../../../index.html">← Back to Dashboard</a>
+            </section>
+        </article>
+    </main>
+
+    <script>
+        let currentPopped = null;
+
+        document.querySelectorAll('figure img').forEach(img => {
+            img.addEventListener('click', function (e) {
+                e.stopPropagation();
+                if (this.classList.contains('popped')) { closePopup(); return; }
+                if (currentPopped) { closePopup(); }
+                const overlay = document.createElement('div');
+                overlay.className = 'popup-overlay';
+                document.body.appendChild(overlay);
+                this.classList.add('popped');
+                currentPopped = this;
+                overlay.addEventListener('click', closePopup);
+                document.addEventListener('keydown', handleEscape);
+            });
+        });
+
+        function closePopup() {
+            if (currentPopped) { currentPopped.classList.remove('popped'); currentPopped = null; }
+            const overlay = document.querySelector('.popup-overlay');
+            if (overlay) overlay.remove();
+            document.removeEventListener('keydown', handleEscape);
+        }
+
+        function handleEscape(e) { if (e.key === 'Escape') closePopup(); }
+    </script>
+</body>
+</html>
