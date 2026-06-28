@@ -5,12 +5,12 @@
 
 :root {
     --blush: #fdeef2;
-    --pink: #f6a8c4;
-    --rose: #e87ba6;
-    --deep-rose: #c75c87;
+    --pink: #8bb2e3;          /* Soft light blue accent */
+    --rose: #2f5fa6;          /* The exact hero-section text color */
+    --deep-rose: #1e3f73;     /* Darker blue for readable headings */
     --cream: #fffafc;
     --ink: #5a4450;
-    --soft-shadow: 0 12px 30px rgba(200, 92, 135, 0.18);
+    --soft-shadow: 0 12px 30px rgba(47, 95, 166, 0.12);
 }
 
 * {
@@ -41,34 +41,41 @@ body {
 /* ===== Hero — editorial split (photo | rose panel) ===== */
 .hero {
     display: grid;
-    grid-template-columns: 0.8fr 1fr;
+    grid-template-columns: 1fr 0.8fr;
     min-height: 100vh;
     animation: fadeUp 1.1s ease both;
 }
 
 .hero-photo {
+    order: 2;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5vw 5vw 5vw 16vw;
+    padding: 5vw 16vw 5vw 5vw;
     background: transparent;
+}
+
+.hero-photo a {
+    display: block;
+    overflow: hidden;
+    border-radius: 5px;
 }
 
 .hero-photo img {
     max-width: 900px;
     max-height: 80vh;
     object-fit: cover;
-    border-radius: 18px;
     box-shadow: var(--soft-shadow);
     display: block;
 }
 
 .hero-panel {
+    order: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 6vw 5vw;
+    padding: 6vw 5vw 6vw 16vw;
     color: #2f5fa6;
 }
 
@@ -166,7 +173,7 @@ body {
 }
 
 .essay p {
-    font-size: 1.12rem;
+    font-size: 1rem;
     margin-bottom: 26px;
 }
 
@@ -306,7 +313,6 @@ body {
 .diary {
     position: relative;
     z-index: 2;
-    background: var(--cream);
     color: var(--ink);
     padding-bottom: 90px;
     overflow: hidden;
@@ -324,12 +330,12 @@ body {
 }
 
 .story p {
-    font-size: 1.16rem;
+    font-size: 1rem;
     margin-bottom: 24px;
 }
 
 .story .lead {
-    font-size: 1.26rem;
+    font-size: 1rem;
 }
 
 .story .drop {
@@ -340,6 +346,14 @@ body {
     float: left;
     line-height: 0.7;
     margin: 10px 12px 0 0;
+}
+
+.highlight {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: var(--rose);
+    font-weight: 700;
+    vertical-align: middle;
 }
 
 .diary h2 {
@@ -353,6 +367,12 @@ body {
 /* full-bleed image banners */
 .full {
     margin: 54px 0;
+}
+
+.full a {
+    display: block;
+    overflow: hidden;
+    border-radius: 5px;
 }
 
 .full img {
@@ -387,16 +407,88 @@ figcaption {
 }
 
 .split-text p {
-    font-size: 1.14rem;
+    font-size: 1rem;
 }
 
 .split-img img {
     width: 100%;
     height: 470px;
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: 5px;
     box-shadow: var(--soft-shadow);
     display: block;
+}
+
+/* Custom grid for Into the Green images to make them smaller */
+.trees-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.trees-grid img {
+    height: 360px !important;
+}
+
+/* Scrapbook overlapping stack for Kotkot images */
+.kotkot-stack {
+    position: relative;
+    padding-bottom: 60px;
+}
+
+.kotkot-stack a {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), z-index 0.3s ease;
+}
+
+.kotkot-stack a:nth-child(1) {
+    z-index: 3;
+    transform: rotate(12deg);
+    margin-left: 20px;
+}
+
+.kotkot-stack a:nth-child(2) {
+    z-index: 2;
+    margin-top: -100px;
+    margin-left: -28px;
+    transform: rotate(-8deg);
+}
+
+.kotkot-stack a:nth-child(3) {
+    z-index: 1;
+    margin-top: -10px;
+    margin-left: 32px;
+    transform: rotate(6deg);
+}
+
+.kotkot-stack a:hover {
+    z-index: 10 !important;
+    transform: scale(1.05) rotate(0deg) !important;
+}
+
+.kotkot-stack img {
+    width: 100%;
+    height: 240px !important;
+    object-fit: cover;
+    display: block;
+}
+
+/* Vertical stack for Logs images in the split layout */
+.logs-stack a {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.logs-stack a:last-child {
+    margin-bottom: 0;
+}
+
+.logs-stack img {
+    height: 200px !important;
 }
 
 .split.reverse .split-text {
@@ -423,6 +515,25 @@ figcaption {
     height: 370px;
     object-fit: cover;
     display: block;
+    border-radius: 5px;
+}
+
+.duo figure a,
+.trio figure a,
+.quad figure a {
+    display: block;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.trio {
+    margin: 44px auto;
+    max-width: 800px;
+    gap: 30px;
+}
+
+.trio img {
+    height: auto;
 }
 
 .duo figcaption,
@@ -434,7 +545,7 @@ figcaption {
 /* pull quote */
 .quote {
     max-width: 780px;
-    margin: 76px auto;
+    margin: 150px auto;
     padding: 0 30px;
     text-align: center;
     font-family: 'Dancing Script', cursive;
@@ -480,113 +591,369 @@ figcaption {
     background: var(--deep-rose);
 }
 
-/* ===== Diary essay — responsive ===== */
-@media (max-width: 760px) {
-    .story {
-        padding: 52px 22px 28px;
-    }
-    .full img {
-        height: 52vh;
-    }
-    .split {
-        grid-template-columns: 1fr;
-        gap: 22px;
-        margin: 48px auto;
-    }
-    .split-text h2 {
-        text-align: center;
-    }
-    .split.reverse .split-text {
-        order: 0;
-    }
-    .split-img img {
-        height: 300px;
-    }
-    .trio,
-    .quad {
-        grid-template-columns: 1fr 1fr;
-    }
-    .duo img,
-    .trio img,
-    .quad img {
-        height: 210px;
-    }
-}
-
-/* ===== Mobile ===== */
-@media (max-width: 760px) {
+/* ===== Responsive Redesign ===== */
+@media (max-width: 1024px) {
     body {
-        /* fixed backgrounds can jitter on mobile — let it scroll */
         background-attachment: scroll;
         background-size: cover;
     }
-    /* Stack the layout: title overlaid on the photo, rest of the text below */
+
+    /* Stacking Hero layout cleanly */
     .hero {
         grid-template-columns: 1fr;
-        min-height: 100vh;
-        position: relative;
+        min-height: auto;
+        padding-top: 40px;
     }
-    .hero-photo {
-        position: relative;
-        height: 60vh;
-        padding: 0;
-        background: transparent;
-    }
-    .hero-photo img {
-        width: 100%;
-        height: 100%;
-        max-width: none;
-        max-height: none;
-        border-radius: 0;
-        box-shadow: none;
-        object-fit: cover;
-    }
-    /* Soft dark wash over the top of the photo for text readability */
-    .hero-photo::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 45vh;
-        background: linear-gradient(to bottom,
-            rgb(127 123 79 / 55%),
-            rgba(55, 35, 50, 0));
-        z-index: 1;
-    }
-    /* Eyebrow + title floated inside the photo */
-    .hero-heading {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 40vh;
+
+    .hero-panel {
+        order: 1;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
         text-align: center;
-        padding: 0 24px;
-        z-index: 2;
-        color: #fff;
-        text-shadow: 0 2px 16px rgba(60, 40, 55, 0.6);
+        padding: 40px 24px 20px;
+        max-width: 580px;
+        margin: 0 auto;
     }
-    /* The ♡, credit, and blurb sit below the photo */
-    .hero-panel {
-        display: flex;
-        align-items: center;
-        text-align: center;
-        padding: 30px 26px 48px;
+
+    .hero-heading {
+        margin-top: 0;
+        text-shadow: none;
     }
+
+    .hero-heading h1 {
+        font-size: clamp(2rem, 7vw, 2.8rem);
+    }
+
     .hero-divider {
         justify-content: center;
+        margin: 20px 0;
     }
+
+    .hero-photo {
+        order: 2;
+        padding: 0 24px 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-photo a {
+        display: block;
+        overflow: hidden;
+        border-radius: 5px;
+        box-shadow: var(--soft-shadow);
+        width: 100%;
+        max-width: 480px;
+    }
+
+    .hero-photo img {
+        width: 100%;
+        height: 320px !important;
+        object-fit: cover;
+        border-radius: 5px;
+        display: block;
+    }
+
+    /* Essay Card */
     .essay {
-        margin: 40px 16px;
-        padding: 44px 24px 40px;
-        border-radius: 24px;
+        margin: 24px auto;
+        max-width: 580px;
+        padding: 36px 20px 32px;
+        border-radius: 16px;
+        box-shadow: var(--soft-shadow);
     }
-    .photo-pair {
+
+    .essay p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    /* Diary Page Sections */
+    .story {
+        max-width: 580px;
+        margin: 40px auto 20px;
+        padding: 0 20px;
+    }
+
+    .story p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .diary h2 {
+        font-size: 2.2rem;
+    }
+
+    .split {
         grid-template-columns: 1fr;
+        gap: 24px;
+        margin: 32px auto;
+        padding: 0 20px;
+        max-width: 580px;
+    }
+
+    .split-text h2 {
+        text-align: center;
+    }
+
+    .split-text p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .split.reverse .split-text {
+        order: 0;
+    }
+
+    .split-img {
+        width: 100%;
+        max-width: 580px;
+        margin: 0 auto;
+    }
+
+    .split-img img {
+        height: 320px;
+    }
+
+    /* Centering container stacks on mobile */
+    .kotkot-stack {
+        max-width: 280px;
+        margin: 20px auto 0;
+    }
+
+    .kotkot-stack a:nth-child(2) {
+        margin-top: -80px;
+        margin-left: -14px;
+    }
+
+    .kotkot-stack a:nth-child(3) {
+        margin-top: -10px;
+        margin-left: 16px;
+    }
+
+    .kotkot-stack img {
+        height: 180px !important;
+    }
+
+    .logs-stack {
+        max-width: 280px;
+        margin: 20px auto 0;
+    }
+
+    .logs-stack img {
+        height: 180px !important;
+    }
+
+    .trees-grid {
+        max-width: 320px;
+        margin: 20px auto 0;
+        gap: 8px;
+    }
+
+    .trees-grid img {
+        height: 200px !important;
+    }
+
+    /* Image gallery layout on mobile */
+    .duo {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin: 24px auto;
+        padding: 0 16px;
+        max-width: 680px;
+    }
+
+    .trio {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin: 24px auto;
+        padding: 0 16px;
+        max-width: 680px;
+    }
+
+    .quad {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin: 24px auto;
+        padding: 0 16px;
+        max-width: 680px;
+    }
+
+    .duo img,
+    .quad img {
+        height: 240px;
+    }
+
+    .trio img {
+        height: auto;
+    }
+
+    .full {
+        margin: 24px auto;
+        padding: 0 16px;
+        max-width: 680px;
+    }
+
+    .full img {
+        height: 48vh;
+    }
+
+    /* Quotes & Signatures */
+    .quote {
+        font-size: 1.8rem;
+        margin: 80px auto;
+        padding: 0 16px;
+        max-width: 580px;
+    }
+
+    .closing {
+        max-width: 580px;
+        margin: 24px auto 0;
+        padding: 30px 20px 0;
+    }
+
+    .closing p {
+        font-size: 1.05rem;
+    }
+
+    .closing .sign {
+        font-size: 2.1rem;
     }
 }
+
+/* ===== Lightbox Modal ===== */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 41, 59, 0.93); /* Slate dark wash overlay */
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox-content {
+    max-width: 85%;
+    max-height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 74vh;
+    border-radius: 16px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+    object-fit: contain;
+    animation: zoomIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.lightbox-caption {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.15rem;
+    margin-top: 18px;
+    text-align: center;
+    font-weight: 500;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 0.5px;
+    animation: fadeIn 0.4s ease;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 46px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: transform 0.25s ease, color 0.25s ease;
+    z-index: 1010;
+    user-select: none;
+}
+
+.close-btn:hover {
+    color: #fff;
+    transform: scale(1.1) rotate(90deg);
+}
+
+/* Navigation buttons */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    padding: 16px 22px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    user-select: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+    z-index: 1010;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.prev-btn { left: 40px; }
+.next-btn { right: 40px; }
+
+@keyframes zoomIn {
+    from { transform: scale(0.94); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 1024px) {
+    .nav-btn {
+        padding: 12px 18px;
+        font-size: 18px;
+    }
+    .prev-btn { left: 16px; }
+    .next-btn { right: 16px; }
+    .close-btn {
+        top: 16px;
+        right: 24px;
+        font-size: 38px;
+    }
+}
+
+/* Static crop zoom for Kotkot-Bukaw landscape photo */
+.zoom-mountains {
+    transform: scale(1.25);
+    transform-origin: center bottom;
+    object-position: center bottom;
+}
+
+/* Zoom effect for Kotkot1 photo */
+.zoom-kotkot1 {
+    transform: scale(1.3) translateX(-10%);
+    transform-origin: center center;
+    object-position: center 60%;
+}
+
