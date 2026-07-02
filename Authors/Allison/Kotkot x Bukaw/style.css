@@ -74,6 +74,7 @@ body {
 }
 
 .hero-photo img {
+    width: 100%;
     max-width: 900px;
     max-height: 80vh;
     object-fit: cover;
@@ -712,6 +713,9 @@ figcaption {
         object-fit: cover;
         border-radius: 5px;
         display: block;
+        /* Gentle zoom toward Allison; anchored on her face so it stays in frame */
+        transform: scale(1.1);
+        transform-origin: 68% 85%;
     }
 
 
@@ -1026,11 +1030,9 @@ figcaption {
     }
 }
 
-/* Static crop zoom for Kotkot-Bukaw landscape photo */
+/* Kotkot-Bukaw photo — keep the crop focused on Allison's face at any width */
 .zoom-mountains {
-    transform: scale(1.25);
-    transform-origin: center bottom;
-    object-position: center bottom;
+    object-position: 68% 85%;
 }
 
 /* Zoom effect for Kotkot1 photo */
