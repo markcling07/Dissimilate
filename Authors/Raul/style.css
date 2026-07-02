@@ -1,0 +1,455 @@
+/* ===== Sumagaya — Raul ===================================
+   Quiet, editorial, memorial-appropriate.
+   Ivory page, ink text, moss accent, dark interlude.
+   ========================================================= */
+
+:root {
+    --paper: #faf8f4;
+    --ink: #26292b;
+    --ink-soft: #5b6167;
+    --moss: #4a5d43;
+    --line: #e2ddd3;
+    --dark: #16181a;
+    --dark-text: #c9c5bd;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+
+/* ===== Hero ===== */
+.hero {
+    position: relative;
+    height: 92vh;
+    min-height: 520px;
+    overflow: hidden;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.72) saturate(0.9);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 0 8vw 10vh;
+    color: #f4f2ec;
+}
+
+.hero-kicker {
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    opacity: 0.95;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(2.9rem, 11vw, 8rem);
+    line-height: 1;
+    letter-spacing: 0.01em;
+    text-shadow: 0 4px 26px rgba(0, 0, 0, 0.55);
+}
+
+.hero-sub {
+    margin-top: 20px;
+    font-size: clamp(1.1rem, 2vw, 1.45rem);
+    font-weight: 400;
+    opacity: 0.96;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+}
+
+/* ===== Chapters ===== */
+main { padding-bottom: 40px; }
+
+.chapter {
+    max-width: 640px;
+    margin: 96px auto 48px;
+    padding: 0 24px;
+}
+
+.chapter-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin-bottom: 10px;
+}
+
+.chapter h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 4.5vw, 2.8rem);
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.chapter p {
+    font-size: 1.02rem;
+    color: var(--ink-soft);
+}
+
+/* ===== Photos ===== */
+.photo {
+    max-width: 760px;
+    margin: 48px auto;
+    padding: 0 24px;
+}
+
+.photo.highlight { max-width: 980px; }
+
+.photo a { display: block; }
+
+.photo img {
+    width: auto;
+    max-width: 100%;
+    max-height: 820px; /* keep portrait shots from towering */
+    margin: 0 auto;
+    border-radius: 4px;
+    box-shadow: 0 10px 34px rgba(30, 30, 28, 0.12);
+}
+
+.photo figcaption {
+    margin-top: 14px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    text-align: center;
+    font-style: italic;
+}
+
+/* The candle — the emotional close. Portrait, kept narrower. */
+.photo.candle { max-width: 620px; }
+
+.photo-grid {
+    max-width: 980px;
+    margin: 48px auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.photo-grid a { display: block; }
+
+.photo-grid img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 8px 24px rgba(30, 30, 28, 0.1);
+}
+
+/* ===== Interlude (1998) ===== */
+.interlude {
+    background: var(--dark);
+    color: var(--dark-text);
+    text-align: center;
+    padding: 110px 24px;
+    margin: 110px 0;
+}
+
+.interlude-date {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: #8a9184;
+    margin-bottom: 26px;
+}
+
+.interlude-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 3vw, 1.9rem);
+    font-weight: 400;
+    line-height: 1.5;
+    color: #eceae4;
+    max-width: 760px;
+    margin: 0 auto 26px;
+}
+
+.interlude-count {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.05rem, 2.2vw, 1.4rem);
+    color: #b8beb2;
+    margin-bottom: 64px;
+}
+
+.interlude-note {
+    font-size: 0.92rem;
+    color: #8f948c;
+    margin-top: 64px;
+}
+
+/* News archive photos */
+.news-photo {
+    max-width: 720px;
+    margin: 0 auto 34px;
+}
+
+.news-photo img {
+    width: auto;
+    max-width: 100%;
+    max-height: 560px;
+    margin: 0 auto;
+    border-radius: 3px;
+    filter: saturate(0.75) contrast(0.98);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+}
+
+.news-photo figcaption {
+    margin-top: 12px;
+    font-size: 0.8rem;
+    color: #8f948c;
+    font-style: italic;
+}
+
+.news-credit {
+    color: #a8ad9f;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-style: normal;
+    font-size: 0.75rem;
+}
+
+.news-grid {
+    max-width: 920px;
+    margin: 0 auto 34px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.news-grid .news-photo { margin: 0; }
+
+.news-grid img {
+    height: 190px;
+    object-fit: cover;
+}
+
+.news-photo.memorial { max-width: 820px; margin-top: 24px; }
+
+/* ===== Closing ===== */
+.closing {
+    max-width: 640px;
+    margin: 110px auto;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.closing p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--ink);
+}
+
+.closing .sign {
+    margin-top: 30px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--moss);
+}
+
+/* ===== Gallery ===== */
+.gallery {
+    max-width: 1100px;
+    margin: 110px auto 80px;
+    padding: 0 24px;
+}
+
+.gallery h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 4.5vw, 2.8rem);
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.gallery-intro {
+    font-size: 1.02rem;
+    color: var(--ink-soft);
+    max-width: 640px;
+    margin-bottom: 40px;
+}
+
+.gallery-group-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--moss);
+    border-top: 1px solid var(--line);
+    padding-top: 22px;
+    margin: 48px 0 18px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.gallery-grid a { display: block; }
+
+.gallery-grid img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 8px 24px rgba(30, 30, 28, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 30px rgba(30, 30, 28, 0.16);
+}
+
+/* ===== Footer ===== */
+.foot {
+    border-top: 1px solid var(--line);
+    padding: 44px 24px 60px;
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+}
+
+.foot p { margin-bottom: 10px; }
+
+.foot a {
+    color: var(--moss);
+    font-weight: 500;
+    text-decoration: none;
+}
+.foot a:hover { text-decoration: underline; }
+
+/* ===== Lightbox ===== */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(16, 17, 18, 0.96);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 72px 64px;
+}
+
+.lightbox[hidden] { display: none; }
+
+.lb-img {
+    max-width: 100%;
+    max-height: calc(100vh - 140px);
+    border-radius: 3px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    cursor: zoom-out;
+}
+
+.lb-caption {
+    margin-top: 16px;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: #b8beb2;
+    text-align: center;
+    max-width: 720px;
+}
+
+.lb-close,
+.lb-prev,
+.lb-next {
+    position: absolute;
+    background: none;
+    border: none;
+    color: #d8d5cd;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+    z-index: 101;
+}
+.lb-close:hover, .lb-prev:hover, .lb-next:hover { color: #fff; transform: scale(1.1); }
+
+.lb-close {
+    top: 18px;
+    right: 26px;
+    font-size: 2.4rem;
+    line-height: 1;
+}
+
+.lb-prev, .lb-next {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    line-height: 1;
+    padding: 12px;
+}
+.lb-prev:hover, .lb-next:hover { transform: translateY(-50%) scale(1.15); }
+.lb-prev { left: 16px; }
+.lb-next { right: 16px; }
+
+@media (max-width: 560px) {
+    .lightbox { padding: 40px 12px 56px; }
+    .lb-prev { left: 2px; }
+    .lb-next { right: 2px; }
+    .lb-prev, .lb-next { font-size: 2.4rem; }
+}
+
+/* ===== Reveal ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.reveal.active {
+    opacity: 1;
+    transform: none;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 820px) {
+    .photo-grid { grid-template-columns: 1fr 1fr; }
+    .photo-grid img { height: 240px; }
+    .news-grid { grid-template-columns: 1fr; max-width: 720px; }
+    .news-grid img { height: auto; }
+    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    .gallery-grid img { height: 170px; }
+}
+
+@media (max-width: 560px) {
+    .hero { height: 78vh; }
+    .hero-overlay { padding: 0 24px 9vh; }
+    .hero-kicker { font-size: 0.8rem; }
+    .hero-sub { font-size: 1rem; }
+    .photo-grid { grid-template-columns: 1fr; }
+    .photo-grid img { height: auto; }
+    .interlude { padding: 80px 20px; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid img { height: 150px; }
+}
