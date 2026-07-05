@@ -14,3 +14,6 @@ Desktop.ini
 *.njsproj
 *.sln
 *.sw?
+
+# Local design references (not published)
+_refs/
