@@ -206,6 +206,23 @@ function initLightbox() {
     if (modalPrev) modalPrev.addEventListener("click", (e) => { e.stopPropagation(); prev(); });
     if (modalNext) modalNext.addEventListener("click", (e) => { e.stopPropagation(); next(); });
 
+    // Touch swipe: drag left/right anywhere on the lightbox to navigate.
+    // Horizontal intent only — mostly-vertical drags are ignored so they
+    // don't fight with pinch/scroll gestures.
+    let touchX = 0, touchY = 0;
+    modal.addEventListener("touchstart", (e) => {
+        touchX = e.changedTouches[0].clientX;
+        touchY = e.changedTouches[0].clientY;
+    }, { passive: true });
+    modal.addEventListener("touchend", (e) => {
+        if (modal.classList.contains("hidden")) return;
+        const dx = e.changedTouches[0].clientX - touchX;
+        const dy = e.changedTouches[0].clientY - touchY;
+        if (Math.abs(dx) > 44 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+            if (dx < 0) next(); else prev();
+        }
+    }, { passive: true });
+
     modal.addEventListener("click", (e) => {
         if (e.target.closest("#modal-img") || e.target.closest(".modal-caption") || e.target.closest(".modal-nav")) return;
         close();
