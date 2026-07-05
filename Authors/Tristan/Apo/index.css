@@ -641,7 +641,7 @@ body::after {
 .ghost-word {
     font-family: var(--font-serif);
     font-weight: 600;
-    font-size: clamp(6rem, 26vw, 22rem);
+    font-size: clamp(8rem, 36vw, 32rem);
     line-height: 0.8;
     text-align: center;
     color: var(--sage);
