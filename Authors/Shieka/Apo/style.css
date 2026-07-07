@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -190,11 +191,15 @@ body {
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.story-media img:hover,
-.duo-media img:hover,
-.wide-media img:hover {
-    transform: scale(1.012);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+/* Hover-capable devices only — on touch screens a tap would trigger these
+   and make the photo pop right as the lightbox opens. */
+@media (hover: hover) {
+    .story-media img:hover,
+    .duo-media img:hover,
+    .wide-media img:hover {
+        transform: scale(1.012);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+    }
 }
 
 .story-number {
@@ -269,9 +274,11 @@ body {
     transform: translate(16px, -12px) rotate(3.5deg);
 }
 
-.photo-stack:not(.swapped):hover .stack-back {
-    transform: translate(26px, -18px) rotate(5deg);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+@media (hover: hover) {
+    .photo-stack:not(.swapped):hover .stack-back {
+        transform: translate(26px, -18px) rotate(5deg);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+    }
 }
 
 /* Swapped: the back card comes to the front, the front card tucks behind */
@@ -285,9 +292,11 @@ body {
     z-index: 0;
 }
 
-.photo-stack.swapped:hover .stack-front {
-    transform: translate(26px, -18px) rotate(-5deg);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+@media (hover: hover) {
+    .photo-stack.swapped:hover .stack-front {
+        transform: translate(26px, -18px) rotate(-5deg);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+    }
 }
 
 /* Img 7 (hot drinks at camp): higher crop to frame the faces */

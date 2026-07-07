@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -58,9 +59,13 @@ body {
     transition: transform 0.25s ease, box-shadow 0.25s ease, z-index 0s;
 }
 
-.featured-card:hover {
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
-    z-index: 10;
+/* Hover-capable devices only — on touch screens a tap would trigger these
+   and make the card pop right as the lightbox opens. */
+@media (hover: hover) {
+    .featured-card:hover {
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+        z-index: 10;
+    }
 }
 
 .featured-card {
@@ -84,7 +89,9 @@ body {
     z-index: 2;
 }
 
-.featured-card:nth-child(1):hover { transform: rotate(-20deg) scale(1.05); }
+@media (hover: hover) {
+    .featured-card:nth-child(1):hover { transform: rotate(-20deg) scale(1.05); }
+}
 
 .featured-card:nth-child(2) {
     width: 138px;
@@ -95,7 +102,9 @@ body {
     z-index: 3;
 }
 
-.featured-card:nth-child(2):hover { transform: rotate(-11deg) scale(1.05); }
+@media (hover: hover) {
+    .featured-card:nth-child(2):hover { transform: rotate(-11deg) scale(1.05); }
+}
 
 .featured-card:nth-child(3) {
     width: 155px;
@@ -106,7 +115,9 @@ body {
     z-index: 4;
 }
 
-.featured-card:nth-child(3):hover { transform: rotate(-4deg) scale(1.05); }
+@media (hover: hover) {
+    .featured-card:nth-child(3):hover { transform: rotate(-4deg) scale(1.05); }
+}
 
 .featured-card:nth-child(4) {
     width: 150px;
@@ -117,7 +128,9 @@ body {
     z-index: 5;
 }
 
-.featured-card:nth-child(4):hover { transform: rotate(6deg) scale(1.05); }
+@media (hover: hover) {
+    .featured-card:nth-child(4):hover { transform: rotate(6deg) scale(1.05); }
+}
 
 .featured-card:nth-child(5) {
     width: 145px;
@@ -128,7 +141,9 @@ body {
     z-index: 3;
 }
 
-.featured-card:nth-child(5):hover { transform: rotate(17deg) scale(1.05); }
+@media (hover: hover) {
+    .featured-card:nth-child(5):hover { transform: rotate(17deg) scale(1.05); }
+}
 
 /* Albums Row — rounded app-icon tiles with photo stacks inside */
 .albums-section {
@@ -159,8 +174,10 @@ body {
     transition: transform 0.25s ease;
 }
 
-.album-card:hover .album-tile {
-    transform: scale(1.05);
+@media (hover: hover) {
+    .album-card:hover .album-tile {
+        transform: scale(1.05);
+    }
 }
 
 .album-tile .mini {

@@ -15,19 +15,32 @@
     var current = 0;
     var standalone = false; // true while a sequence-excluded (stack-back) photo is shown
 
+    // Fade in only after the photo has loaded — on slow connections the old
+    // timer-based fade played on an empty frame and the image seemed missing.
+    function reveal() {
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                lbImg.classList.add('is-visible');
+            });
+        });
+    }
+
     function render(img, counterText) {
         lbImg.classList.remove('is-visible');
+        lbImg.onload = null;
+        lbImg.onerror = null;
         lbImg.src = img.src;
         lbImg.alt = img.alt;
         counter.textContent = counterText;
         var captionText = img.getAttribute('data-caption') || '';
         caption.textContent = captionText;
         lightbox.classList.toggle('has-caption', captionText !== '');
-        requestAnimationFrame(function () {
-            requestAnimationFrame(function () {
-                lbImg.classList.add('is-visible');
-            });
-        });
+        if (lbImg.complete && lbImg.naturalWidth > 0) {
+            reveal();
+        } else {
+            lbImg.onload = reveal;
+            lbImg.onerror = reveal;
+        }
     }
 
     function show(index) {

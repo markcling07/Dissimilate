@@ -10,18 +10,30 @@
 
     let current = 0;
 
-    function show(index) {
-        current = (index + thumbs.length) % thumbs.length;
-        lbImg.classList.remove('is-visible');
-        lbImg.src = thumbs[current].src;
-        lbImg.alt = thumbs[current].alt;
-        counter.textContent = (current + 1) + ' / ' + thumbs.length;
-        // restart the fade-in
+    // Fade in only after the photo has loaded — on slow connections the old
+    // timer-based fade played on an empty frame and the image seemed missing.
+    function reveal() {
         requestAnimationFrame(function () {
             requestAnimationFrame(function () {
                 lbImg.classList.add('is-visible');
             });
         });
+    }
+
+    function show(index) {
+        current = (index + thumbs.length) % thumbs.length;
+        lbImg.classList.remove('is-visible');
+        lbImg.onload = null;
+        lbImg.onerror = null;
+        lbImg.src = thumbs[current].src;
+        lbImg.alt = thumbs[current].alt;
+        counter.textContent = (current + 1) + ' / ' + thumbs.length;
+        if (lbImg.complete && lbImg.naturalWidth > 0) {
+            reveal();
+        } else {
+            lbImg.onload = reveal;
+            lbImg.onerror = reveal;
+        }
     }
 
     function openLightbox(index) {

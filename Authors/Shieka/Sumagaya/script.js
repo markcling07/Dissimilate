@@ -11,20 +11,33 @@
 
     var current = 0;
 
+    // Fade in only after the photo has loaded — on slow connections the old
+    // timer-based fade played on an empty frame and the image seemed missing.
+    function reveal() {
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                lbImg.classList.add('is-visible');
+            });
+        });
+    }
+
     function show(index) {
         current = (index + thumbs.length) % thumbs.length;
         lbImg.classList.remove('is-visible');
+        lbImg.onload = null;
+        lbImg.onerror = null;
         lbImg.src = thumbs[current].src;
         lbImg.alt = thumbs[current].alt;
         counter.textContent = (current + 1) + ' / ' + thumbs.length;
         var captionText = thumbs[current].getAttribute('data-caption') || '';
         caption.textContent = captionText;
         lightbox.classList.toggle('has-caption', captionText !== '');
-        requestAnimationFrame(function () {
-            requestAnimationFrame(function () {
-                lbImg.classList.add('is-visible');
-            });
-        });
+        if (lbImg.complete && lbImg.naturalWidth > 0) {
+            reveal();
+        } else {
+            lbImg.onload = reveal;
+            lbImg.onerror = reveal;
+        }
     }
 
     function openLightbox(index) {
