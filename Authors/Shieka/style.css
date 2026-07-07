@@ -1,0 +1,419 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #f8f7f5;
+    color: #1a1a1a;
+}
+
+.profile-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    overflow-x: hidden;
+}
+
+/* Header Section */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2.4rem;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+}
+
+.profile-subtitle {
+    font-size: 0.95rem;
+    color: #666;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+/* Featured Fan Cluster — cards fanned like a hand of photos */
+.featured-section {
+    margin-bottom: 70px;
+}
+
+.featured-cluster {
+    position: relative;
+    height: 370px;
+}
+
+.featured-card {
+    position: absolute;
+    left: 50%;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #e0e0e0;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, z-index 0s;
+}
+
+.featured-card:hover {
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+    z-index: 10;
+}
+
+.featured-card {
+    cursor: pointer;
+}
+
+.featured-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Fanned positions, all offset from center */
+.featured-card:nth-child(1) {
+    width: 145px;
+    height: 195px;
+    margin-left: -215px;
+    top: 50px;
+    transform: rotate(-20deg);
+    z-index: 2;
+}
+
+.featured-card:nth-child(1):hover { transform: rotate(-20deg) scale(1.05); }
+
+.featured-card:nth-child(2) {
+    width: 138px;
+    height: 184px;
+    margin-left: -150px;
+    top: 120px;
+    transform: rotate(-11deg);
+    z-index: 3;
+}
+
+.featured-card:nth-child(2):hover { transform: rotate(-11deg) scale(1.05); }
+
+.featured-card:nth-child(3) {
+    width: 155px;
+    height: 205px;
+    margin-left: -75px;
+    top: 15px;
+    transform: rotate(-4deg);
+    z-index: 4;
+}
+
+.featured-card:nth-child(3):hover { transform: rotate(-4deg) scale(1.05); }
+
+.featured-card:nth-child(4) {
+    width: 150px;
+    height: 200px;
+    margin-left: -5px;
+    top: 75px;
+    transform: rotate(6deg);
+    z-index: 5;
+}
+
+.featured-card:nth-child(4):hover { transform: rotate(6deg) scale(1.05); }
+
+.featured-card:nth-child(5) {
+    width: 145px;
+    height: 195px;
+    margin-left: 75px;
+    top: 35px;
+    transform: rotate(17deg);
+    z-index: 3;
+}
+
+.featured-card:nth-child(5):hover { transform: rotate(17deg) scale(1.05); }
+
+/* Albums Row — rounded app-icon tiles with photo stacks inside */
+.albums-section {
+    margin-top: 40px;
+}
+
+.albums-grid {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+}
+
+.album-card {
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    display: block;
+}
+
+.album-tile {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 16px;
+    border-radius: 34px;
+    background: #ececea;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.25s ease;
+}
+
+.album-card:hover .album-tile {
+    transform: scale(1.05);
+}
+
+.album-tile .mini {
+    position: absolute;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.album-tile .mini-1 {
+    width: 64px;
+    height: 82px;
+    left: 16px;
+    top: 26px;
+    transform: rotate(-14deg);
+    z-index: 1;
+}
+
+.album-tile .mini-2 {
+    width: 60px;
+    height: 78px;
+    right: 16px;
+    top: 20px;
+    transform: rotate(11deg);
+    z-index: 2;
+}
+
+.album-tile .mini-3 {
+    width: 76px;
+    height: 96px;
+    left: 50%;
+    margin-left: -38px;
+    bottom: 12px;
+    transform: rotate(-4deg);
+    z-index: 3;
+}
+
+.album-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 3px;
+    letter-spacing: -0.2px;
+}
+
+.album-count {
+    font-size: 0.82rem;
+    color: #999;
+    font-weight: 400;
+}
+
+/* Footer link back to the homepage */
+.profile-footer {
+    text-align: center;
+    padding: 20px 20px 50px;
+}
+
+.footer-link {
+    font-size: 0.9rem;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 2px;
+    transition: border-color 0.2s ease;
+}
+
+.footer-link:hover {
+    border-color: #1a1a1a;
+}
+
+/* Lightbox Popup */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.lightbox.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-img {
+    max-width: 88vw;
+    max-height: 84vh;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transform: scale(0.97);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.lightbox-img.is-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 2.2rem;
+    line-height: 1;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+    z-index: 102;
+}
+
+.lightbox-close:hover {
+    opacity: 1;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    font-size: 1.4rem;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    z-index: 102;
+}
+
+.lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.lightbox-prev { left: 18px; }
+.lightbox-next { right: 18px; }
+
+.lightbox-counter {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .profile-container {
+        padding: 30px 12px;
+    }
+
+    .profile-title {
+        font-size: 2rem;
+    }
+
+    /* Shrink the whole fan cluster proportionally */
+    .featured-cluster {
+        height: 300px;
+        transform: scale(0.66);
+        transform-origin: top center;
+        margin-bottom: -100px;
+    }
+
+    .featured-section {
+        margin-bottom: 50px;
+    }
+
+    .albums-grid {
+        gap: 36px;
+    }
+
+    .album-tile {
+        width: 130px;
+        height: 130px;
+        border-radius: 30px;
+    }
+
+    .album-tile .mini-1 {
+        width: 54px;
+        height: 70px;
+        left: 13px;
+        top: 22px;
+    }
+
+    .album-tile .mini-2 {
+        width: 50px;
+        height: 66px;
+        right: 13px;
+        top: 17px;
+    }
+
+    .album-tile .mini-3 {
+        width: 64px;
+        height: 82px;
+        margin-left: -32px;
+        bottom: 10px;
+    }
+
+    /* On touch screens, swipe replaces the arrow buttons */
+    .lightbox-nav {
+        display: none;
+    }
+
+    .lightbox-img {
+        max-width: 94vw;
+        border-radius: 8px;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #1a1a1a;
+        color: #f0f0f0;
+    }
+
+    .profile-subtitle {
+        color: #999;
+    }
+
+    .featured-card {
+        background: #2a2a2a;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .album-tile {
+        background: #262626;
+        box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.04), 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .album-count {
+        color: #777;
+    }
+
+    .footer-link {
+        color: #f0f0f0;
+        border-bottom-color: #555;
+    }
+
+    .footer-link:hover {
+        border-color: #f0f0f0;
+    }
+}

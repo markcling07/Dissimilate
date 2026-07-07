@@ -1,0 +1,638 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #f8f7f5;
+    color: #1a1a1a;
+}
+
+/* Hero Section — full-width summit banner */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 84%;
+    object-fit: cover;
+    object-position: center bottom;
+    display: block;
+    /* Fade the photo itself out toward its top — no hard edge */
+    -webkit-mask-image: linear-gradient(to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.45) 9%,
+        rgba(0, 0, 0, 0.88) 18%,
+        #000 28%);
+    mask-image: linear-gradient(to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.45) 9%,
+        rgba(0, 0, 0, 0.88) 18%,
+        #000 28%);
+}
+
+/* Floating title, top left */
+.hero-title-block {
+    position: absolute;
+    top: 42px;
+    left: 48px;
+    z-index: 2;
+}
+
+.hero-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -1px;
+    color: #2b2f2d;
+    text-shadow: 0 1px 12px rgba(255, 255, 255, 0.55);
+}
+
+.hero-sub {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 1.8vw, 1.35rem);
+    color: #3c403e;
+    margin-top: 8px;
+    text-shadow: 0 1px 10px rgba(255, 255, 255, 0.55);
+}
+
+.hero-emoji {
+    font-style: normal;
+    font-size: 0.9em;
+}
+
+.hero-route {
+    font-size: clamp(0.72rem, 1.1vw, 0.85rem);
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6b6f6c;
+    margin-top: 14px;
+}
+
+.hero-specs {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.hero-specs li {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #2b2f2d;
+    padding: 6px 14px;
+    border: 1px solid rgba(43, 47, 45, 0.3);
+    border-radius: 999px;
+    background: rgba(248, 247, 245, 0.55);
+    backdrop-filter: blur(2px);
+}
+
+/* Shared layout */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.section {
+    padding: 90px 0;
+}
+
+/* Intro */
+.intro-section {
+    padding-top: 30px;
+    text-align: center;
+}
+
+.kicker {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #8a8a85;
+    margin-bottom: 22px;
+}
+
+.intro-text {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.35rem;
+    line-height: 1.65;
+    color: #333;
+    max-width: 720px;
+    margin: 0 auto 50px;
+}
+
+.stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.stat-value {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: #1a1a1a;
+}
+
+.stat-label {
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #999;
+}
+
+/* Story sections */
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.grid-flip .story-media {
+    order: 2;
+}
+
+.grid-flip .story-text {
+    order: 1;
+}
+
+.story-media img,
+.duo-media img,
+.wide-media img {
+    width: 100%;
+    display: block;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.story-media img:hover,
+.duo-media img:hover,
+.wide-media img:hover {
+    transform: scale(1.012);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+}
+
+.story-number {
+    display: block;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 0.95rem;
+    letter-spacing: 3px;
+    color: #b0aea8;
+    margin-bottom: 10px;
+}
+
+.story-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    margin-bottom: 18px;
+}
+
+.story-text p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #444;
+    margin-bottom: 14px;
+}
+
+.story-text-center {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 46px;
+}
+
+/* Two images side by side */
+.duo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+/* Full-width figure */
+.wide-media {
+    margin-top: 10px;
+}
+
+/* Portrait photos shown solo — centered, not blown up to full width */
+.strip-media {
+    max-width: 560px;
+    margin: 40px auto 0;
+}
+
+
+/* Chapter 5 (2,954): img 11 tucked behind img 10 like a card peeking from the stack.
+   Swiping the stack shuffles which card is on top; tapping opens the lightbox. */
+.photo-stack {
+    position: relative;
+    touch-action: pan-y;
+}
+
+.photo-stack .stack-front {
+    position: relative;
+    z-index: 1;
+}
+
+.photo-stack .stack-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transform: translate(16px, -12px) rotate(3.5deg);
+}
+
+.photo-stack:not(.swapped):hover .stack-back {
+    transform: translate(26px, -18px) rotate(5deg);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+}
+
+/* Swapped: the back card comes to the front, the front card tucks behind */
+.photo-stack.swapped .stack-back {
+    transform: none;
+    z-index: 1;
+}
+
+.photo-stack.swapped .stack-front {
+    transform: translate(16px, -12px) rotate(-3.5deg);
+    z-index: 0;
+}
+
+.photo-stack.swapped:hover .stack-front {
+    transform: translate(26px, -18px) rotate(-5deg);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+}
+
+/* Img 7 (hot drinks at camp): higher crop to frame the faces */
+#night-push .duo-media:first-child img {
+    object-position: center 47%;
+}
+
+/* Chapters 3 & 4: fixed 366 x 146.39 crops */
+#boulders .duo-media img,
+#boulders .strip-media img,
+#night-push .duo-media img,
+#night-push .strip-media img {
+    width: 366px;
+    max-width: 100%;
+    height: 146.39px;
+    object-fit: cover;
+    object-position: center 70%;
+    margin: 0 auto;
+}
+
+/* Desktop: the 366px letterbox crops above are phone-sized — scale the same
+   2.5:1 crop up to fill the layout instead of floating small in it */
+@media (min-width: 601px) {
+    #boulders .duo-media img,
+    #boulders .strip-media img,
+    #night-push .duo-media img,
+    #night-push .strip-media img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 5 / 2;
+    }
+
+    #night-push .strip-media {
+        max-width: none;
+    }
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 80px 24px 70px;
+}
+
+.footer-dedication {
+    max-width: 560px;
+    margin: 0 auto 40px;
+}
+
+.footer-dedication p {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 1.08rem;
+    line-height: 1.7;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.footer-link {
+    font-size: 0.9rem;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 2px;
+    transition: border-color 0.2s ease;
+}
+
+.footer-link:hover {
+    border-color: #1a1a1a;
+}
+
+/* Lightbox Popup */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.lightbox.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    max-width: 88vw;
+}
+
+.lightbox-img {
+    max-width: 88vw;
+    max-height: 84vh;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transform: scale(0.97);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.lightbox-img.is-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.lightbox-caption {
+    max-width: 620px;
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.88);
+    white-space: pre-line;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
+    display: none;
+}
+
+.lightbox.has-caption .lightbox-caption {
+    display: block;
+}
+
+.lightbox.has-caption .lightbox-img {
+    max-height: 70vh;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 2.2rem;
+    line-height: 1;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+    z-index: 102;
+}
+
+.lightbox-close:hover {
+    opacity: 1;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    font-size: 1.4rem;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    z-index: 102;
+}
+
+.lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.lightbox-prev { left: 18px; }
+.lightbox-next { right: 18px; }
+
+.lightbox-counter {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+    .hero {
+        height: 78vh;
+    }
+
+    .hero-title-block {
+        top: 26px;
+        left: 20px;
+        right: 20px;
+    }
+
+    .hero-route {
+        letter-spacing: 1.2px;
+    }
+
+    .hero-specs {
+        gap: 7px;
+        margin-top: 12px;
+    }
+
+    .hero-specs li {
+        font-size: 0.7rem;
+        padding: 5px 11px;
+    }
+
+    .section {
+        padding: 56px 0;
+    }
+
+    .intro-text {
+        font-size: 1.12rem;
+    }
+
+    .stats-row {
+        gap: 34px;
+    }
+
+    .stat-value {
+        font-size: 1.7rem;
+    }
+
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .grid-flip .story-media {
+        order: 1;
+    }
+
+    .grid-flip .story-text {
+        order: 2;
+    }
+
+    /* All photo pairs: swipeable carousels instead of stacking */
+    .duo-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 14px;
+        scrollbar-width: none;
+        padding-bottom: 4px;
+    }
+
+    .duo-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .duo-media {
+        flex: 0 0 88%;
+        scroll-snap-align: center;
+    }
+
+    /* Solo portrait photos: smaller and centered, less vertical bulk */
+    .strip-media {
+        max-width: 62%;
+        margin: 22px auto 0;
+    }
+
+    /* Boulder Field: no carousel — grid instead */
+    #boulders .duo-grid {
+        display: grid;
+        gap: 16px;
+        overflow-x: visible;
+        padding-bottom: 0;
+    }
+
+    /* Boulder Field strip centered like the pair */
+    #boulders .strip-media {
+        max-width: 100%;
+        margin-top: 16px;
+    }
+
+    /* Night Push: solo photo back to full width, tucked in to match the pair gap */
+    #night-push .strip-media {
+        max-width: 100%;
+        margin-top: 16px;
+    }
+
+    /* Night Push: no carousel — full-width stacked pair */
+    #night-push .duo-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        overflow-x: visible;
+        padding-bottom: 0;
+    }
+
+    .story-text-center {
+        margin-bottom: 24px;
+    }
+
+    /* Tighter type on small screens */
+    .story-title {
+        font-size: 1.55rem;
+        margin-bottom: 12px;
+    }
+
+    .story-number {
+        font-size: 0.85rem;
+        margin-bottom: 6px;
+    }
+
+    .story-text p {
+        font-size: 0.95rem;
+        line-height: 1.65;
+        margin-bottom: 11px;
+    }
+
+    /* Summit section: cap the big portrait too, and put the text above the photo */
+    #summit .story-media {
+        max-width: 78%;
+        margin: 0 auto;
+        order: 2;
+    }
+
+    #summit .story-text {
+        order: 1;
+    }
+
+    .story-grid {
+        gap: 22px;
+    }
+
+    .footer {
+        padding: 46px 24px 44px;
+    }
+
+    .strip-media {
+        margin-top: 28px;
+    }
+
+    .lightbox-nav {
+        display: none;
+    }
+
+    .lightbox-img {
+        max-width: 94vw;
+        border-radius: 8px;
+    }
+}
