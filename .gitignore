@@ -17,3 +17,6 @@ Desktop.ini
 
 # Local design references (not published)
 _refs/
+
+# Claude Code local (per-machine) settings
+.claude/settings.local.json

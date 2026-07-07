@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/scripts/check-refs.mjs --hook",
+            "timeout": 30,
+            "statusMessage": "Checking local references..."
+          }
+        ]
+      }
+    ]
+  }
+}

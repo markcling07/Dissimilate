@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Author Card — Design Options Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+        --ink: #1a1a2e;
+        --body: #4a4a5a;
+        --muted: #8a8a9a;
+        --line: rgba(0,0,0,0.08);
+        --paper: #f4f6f9;
+        --radius: 22px;
+        --shadow: 0 12px 40px rgba(0,0,0,0.08);
+        --shadow-lg: 0 22px 60px rgba(0,0,0,0.13);
+    }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--paper); color: var(--ink); padding: 40px 20px 80px; }
+    .page-head { max-width: 1100px; margin: 0 auto 10px; text-align: center; }
+    .page-head h1 { font-family: 'DM Serif Display', serif; font-size: 2.4rem; font-weight: 400; }
+    .page-head p { color: var(--muted); margin-top: 8px; }
+    .option { max-width: 1100px; margin: 56px auto 0; }
+    .option-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 6px; border-bottom: 2px solid var(--ink); padding-bottom: 12px; }
+    .option-num { font-family: 'DM Serif Display', serif; font-size: 2rem; }
+    .option-head h2 { font-size: 1.25rem; font-weight: 800; }
+    .option-desc { color: var(--muted); font-size: 0.9rem; margin: 12px 0 26px; max-width: 640px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px; }
+    .check { width: 16px; height: 16px; vertical-align: -2px; }
+
+    /* ============ OPTION 1 — POLISHED NEW LOOK ============ */
+    .c1 { background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: .35s; border: 1px solid var(--line); }
+    .c1:hover { box-shadow: var(--shadow-lg); transform: translateY(-5px); }
+    .c1-photo { position: relative; height: 300px; }
+    .c1-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .c1-photo::after { content:''; position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,.78) 0%, rgba(0,0,0,.1) 45%, transparent 70%); }
+    .c1-name { position: absolute; left: 22px; bottom: 18px; z-index: 2; color:#fff; font-size: 1.6rem; font-weight: 800; display:flex; align-items:center; gap:6px; text-shadow: 0 2px 10px rgba(0,0,0,.4); }
+    .c1-body { padding: 22px; }
+    .c1-bio { color: var(--body); font-size: .9rem; line-height: 1.6; margin-bottom: 18px; }
+    .c1-stats { display: grid; grid-template-columns: repeat(6,1fr); row-gap: 14px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding: 16px 0; margin-bottom: 20px; }
+    .c1-stats .s { text-align:center; }
+    .c1-stats .s:nth-child(1),.c1-stats .s:nth-child(2),.c1-stats .s:nth-child(3){ grid-column: span 2; }
+    .c1-stats .s:nth-child(4),.c1-stats .s:nth-child(5){ grid-column: span 3; }
+    .c1-stats .v { font-size: .98rem; font-weight: 800; display:block; }
+    .c1-stats .l { font-size: .64rem; text-transform: uppercase; letter-spacing: .6px; color: var(--muted); font-weight:600; margin-top:3px; display:block; }
+    .c1-btn { width:100%; padding: 14px; border:none; border-radius: 14px; background: var(--ink); color:#fff; font-weight:700; font-family:inherit; cursor:pointer; font-size:.9rem; transition:.25s; }
+    .c1-btn:hover { background:#000; }
+
+    /* ============ OPTION 2 — PER-AUTHOR ACCENT ============ */
+    .c2 { background:#fff; border-radius: var(--radius); overflow:hidden; box-shadow: var(--shadow); border:1px solid var(--line); border-top: 5px solid var(--accent); transition:.35s; }
+    .c2:hover { box-shadow: var(--shadow-lg); transform: translateY(-5px); }
+    .c2-photo { height: 260px; }
+    .c2-photo img { width:100%; height:100%; object-fit:cover; }
+    .c2-body { padding: 22px; }
+    .c2-name { font-size:1.5rem; font-weight:800; display:flex; align-items:center; gap:6px; }
+    .c2-name .check { color: var(--accent); }
+    .c2-tag { display:inline-block; margin: 8px 0 14px; padding: 4px 12px; border-radius: 20px; font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.5px; background: var(--accent-soft); color: var(--accent-deep); }
+    .c2-bio { color:var(--body); font-size:.9rem; line-height:1.6; margin-bottom:16px; }
+    .c2-stats { display:grid; grid-template-columns: repeat(6,1fr); row-gap:14px; padding:16px 0; border-top:1px solid var(--line); margin-bottom:18px; }
+    .c2-stats .s { text-align:center; }
+    .c2-stats .s:nth-child(1),.c2-stats .s:nth-child(2),.c2-stats .s:nth-child(3){ grid-column:span 2; }
+    .c2-stats .s:nth-child(4),.c2-stats .s:nth-child(5){ grid-column:span 3; }
+    .c2-stats .v { font-size:.98rem; font-weight:800; color:var(--accent-deep); display:block; }
+    .c2-stats .l { font-size:.64rem; text-transform:uppercase; letter-spacing:.6px; color:var(--muted); font-weight:600; margin-top:3px; display:block; }
+    .c2-btn { width:100%; padding:14px; border:none; border-radius:14px; background:var(--accent); color:#fff; font-weight:700; font-family:inherit; cursor:pointer; font-size:.9rem; transition:.25s; }
+    .c2-btn:hover { filter: brightness(.92); }
+
+    /* ============ OPTION 3 — CLIMBERS vs ESSAYISTS ============ */
+    /* climber: dark expedition */
+    .c3climb { border-radius: var(--radius); overflow:hidden; box-shadow:var(--shadow); position:relative; height: 460px; color:#fff; transition:.35s; }
+    .c3climb:hover { box-shadow:var(--shadow-lg); transform: translateY(-5px); }
+    .c3climb img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .c3climb::after { content:''; position:absolute; inset:0; background: linear-gradient(to top, rgba(12,14,22,.92) 12%, rgba(12,14,22,.35) 55%, rgba(12,14,22,.5)); }
+    .c3climb .inner { position:relative; z-index:2; height:100%; display:flex; flex-direction:column; justify-content:flex-end; padding: 24px; }
+    .c3climb .badge { position:absolute; top:18px; left:18px; background: rgba(227,111,55,.9); padding:5px 12px; border-radius:8px; font-size:.66rem; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; }
+    .c3climb .elev { font-family:'DM Serif Display',serif; font-size:2.6rem; line-height:1; }
+    .c3climb .elev small { font-size:.9rem; letter-spacing:2px; opacity:.7; }
+    .c3climb .nm { font-size:1.5rem; font-weight:800; margin:12px 0 6px; display:flex; gap:6px; align-items:center; }
+    .c3climb .bio { font-size:.85rem; opacity:.85; line-height:1.55; margin-bottom:14px; }
+    .c3climb .row { display:flex; gap:18px; border-top:1px solid rgba(255,255,255,.2); padding-top:14px; }
+    .c3climb .row .v { font-weight:800; font-size:1rem; } .c3climb .row .l { font-size:.62rem; text-transform:uppercase; letter-spacing:.5px; opacity:.65; }
+    /* essayist: editorial light */
+    .c3essay { background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid var(--line); padding: 30px 26px; transition:.35s; display:flex; flex-direction:column; }
+    .c3essay:hover { box-shadow:var(--shadow-lg); transform: translateY(-5px); }
+    .c3essay .ava { width:84px; height:84px; border-radius:50%; object-fit:cover; border:3px solid var(--line); margin-bottom:16px; }
+    .c3essay .nm { font-family:'DM Serif Display',serif; font-size:1.7rem; display:flex; gap:6px; align-items:center; }
+    .c3essay .nm .check { color:#1d9bf0; }
+    .c3essay .focus { color: var(--muted); font-size:.72rem; text-transform:uppercase; letter-spacing:2px; margin:6px 0 16px; }
+    .c3essay .quote { font-family:'DM Serif Display',serif; font-style:italic; font-size:1.05rem; line-height:1.5; color:var(--ink); border-left:3px solid var(--ink); padding-left:16px; margin-bottom:18px; }
+    .c3essay .bio { color:var(--body); font-size:.9rem; line-height:1.6; margin-bottom:20px; flex-grow:1; }
+    .c3essay .btn { align-self:flex-start; padding:11px 26px; border:1.5px solid var(--ink); background:transparent; border-radius:30px; font-weight:700; font-family:inherit; cursor:pointer; transition:.25s; }
+    .c3essay .btn:hover { background:var(--ink); color:#fff; }
+
+    /* ============ OPTION 4 — PROFILE STYLE ============ */
+    .c4 { background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid var(--line); padding: 28px 24px; text-align:center; transition:.35s; }
+    .c4:hover { box-shadow:var(--shadow-lg); transform: translateY(-5px); }
+    .c4 .cover { height: 90px; margin:-28px -24px 0; border-radius: var(--radius) var(--radius) 0 0; background-size:cover; background-position:center; position:relative; }
+    .c4 .ava { width:96px; height:96px; border-radius:50%; object-fit:cover; border:4px solid #fff; margin:-58px auto 0; position:relative; box-shadow: var(--shadow); }
+    .c4 .nm { font-size:1.4rem; font-weight:800; margin-top:14px; display:inline-flex; gap:6px; align-items:center; }
+    .c4 .nm .check { color:#1d9bf0; }
+    .c4 .handle { color:var(--muted); font-size:.85rem; margin-top:2px; }
+    .c4 .bio { color:var(--body); font-size:.88rem; line-height:1.55; margin:14px 6px 18px; }
+    .c4 .row { display:flex; justify-content:center; gap:0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:14px 0; margin-bottom:18px; }
+    .c4 .row .s { flex:1; } .c4 .row .s + .s { border-left:1px solid var(--line); }
+    .c4 .row .v { font-weight:800; font-size:1.05rem; display:block; } .c4 .row .l { font-size:.6rem; text-transform:uppercase; letter-spacing:.5px; color:var(--muted); margin-top:2px; display:block; }
+    .c4 .btn { width:100%; padding:13px; border:none; border-radius:30px; background:var(--ink); color:#fff; font-weight:700; font-family:inherit; cursor:pointer; transition:.25s; }
+    .c4 .btn:hover { background:#000; }
+</style>
+</head>
+<body>
+
+<div class="page-head">
+    <h1>Author Card — Design Options</h1>
+    <p>Same authors, four styles. Scroll through and tell me which option number you like (you can mix ideas too).</p>
+</div>
+
+<!-- ===================== OPTION 1 ===================== -->
+<section class="option">
+    <div class="option-head"><span class="option-num">1</span><h2>Polished New Look — name over the photo, one consistent style</h2></div>
+    <p class="option-desc">A modern, unified card. The author's name sits over a gradient at the bottom of the photo; bio, the 5 stats, and a dark button sit below. Clean and premium.</p>
+    <div class="cards">
+        <div class="c1">
+            <div class="c1-photo"><img src="Authors/Genesis/Apo/IMG/Solo.jpg" alt="Genesis"><span class="c1-name">Genesis <svg class="check" viewBox="0 0 24 24" fill="#1d9bf0"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-2 15l-5-5 1.4-1.4L10 14.2l7.6-7.6L19 8l-9 9z"/></svg></span></div>
+            <div class="c1-body">
+                <p class="c1-bio">Conquering high-altitude peaks, capturing rugged mountain trails, and sharing the spirit of outdoor camaraderie.</p>
+                <div class="c1-stats">
+                    <div class="s"><span class="v">2,954m</span><span class="l">Total MASL</span></div>
+                    <div class="s"><span class="v">1</span><span class="l">Mountains</span></div>
+                    <div class="s"><span class="v">Mt. Apo</span><span class="l">Mother Mtn</span></div>
+                    <div class="s"><span class="v">0</span><span class="l">Pulls</span></div>
+                    <div class="s"><span class="v">1</span><span class="l">Submissions</span></div>
+                </div>
+                <button class="c1-btn">Filter Essays</button>
+            </div>
+        </div>
+        <div class="c1">
+            <div class="c1-photo"><img src="Authors/Oli/Batulao/IMG/Sun1.JPG" alt="Oli"><span class="c1-name">Oli <svg class="check" viewBox="0 0 24 24" fill="#1d9bf0"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-2 15l-5-5 1.4-1.4L10 14.2l7.6-7.6L19 8l-9 9z"/></svg></span></div>
+            <div class="c1-body">
+                <p class="c1-bio">An adventure-seeking explorer who loves scaling rugged rock cliffs, walking golden grassy ridges, and summit Yumburgers.</p>
+                <div class="c1-stats">
+                    <div class="s"><span class="v">811m</span><span class="l">Total MASL</span></div>
+                    <div class="s"><span class="v">1</span><span class="l">Mountains</span></div>
+                    <div class="s"><span class="v">Mt. Batulao</span><span class="l">Mother Mtn</span></div>
+                    <div class="s"><span class="v">0</span><span class="l">Pulls</span></div>
+                    <div class="s"><span class="v">1</span><span class="l">Submissions</span></div>
+                </div>
+                <button class="c1-btn">Filter Essays</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== OPTION 2 ===================== -->
+<section class="option">
+    <div class="option-head"><span class="option-num">2</span><h2>Per-Author Accent Color — same layout, personal color</h2></div>
+    <p class="option-desc">Unified layout, but each author gets a signature accent (top bar, stat numbers, button). Makes every card feel personal while staying a family.</p>
+    <div class="cards">
+        <div class="c2" style="--accent:#e2613f;--accent-soft:#fbe7df;--accent-deep:#b6431f;">
+            <div class="c2-photo"><img src="Authors/Genesis/Apo/IMG/Solo.jpg" alt="Genesis"></div>
+            <div class="c2-body">
+                <div class="c2-name">Genesis <svg class="check" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-2 15l-5-5 1.4-1.4L10 14.2l7.6-7.6L19 8l-9 9z"/></svg></div>
+                <span class="c2-tag">Volcanic Peaks</span>
+                <p class="c2-bio">Conquering high-altitude peaks and sharing the spirit of outdoor camaraderie.</p>
+                <div class="c2-stats">
+                    <div class="s"><span class="v">2,954m</span><span class="l">Total MASL</span></div>
+                    <div class="s"><span class="v">1</span><span class="l">Mountains</span></div>
+                    <div class="s"><span class="v">Mt. Apo</span><span class="l">Mother Mtn</span></div>
+                    <div class="s"><span class="v">0</span><span class="l">Pulls</span></div>
+                    <div class="s"><span class="v">1</span><span class="l">Submissions</span></div>
+                </div>
+                <button class="c2-btn">Filter Essays</button>
+            </div>
+        </div>
+        <div class="c2" style="--accent:#3b82f6;--accent-soft:#e3edfd;--accent-deep:#1e5bbf;">
+            <div class="c2-photo"><img src="Authors/Oli/Batulao/IMG/Sun1.JPG" alt="Oli"></div>
+            <div class="c2-body">
+                <div class="c2-name">Oli <svg class="check" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-2 15l-5-5 1.4-1.4L10 14.2l7.6-7.6L19 8l-9 9z"/></svg></div>
+                <span class="c2-tag">Ridge Walker</span>
+                <p class="c2-bio">Scaling rugged rock cliffs and walking golden grassy ridges.</p>
+                <div class="c2-stats">
+                    <div class="s"><span class="v">811m</span><span class="l">Total MASL</span></div>
+                    <div class="s"><span class="v">1</span><span class="l">Mountains</span></div>
+                    <div class="s"><span class="v">Mt. Batulao</span><span class="l">Mother Mtn</span></div>
+                    <div class="s"><span class="v">0</span><span class="l">Pulls</span></div>
+                    <div class="s"><span class="v">1</span><span class="l">Submissions</span></div>
+                </div>
+                <button class="c2-btn">Filter Essays</button>
+            </div>
+        </div>
+        <div class="c2" style="--accent:#0e9488;--accent-soft:#d6f0ec;--accent-deep:#0a6b62;">
+            <div class="c2-photo"><img src="Authors/Star/DisplayProf.webp" alt="Star"></div>
+            <div class="c2-body">
+                <div class="c2-name">Star <svg class="check" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-2 15l-5-5 1.4-1.4L10 14.2l7.6-7.6L19 8l-9 9z"/></svg></div>
+                <span class="c2-tag">Trail Runner</span>
+                <p class="c2-bio">Logging major mountain traverses and fairytale biodiversity routes.</p>
+                <div class="c2-stats">
+                    <div class="s"><span class="v">4,324m</span><span class="l">Total MASL</span></div>
+                    <div class="s"><span class="v">4</span><span class="l">Mountains</span></div>
+                    <div class="s"><span class="v">Mt. Mariglem</span><span class="l">Mother Mtn</span></div>
+                    <div class="s"><span class="v">0</span><span class="l">Pulls</span></div>
+                    <div class="s"><span class="v">3</span><span class="l">Submissions</span></div>
+                </div>
+                <button class="c2-btn">Filter Essays</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== OPTION 3 ===================== -->
+<section class="option">
+    <div class="option-head"><span class="option-num">3</span><h2>Climbers vs Essayists — two distinct styles</h2></div>
+    <p class="option-desc">An immersive dark "expedition" card for the 4 climbers (big elevation number), and a light "editorial" card for the 4 essay authors (serif + pull quote). Two looks, one journal.</p>
+    <div class="cards">
+        <div class="c3climb">
+            <img src="Authors/Genesis/Apo/IMG/Solo.jpg" alt="Genesis">
+            <span class="badge">Expedition</span>
+            <div class="inner">
+                <div class="elev">2,954<small> MASL</small></div>
+                <div class="nm">Genesis <svg class="check" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-2 15l-5-5 1.4-1.4L10 14.2l7.6-7.6L19 8l-9 9z"/></svg></div>
+                <p class="bio">Conquering high-altitude peaks and sharing outdoor camaraderie.</p>
+                <div class="row">
+                    <div><span class="v">1</span><br><span class="l">Mountains</span></div>
+                    <div><span class="v">Mt. Apo</span><br><span class="l">Mother Mtn</span></div>
+                    <div><span class="v">1</span><br><span class="l">Submissions</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="c3essay">
+            <img class="ava" src="Essays/Psychology/Makima/The Architecture of the Human Animal/IMG/Makima-main.jpg" alt="Makima">
+            <div class="nm">Makima <svg class="check" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-2 15l-5-5 1.4-1.4L10 14.2l7.6-7.6L19 8l-9 9z"/></svg></div>
+            <div class="focus">Psychology · Influence</div>
+            <p class="quote">"Control is not cruelty — it is the architecture of the human animal."</p>
+            <p class="bio">Exploring the intricate psychology of human nature, control mechanisms, and the art of influence.</p>
+            <button class="btn">Read Essays</button>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== OPTION 4 ===================== -->
+<section class="option">
+    <div class="option-head"><span class="option-num">4</span><h2>Profile Style — social-media feel</h2></div>
+    <p class="option-desc">A profile card: cover strip, circular avatar, name + handle, bio, an inline stat row, and a follow-style button. Friendly and familiar.</p>
+    <div class="cards">
+        <div class="c4">
+            <div class="cover" style="background-image:url('Authors/Star/CoverProf.webp')"></div>
+            <img class="ava" src="Authors/Star/DisplayProf.webp" alt="Star">
+            <div class="nm">Star <svg class="check" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-2 15l-5-5 1.4-1.4L10 14.2l7.6-7.6L19 8l-9 9z"/></svg></div>
+            <div class="handle">@star · Trail Runner</div>
+            <p class="bio">Logging major mountain traverses and fairytale biodiversity routes.</p>
+            <div class="row">
+                <div class="s"><span class="v">4,324m</span><span class="l">Total MASL</span></div>
+                <div class="s"><span class="v">4</span><span class="l">Mountains</span></div>
+                <div class="s"><span class="v">3</span><span class="l">Subs</span></div>
+            </div>
+            <button class="btn">View Essays</button>
+        </div>
+        <div class="c4">
+            <div class="cover" style="background-image:url('Authors/Lera & Lara/Matutum/IMG/Top7.jpg')"></div>
+            <img class="ava" src="Authors/Lera & Lara/Matutum/IMG/Top7.jpg" alt="Lera & Lara">
+            <div class="nm">Lera &amp; Lara <svg class="check" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-2 15l-5-5 1.4-1.4L10 14.2l7.6-7.6L19 8l-9 9z"/></svg></div>
+            <div class="handle">@twins · Volcanic Ascents</div>
+            <p class="bio">Twin sisters logging high-altitude volcanic ascents and forest sanctuary protection.</p>
+            <div class="row">
+                <div class="s"><span class="v">2,286m</span><span class="l">Total MASL</span></div>
+                <div class="s"><span class="v">1</span><span class="l">Mountains</span></div>
+                <div class="s"><span class="v">1</span><span class="l">Subs</span></div>
+            </div>
+            <button class="btn">View Essays</button>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
