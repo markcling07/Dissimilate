@@ -1,3 +1,7 @@
+/* Mt. Sumagaya traverse photo journal — reskinned to match Shieka's profile:
+   airy sky hero, editorial maroon serif, washi/sticker accents, meadow footer.
+   All layout machinery (grids, carousels, photo stack, lightbox) is unchanged. */
+
 * {
     margin: 0;
     padding: 0;
@@ -5,10 +9,31 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+:root {
+    --maroon: #4a1512;
+    --ink: #4a3a32;
+    --muted: #9b8d80;
+    --paper: #fffdf7;
+    --cream: #fff8ec;
+    --page: #f6f4ec;
+    --pill-lavender: #ccd8f7;
+    --washi-pink: #f6bcd4;
+    --butter: #f8e6a1;
+    --grass-hi: #8db96a;
+    --grass-lo: #567f41;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: #f8f7f5;
-    color: #1a1a1a;
+    color: var(--ink);
+    /* Sky fades into warm paper; soft cloud glows baked into the backdrop */
+    background-color: var(--page);
+    background-image:
+        radial-gradient(ellipse 55% 120px at 15% 80px, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0) 70%),
+        radial-gradient(ellipse 45% 100px at 88% 320px, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 70%),
+        linear-gradient(180deg, #8db6e2 0%, #c3dcf2 48%, #f6f4ec 100%);
+    background-repeat: no-repeat;
+    background-size: auto, auto, 100% 115vh;
 }
 
 /* Hero Section — full-width misty banner */
@@ -50,27 +75,37 @@ body {
 }
 
 .hero-title {
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: 'Instrument Serif', Georgia, serif;
     font-size: clamp(2.2rem, 5.5vw, 4.2rem);
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.08;
-    letter-spacing: -1px;
-    color: #2b2f2d;
+    letter-spacing: -0.01em;
+    color: var(--maroon);
     text-shadow: 0 1px 12px rgba(255, 255, 255, 0.55);
 }
 
+/* "traverse" as a pink washi sticker between the peak names */
 .hero-x {
     font-style: italic;
-    font-size: 0.6em;
-    vertical-align: 8%;
-    opacity: 0.7;
+    font-size: 0.42em;
+    display: inline-block;
+    vertical-align: 22%;
+    background: var(--washi-pink);
+    color: var(--maroon);
+    padding: 0.15em 0.7em 0.2em;
+    border-radius: 4px;
+    transform: rotate(-3deg);
+    letter-spacing: 0;
+    opacity: 0.94;
+    text-shadow: none;
+    margin: 0 0.2em;
 }
 
 .hero-sub {
     font-family: Georgia, 'Times New Roman', serif;
     font-style: italic;
     font-size: clamp(1rem, 1.8vw, 1.35rem);
-    color: #3c403e;
+    color: #6d3a30;
     margin-top: 8px;
     text-shadow: 0 1px 10px rgba(255, 255, 255, 0.55);
 }
@@ -85,28 +120,46 @@ body {
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #6b6f6c;
+    color: #7a6157;
     margin-top: 14px;
 }
 
+/* Spec badges as the profile's sticker kit: lavender pill, pink + butter washi */
 .hero-specs {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 16px;
+    gap: 12px;
+    margin-top: 18px;
 }
 
 .hero-specs li {
     font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 0.5px;
-    color: #2b2f2d;
-    padding: 6px 14px;
-    border: 1px solid rgba(43, 47, 45, 0.3);
+    padding: 6px 15px;
+    box-shadow: 0 3px 10px rgba(56, 34, 15, 0.14);
+}
+
+.hero-specs li:nth-child(1) {
+    background: var(--pill-lavender);
+    color: #33356b;
     border-radius: 999px;
-    background: rgba(248, 247, 245, 0.55);
-    backdrop-filter: blur(2px);
+    transform: rotate(-2deg);
+}
+
+.hero-specs li:nth-child(2) {
+    background: var(--washi-pink);
+    color: var(--maroon);
+    border-radius: 4px;
+    transform: rotate(1.5deg);
+}
+
+.hero-specs li:nth-child(3) {
+    background: var(--butter);
+    color: var(--maroon);
+    border-radius: 4px;
+    transform: rotate(-1deg);
 }
 
 /* Desktop hero: full-bleed crops the portrait source to a busy band and the
@@ -133,8 +186,10 @@ body {
         height: auto;
         aspect-ratio: 4 / 5;
         object-fit: cover;
+        border: 7px solid var(--paper);
         border-radius: 18px;
-        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16);
+        box-shadow: 0 18px 44px rgba(38, 22, 8, 0.2);
+        transform: rotate(1.8deg);
         -webkit-mask-image: none;
         mask-image: none;
     }
@@ -145,7 +200,7 @@ body {
     }
 
     .hero-title {
-        font-size: clamp(2.4rem, 3.5vw, 3.5rem);
+        font-size: clamp(2.5rem, 3.8vw, 3.8rem);
         text-shadow: none;
     }
 
@@ -161,12 +216,7 @@ body {
     }
 
     .hero-specs {
-        margin-top: 20px;
-    }
-
-    .hero-specs li {
-        background: transparent;
-        backdrop-filter: none;
+        margin-top: 22px;
     }
 }
 
@@ -187,21 +237,27 @@ body {
     text-align: center;
 }
 
+/* Kicker as a pink washi label */
 .kicker {
     display: inline-block;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: #8a8a85;
-    margin-bottom: 22px;
+    color: var(--maroon);
+    background: var(--washi-pink);
+    padding: 6px 16px 7px;
+    border-radius: 4px;
+    transform: rotate(-2deg);
+    opacity: 0.94;
+    margin-bottom: 26px;
 }
 
 .intro-text {
     font-family: Georgia, 'Times New Roman', serif;
     font-size: 1.35rem;
     line-height: 1.65;
-    color: #333;
+    color: #43302a;
     max-width: 720px;
     margin: 0 auto 50px;
 }
@@ -222,14 +278,14 @@ body {
     font-family: Georgia, 'Times New Roman', serif;
     font-size: 2.2rem;
     font-weight: 500;
-    color: #1a1a1a;
+    color: var(--maroon);
 }
 
 .stat-label {
     font-size: 0.78rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #999;
+    color: var(--muted);
 }
 
 /* Story sections */
@@ -248,13 +304,15 @@ body {
     order: 1;
 }
 
+/* Photos as paper prints */
 .story-media img,
 .duo-media img,
 .wide-media img {
     width: 100%;
     display: block;
+    border: 6px solid var(--paper);
     border-radius: 14px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 12px 30px rgba(56, 34, 15, 0.16);
     cursor: pointer;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -266,31 +324,57 @@ body {
     .duo-media img:hover,
     .wide-media img:hover {
         transform: scale(1.012);
-        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+        box-shadow: 0 16px 36px rgba(56, 34, 15, 0.22);
     }
 }
 
+/* Prints rest at slight, alternating angles (figures, so hover scale on the
+   img doesn't cancel the tilt). The photo-stack keeps its own transforms. */
+.story-grid .story-media:not(.photo-stack) {
+    transform: rotate(-1.2deg);
+}
+
+.duo-grid .duo-media:first-child {
+    transform: rotate(-1.1deg);
+}
+
+.duo-grid .duo-media:last-child {
+    transform: rotate(1.1deg);
+}
+
+/* Chapter numbers as butter/pink tape chips */
 .story-number {
-    display: block;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 0.95rem;
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
     letter-spacing: 3px;
-    color: #b0aea8;
-    margin-bottom: 10px;
+    color: var(--maroon);
+    background: var(--butter);
+    padding: 4px 13px 5px;
+    border-radius: 3px;
+    transform: rotate(-2deg);
+    box-shadow: 0 2px 8px rgba(56, 34, 15, 0.12);
+    margin-bottom: 14px;
+}
+
+.story-section:nth-of-type(odd) .story-number {
+    background: var(--washi-pink);
+    transform: rotate(1.5deg);
 }
 
 .story-title {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 2rem;
-    font-weight: 500;
-    letter-spacing: -0.5px;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 2.1rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: var(--maroon);
     margin-bottom: 18px;
 }
 
 .story-text p {
     font-size: 1rem;
     line-height: 1.75;
-    color: #444;
+    color: var(--ink);
     margin-bottom: 14px;
 }
 
@@ -339,7 +423,7 @@ body {
 @media (hover: hover) {
     .photo-stack:not(.swapped):hover .stack-back {
         transform: translate(38px, -18px) rotate(5deg);
-        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+        box-shadow: 0 16px 36px rgba(56, 34, 15, 0.22);
     }
 }
 
@@ -357,7 +441,7 @@ body {
 @media (hover: hover) {
     .photo-stack.swapped:hover .stack-front {
         transform: translate(26px, -18px) rotate(-5deg);
-        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+        box-shadow: 0 16px 36px rgba(56, 34, 15, 0.22);
     }
 }
 
@@ -402,10 +486,18 @@ body {
     }
 }
 
-/* Footer */
+/* Footer — the meadow at the bottom of the page */
 .footer {
     text-align: center;
-    padding: 80px 24px 70px;
+    padding: 110px 24px 80px;
+    background-image:
+        radial-gradient(circle 3px at 14% 42%, #fff 92%, transparent),
+        radial-gradient(circle 2px at 26% 70%, #fdf3c9 92%, transparent),
+        radial-gradient(circle 3px at 72% 36%, #fff 92%, transparent),
+        radial-gradient(circle 2px at 84% 64%, #fff 92%, transparent),
+        radial-gradient(circle 3px at 52% 82%, #fdf3c9 92%, transparent),
+        linear-gradient(180deg, var(--grass-hi) 0%, var(--grass-lo) 100%);
+    border-radius: 50% 50% 0 0 / 80px 80px 0 0;
 }
 
 .footer-dedication {
@@ -418,21 +510,29 @@ body {
     font-style: italic;
     font-size: 1.08rem;
     line-height: 1.7;
-    color: #777;
+    color: var(--cream);
+    text-shadow: 0 1px 4px rgba(30, 42, 16, 0.35);
     margin-bottom: 20px;
 }
 
 .footer-link {
     font-size: 0.9rem;
-    color: #1a1a1a;
+    font-weight: 500;
+    color: var(--cream);
     text-decoration: none;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid rgba(255, 248, 236, 0.45);
     padding-bottom: 2px;
     transition: border-color 0.2s ease;
 }
 
 .footer-link:hover {
-    border-color: #1a1a1a;
+    border-color: var(--cream);
+}
+
+.footer-link:focus-visible {
+    outline: 2px solid var(--cream);
+    outline-offset: 4px;
+    border-radius: 4px;
 }
 
 /* Lightbox Popup */
@@ -578,7 +678,7 @@ body {
     }
 
     .hero-specs {
-        gap: 7px;
+        gap: 8px;
         margin-top: 12px;
     }
 
@@ -592,7 +692,7 @@ body {
     }
 
     .intro-text {
-        font-size: 1.12rem;
+        font-size: 1.18rem;
     }
 
     .stats-row {
@@ -600,7 +700,7 @@ body {
     }
 
     .stat-value {
-        font-size: 1.7rem;
+        font-size: 1.8rem;
     }
 
     .story-grid {
@@ -625,5 +725,10 @@ body {
     #summit .story-media {
         max-width: 88%;
         margin: 0 auto;
+    }
+
+    .footer {
+        padding: 80px 24px 52px;
+        border-radius: 50% 50% 0 0 / 44px 44px 0 0;
     }
 }

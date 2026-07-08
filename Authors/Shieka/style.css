@@ -491,13 +491,17 @@ body {
 }
 
 .album-title {
-    font-family: 'Instrument Serif', Georgia, serif;
-    font-weight: 400;
-    font-size: 1.35rem;
+    font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
     letter-spacing: 0.01em;
     color: var(--cream);
     margin-bottom: 4px;
     text-shadow: 0 1px 4px rgba(30, 42, 16, 0.35);
+}
+
+.album-title em {
+    font-style: normal;
 }
 
 .album-count {
