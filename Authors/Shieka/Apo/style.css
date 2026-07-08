@@ -102,6 +102,66 @@ body {
     backdrop-filter: blur(2px);
 }
 
+/* Desktop hero: the source photo is a 720×960 portrait — full-bleed at laptop
+   widths it upscales blurry and the top mask eats the subject's head. Show it
+   as a sharp, uncropped portrait card beside the title instead.
+   (Mobile keeps the full-bleed hero below 601px.) */
+@media (min-width: 601px) {
+    .hero {
+        height: auto;
+        min-height: 92vh;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 64px 48px 24px;
+        display: grid;
+        grid-template-columns: 5fr 6fr;
+        gap: 56px;
+        align-items: center;
+        overflow: visible;
+    }
+
+    .hero-img {
+        position: static;
+        order: 2;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        border-radius: 18px;
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16);
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+
+    .hero-title-block {
+        position: static;
+        order: 1;
+    }
+
+    .hero-title {
+        font-size: clamp(2.6rem, 4.6vw, 4.6rem);
+        text-shadow: none;
+    }
+
+    .hero-sub {
+        text-shadow: none;
+        margin-top: 12px;
+    }
+
+    .hero-route {
+        margin-top: 22px;
+    }
+
+    .hero-specs {
+        margin-top: 20px;
+    }
+
+    .hero-specs li {
+        background: transparent;
+        backdrop-filter: none;
+    }
+}
+
 /* Shared layout */
 .container {
     max-width: 1000px;
@@ -317,20 +377,84 @@ body {
     margin: 0 auto;
 }
 
-/* Desktop: the 366px letterbox crops above are phone-sized — scale the same
-   2.5:1 crop up to fill the layout instead of floating small in it */
+/* Desktop: richer editorial layout — asymmetric story grids, aligned portrait
+   pairs, Boulder Field as a three-card row, and the dawn photo as a cinematic
+   band. Every photo here is a portrait source, so the phone-sized 2.5:1
+   letterbox crops above are undone in favor of 4:5 cards.
+   (Mobile rules stay untouched.) */
 @media (min-width: 601px) {
+    /* Story sections: photo column slimmer than the prose column */
+    .story-grid {
+        grid-template-columns: 5fr 6fr;
+        gap: 64px;
+    }
+
+    .grid-flip {
+        grid-template-columns: 6fr 5fr;
+    }
+
+    /* Photo pairs align as equal portrait cards */
+    .duo-media img {
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+    }
+
     #boulders .duo-media img,
-    #boulders .strip-media img,
-    #night-push .duo-media img,
+    #night-push .duo-media img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 5;
+        object-position: center;
+    }
+
+    /* Boulder Field: all three photos in one row of matching cards */
+    #boulders .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+
+    #boulders .story-text-center {
+        grid-column: 1 / -1;
+    }
+
+    #boulders .duo-grid {
+        display: contents;
+    }
+
+    #boulders .strip-media {
+        max-width: none;
+        margin: 0;
+    }
+
+    #boulders .strip-media img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    /* Night Push: dark pair, then dawn over the sea of clouds full width */
+    #night-push .strip-media {
+        max-width: none;
+        margin-top: 24px;
+    }
+
     #night-push .strip-media img {
         width: 100%;
         height: auto;
-        aspect-ratio: 5 / 2;
+        aspect-ratio: 2 / 1;
     }
 
-    #night-push .strip-media {
-        max-width: none;
+    /* Larger editorial type */
+    .story-title {
+        font-size: 2.35rem;
+    }
+
+    .story-text p {
+        font-size: 1.05rem;
+        line-height: 1.8;
     }
 }
 

@@ -845,7 +845,7 @@
                 isFeaturedHero: false,
                 img: "Mountains/Sumagaya/IMG/SumagayaHero.jpg",
                 carouselImg: "Mountains/Sumagaya/IMG/SumagayaHero.jpg",
-                isDraft: false
+                isDraft: true
             },
             {
                 id: "mt-makiling-star",
@@ -1213,6 +1213,8 @@
             // 1. Filter articles based on state
             const filtered = articles.filter(art => {
 
+                // Drafts are staged, not published — keep them off the grid
+                if (art.isDraft) return false;
 
                 // Category filter
                 if (currentCategory !== "all") {

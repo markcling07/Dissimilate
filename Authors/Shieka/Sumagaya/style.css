@@ -109,6 +109,67 @@ body {
     backdrop-filter: blur(2px);
 }
 
+/* Desktop hero: full-bleed crops the portrait source to a busy band and the
+   top mask eats the subject — show it as a sharp, uncropped portrait card
+   beside the title instead. (Mobile keeps the full-bleed hero below 601px.) */
+@media (min-width: 601px) {
+    .hero {
+        height: auto;
+        min-height: 92vh;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 64px 48px 24px;
+        display: grid;
+        grid-template-columns: 5fr 6fr;
+        gap: 56px;
+        align-items: center;
+        overflow: visible;
+    }
+
+    .hero-img {
+        position: static;
+        order: 2;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        border-radius: 18px;
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16);
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+
+    .hero-title-block {
+        position: static;
+        order: 1;
+    }
+
+    .hero-title {
+        font-size: clamp(2.4rem, 3.5vw, 3.5rem);
+        text-shadow: none;
+    }
+
+    .hero-sub {
+        text-shadow: none;
+        margin-top: 12px;
+        /* fits the full line incl. the emoji in the title column */
+        font-size: 1.2rem;
+    }
+
+    .hero-route {
+        margin-top: 22px;
+    }
+
+    .hero-specs {
+        margin-top: 20px;
+    }
+
+    .hero-specs li {
+        background: transparent;
+        backdrop-filter: none;
+    }
+}
+
 /* Shared layout */
 .container {
     max-width: 1000px;
@@ -252,22 +313,92 @@ body {
     margin-top: 10px;
 }
 
-.sunset-strip {
-    margin-top: 60px;
+/* Chapter 4 (Summit Gold): img 7 tucked behind img 6 like a card peeking from
+   the stack. Swiping the stack shuffles which card is on top; tapping opens
+   the lightbox. Same pattern as the Apo page's summit stack. */
+.photo-stack {
+    position: relative;
+    touch-action: pan-y;
 }
 
-/* Desktop: even out the side-by-side pairs (the photos' native ratios differ
-   slightly) and keep the portrait collages from blowing up to full width */
+.photo-stack .stack-front {
+    position: relative;
+    z-index: 1;
+}
+
+.photo-stack .stack-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transform: translate(28px, -12px) rotate(3.5deg);
+}
+
+@media (hover: hover) {
+    .photo-stack:not(.swapped):hover .stack-back {
+        transform: translate(38px, -18px) rotate(5deg);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+    }
+}
+
+/* Swapped: the back card comes to the front, the front card tucks behind */
+.photo-stack.swapped .stack-back {
+    transform: none;
+    z-index: 1;
+}
+
+.photo-stack.swapped .stack-front {
+    transform: translate(16px, -12px) rotate(-3.5deg);
+    z-index: 0;
+}
+
+@media (hover: hover) {
+    .photo-stack.swapped:hover .stack-front {
+        transform: translate(26px, -18px) rotate(-5deg);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+    }
+}
+
+/* Desktop: asymmetric story grids, aligned portrait pairs, and room for the
+   sunset and team collages to breathe — wide enough that each frame inside
+   still reads. (Mobile rules stay untouched.) */
 @media (min-width: 601px) {
+    /* Story sections: photo column slimmer than the prose column */
+    .story-grid {
+        grid-template-columns: 5fr 6fr;
+        gap: 64px;
+    }
+
+    .grid-flip {
+        grid-template-columns: 6fr 5fr;
+    }
+
+    /* Photo pairs align as equal portrait cards */
     .duo-media img {
         aspect-ratio: 4 / 5;
         object-fit: cover;
     }
 
     .wide-media {
-        max-width: 560px;
+        max-width: 660px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    #team .wide-media {
+        max-width: 780px;
+    }
+
+    /* Larger editorial type */
+    .story-title {
+        font-size: 2.35rem;
+    }
+
+    .story-text p {
+        font-size: 1.05rem;
+        line-height: 1.8;
     }
 }
 
@@ -490,7 +621,9 @@ body {
         gap: 20px;
     }
 
-    .sunset-strip {
-        margin-top: 40px;
+    /* Give the stacked cards' offset some side room on small screens */
+    #summit .story-media {
+        max-width: 88%;
+        margin: 0 auto;
     }
 }

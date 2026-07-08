@@ -1,4 +1,6 @@
 // Essay lightbox with swipe navigation — mirrors the profile page's popup
+// Unlike the Apo page, the stack-back card (img 7) is part of the normal
+// prev/next sequence here — every photo is reachable by arrowing through.
 (function () {
     var thumbs = Array.prototype.slice.call(document.querySelectorAll('main figure img'));
     var lightbox = document.getElementById('lightbox');
@@ -94,4 +96,44 @@
             closeLightbox();
         }
     }, { passive: true });
+})();
+
+// Photo stack (chapter 4): swipe or drag sideways to shuffle which card is on
+// top; a plain tap/click still opens the lightbox.
+(function () {
+    var stacks = Array.prototype.slice.call(document.querySelectorAll('.photo-stack'));
+
+    stacks.forEach(function (stack) {
+        var startX = 0;
+        var startY = 0;
+        var justSwiped = false;
+
+        stack.addEventListener('pointerdown', function (e) {
+            startX = e.clientX;
+            startY = e.clientY;
+        });
+
+        stack.addEventListener('pointerup', function (e) {
+            var dx = e.clientX - startX;
+            var dy = e.clientY - startY;
+            if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+                stack.classList.toggle('swapped');
+                justSwiped = true;
+            }
+        });
+
+        // Swallow the click that follows a swipe so it doesn't open the lightbox
+        stack.addEventListener('click', function (e) {
+            if (justSwiped) {
+                e.stopPropagation();
+                e.preventDefault();
+                justSwiped = false;
+            }
+        }, true);
+
+        // Keep the browser's native image-drag from hijacking mouse swipes
+        stack.addEventListener('dragstart', function (e) {
+            e.preventDefault();
+        });
+    });
 })();
