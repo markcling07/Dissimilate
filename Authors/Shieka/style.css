@@ -1,3 +1,7 @@
+/* Shieka's profile — editorial-serif-over-sky collage look.
+   Scene: airy sky hero (headline + stickers + photo fan) resting on a grassy meadow
+   that holds the album stacks. Album pages (Apo/, Sumagaya/) have their own CSS. */
+
 * {
     margin: 0;
     padding: 0;
@@ -5,48 +9,279 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+:root {
+    --maroon: #4a1512;
+    --sky-top: #7fb2e3;
+    --sky-mid: #bcd8f1;
+    --sky-low: #e9f2fb;
+    --grass-hi: #8db96a;
+    --grass-lo: #567f41;
+    --pill-lavender: #ccd8f7;
+    --washi-pink: #f6bcd4;
+    --butter: #f8e6a1;
+    --paper: #fffdf7;
+    --cream: #fff8ec;
+}
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: #f8f7f5;
-    color: #1a1a1a;
+    font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    /* grass-lo so any overflow past the meadow stays green, no pale strip */
+    background: var(--grass-lo);
+    color: var(--maroon);
 }
 
 .profile-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px 20px;
     overflow-x: hidden;
 }
 
-/* Header Section */
-.header {
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* ===== Sky hero ===== */
+.sky {
+    position: relative;
+    background: linear-gradient(180deg,
+        var(--sky-top) 0%,
+        var(--sky-mid) 42%,
+        var(--sky-low) 100%);
+    padding: 72px 20px 0;
+}
+
+/* Soft drifting clouds */
+.clouds {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    filter: blur(28px);
+}
+
+.cloud-1 {
+    width: 340px;
+    height: 90px;
+    top: 40px;
+    left: -60px;
+    animation: drift 90s ease-in-out infinite alternate;
+}
+
+.cloud-2 {
+    width: 260px;
+    height: 70px;
+    top: 150px;
+    right: -80px;
+    opacity: 0.7;
+    animation: drift 70s ease-in-out infinite alternate-reverse;
+}
+
+.cloud-3 {
+    width: 420px;
+    height: 100px;
+    top: 330px;
+    left: 30%;
+    opacity: 0.5;
+    animation: drift 110s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+    from { transform: translateX(0); }
+    to   { transform: translateX(90px); }
+}
+
+/* ===== Headline with sticker accents ===== */
+.hero {
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto;
     text-align: center;
-    margin-bottom: 30px;
+    padding: 24px 0 40px;
 }
 
-.profile-title {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 2.4rem;
-    font-weight: 500;
-    letter-spacing: -0.5px;
-    margin-bottom: 6px;
-}
-
-.profile-subtitle {
-    font-size: 0.95rem;
-    color: #666;
+.hero-title {
+    font-family: 'Instrument Serif', Georgia, serif;
     font-weight: 400;
-    letter-spacing: 0.5px;
+    font-size: clamp(2.9rem, 9.5vw, 5rem);
+    line-height: 0.98;
+    letter-spacing: -0.01em;
+    color: var(--maroon);
 }
 
-/* Featured Fan Cluster — cards fanned like a hand of photos */
+.ht-line {
+    display: block;
+}
+
+.ht-2 em,
+.album-title em {
+    font-style: italic;
+    letter-spacing: 0;
+}
+
+/* slight editorial offsets, like the layered magazine type in the reference */
+.ht-1 { margin-right: 2.2em; }
+.ht-2 { margin-left: 0.4em; }
+.ht-3 { position: relative; z-index: 2; }
+
+/* ===== Stickers ===== */
+.sticker {
+    position: absolute;
+}
+
+.sticker-pill {
+    top: 8%;
+    right: 6%;
+    display: inline-block;
+    background: var(--pill-lavender);
+    color: #33356b;
+    font-size: clamp(0.8rem, 2.2vw, 1.05rem);
+    font-weight: 500;
+    padding: 0.5em 1.2em;
+    border-radius: 999px;
+    transform: rotate(8deg);
+    box-shadow: 0 4px 14px rgba(51, 53, 107, 0.18);
+    z-index: 3;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* links to Shieka's Instagram */
+@media (hover: hover) {
+    .sticker-pill:hover {
+        transform: rotate(8deg) scale(1.08);
+        box-shadow: 0 6px 18px rgba(51, 53, 107, 0.28);
+    }
+}
+
+.sticker-pill:focus-visible {
+    outline: 2px solid #33356b;
+    outline-offset: 3px;
+}
+
+.sticker-flower {
+    top: 30%;
+    left: 2%;
+    width: clamp(52px, 9vw, 78px);
+    height: clamp(52px, 9vw, 78px);
+    transform: rotate(-8deg);
+    z-index: 3;
+}
+
+.sticker-flower svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.sticker-flower .petals {
+    fill: var(--butter);
+}
+
+.flower-emoji {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.2rem, 2.6vw, 1.7rem);
+}
+
+.sticker-tag {
+    left: 8%;
+    bottom: 4%;
+    background: var(--washi-pink);
+    color: var(--maroon);
+    font-size: clamp(0.85rem, 2.4vw, 1.15rem);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    padding: 0.35em 1em 0.4em;
+    border-radius: 4px;
+    transform: rotate(-4deg);
+    opacity: 0.94;
+    z-index: 1;
+}
+
+.sticker-scribble {
+    right: 5%;
+    bottom: 10%;
+    width: clamp(120px, 28vw, 210px);
+    height: auto;
+    z-index: 2;
+}
+
+.sticker-scribble path {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+.sticker-cursor {
+    right: 13%;
+    bottom: 1%;
+    width: clamp(24px, 4.5vw, 36px);
+    height: auto;
+    transform: rotate(-8deg);
+    z-index: 3;
+}
+
+.sticker-cursor path {
+    fill: var(--butter);
+    stroke: var(--maroon);
+    stroke-width: 2;
+    stroke-linejoin: round;
+}
+
+/* Gentle load-in for headline and stickers */
+.hero-title,
+.sticker {
+    animation: rise-in 0.7s ease-out backwards;
+}
+
+.sticker-pill     { animation-delay: 0.25s; }
+.sticker-flower   { animation-delay: 0.35s; }
+.sticker-tag      { animation-delay: 0.45s; }
+.sticker-scribble { animation-delay: 0.55s; }
+.sticker-cursor   { animation-delay: 0.65s; }
+
+@keyframes rise-in {
+    from {
+        opacity: 0;
+        translate: 0 14px;
+    }
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cloud { animation: none; }
+    .hero-title,
+    .sticker { animation: none; }
+}
+
+/* ===== Featured Fan Cluster — cards fanned like a hand of photos ===== */
 .featured-section {
-    margin-bottom: 70px;
+    position: relative;
+    z-index: 3;
+    margin-bottom: -60px;   /* rests on the meadow horizon */
 }
 
 .featured-cluster {
     position: relative;
     height: 370px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .featured-card {
@@ -55,21 +290,19 @@ body {
     overflow: hidden;
     border-radius: 14px;
     background: #e0e0e0;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    border: 5px solid var(--paper);
+    box-shadow: 0 10px 24px rgba(38, 22, 8, 0.22);
     transition: transform 0.25s ease, box-shadow 0.25s ease, z-index 0s;
+    cursor: pointer;
 }
 
 /* Hover-capable devices only — on touch screens a tap would trigger these
    and make the card pop right as the lightbox opens. */
 @media (hover: hover) {
     .featured-card:hover {
-        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 16px 32px rgba(38, 22, 8, 0.3);
         z-index: 10;
     }
-}
-
-.featured-card {
-    cursor: pointer;
 }
 
 .featured-card img {
@@ -145,9 +378,23 @@ body {
     .featured-card:nth-child(5):hover { transform: rotate(17deg) scale(1.05); }
 }
 
-/* Albums Row — rounded app-icon tiles with photo stacks inside */
-.albums-section {
-    margin-top: 40px;
+/* ===== Meadow — grassy section holding the albums ===== */
+.meadow {
+    position: relative;
+    z-index: 1;
+    /* tiny daisies scattered over the grass gradient */
+    background-image:
+        radial-gradient(circle 3px at 12% 34%, #fff 92%, transparent),
+        radial-gradient(circle 2px at 22% 62%, #fdf3c9 92%, transparent),
+        radial-gradient(circle 3px at 31% 46%, #fff 92%, transparent),
+        radial-gradient(circle 2px at 68% 40%, #fff 92%, transparent),
+        radial-gradient(circle 3px at 79% 58%, #fdf3c9 92%, transparent),
+        radial-gradient(circle 2px at 88% 36%, #fff 92%, transparent),
+        radial-gradient(circle 3px at 55% 72%, #fff 92%, transparent),
+        linear-gradient(180deg, var(--grass-hi) 0%, var(--grass-lo) 100%);
+    border-radius: 50% 50% 0 0 / 90px 90px 0 0;
+    padding: 110px 20px 0;
+    margin-top: 0;
 }
 
 .albums-grid {
@@ -163,27 +410,55 @@ body {
     display: block;
 }
 
+/* Paper photo-stack tiles with washi tape */
 .album-tile {
     position: relative;
     width: 150px;
     height: 150px;
-    margin: 0 auto 16px;
-    border-radius: 34px;
-    background: #ececea;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin: 14px auto 20px;
+    border-radius: 18px;
+    background: var(--paper);
+    box-shadow: 0 10px 22px rgba(30, 42, 16, 0.32);
     transition: transform 0.25s ease;
+    transform: rotate(-2deg);
 }
+
+.album-card:last-child .album-tile {
+    transform: rotate(2deg);
+}
+
+/* washi tape strip across the top edge */
+.album-tile::before {
+    content: "";
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    width: 84px;
+    height: 22px;
+    margin-left: -42px;
+    transform: rotate(-3deg);
+    border-radius: 2px;
+    opacity: 0.85;
+    z-index: 4;
+}
+
+.tape-pink::before   { background: var(--washi-pink); }
+.tape-butter::before { background: var(--butter); }
 
 @media (hover: hover) {
     .album-card:hover .album-tile {
-        transform: scale(1.05);
+        transform: rotate(-2deg) scale(1.05);
+    }
+
+    .album-card:last-child:hover .album-tile {
+        transform: rotate(2deg) scale(1.05);
     }
 }
 
 .album-tile .mini {
     position: absolute;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -216,38 +491,53 @@ body {
 }
 
 .album-title {
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin-bottom: 3px;
-    letter-spacing: -0.2px;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-weight: 400;
+    font-size: 1.35rem;
+    letter-spacing: 0.01em;
+    color: var(--cream);
+    margin-bottom: 4px;
+    text-shadow: 0 1px 4px rgba(30, 42, 16, 0.35);
 }
 
 .album-count {
-    font-size: 0.82rem;
-    color: #999;
-    font-weight: 400;
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--cream);
+    background: rgba(255, 248, 236, 0.18);
+    padding: 0.25em 0.9em;
+    border-radius: 999px;
 }
 
 /* Footer link back to the homepage */
 .profile-footer {
     text-align: center;
-    padding: 20px 20px 50px;
+    padding: 52px 20px 56px;
 }
 
 .footer-link {
     font-size: 0.9rem;
-    color: #1a1a1a;
+    font-weight: 500;
+    color: var(--cream);
     text-decoration: none;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid rgba(255, 248, 236, 0.45);
     padding-bottom: 2px;
     transition: border-color 0.2s ease;
 }
 
 .footer-link:hover {
-    border-color: #1a1a1a;
+    border-color: var(--cream);
 }
 
-/* Lightbox Popup */
+.footer-link:focus-visible,
+.album-card:focus-visible {
+    outline: 2px solid var(--cream);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* ===== Lightbox Popup ===== */
 .lightbox {
     position: fixed;
     inset: 0;
@@ -336,15 +626,21 @@ body {
     letter-spacing: 1px;
 }
 
-/* Responsive Design */
+/* ===== Responsive Design ===== */
 @media (max-width: 600px) {
-    .profile-container {
-        padding: 30px 12px;
+    .sky {
+        padding-top: 48px;
     }
 
-    .profile-title {
-        font-size: 2rem;
+    .hero {
+        padding-bottom: 30px;
     }
+
+    .ht-1 { margin-right: 1.4em; }
+
+    .sticker-pill { right: 0; }
+    .sticker-flower { left: 0; }
+    .sticker-cursor { bottom: -4%; }
 
     /* Shrink the whole fan cluster proportionally */
     .featured-cluster {
@@ -355,7 +651,12 @@ body {
     }
 
     .featured-section {
-        margin-bottom: 50px;
+        margin-bottom: -40px;
+    }
+
+    .meadow {
+        border-radius: 50% 50% 0 0 / 44px 44px 0 0;
+        padding-top: 80px;
     }
 
     .albums-grid {
@@ -365,7 +666,6 @@ body {
     .album-tile {
         width: 130px;
         height: 130px;
-        border-radius: 30px;
     }
 
     .album-tile .mini-1 {
@@ -389,6 +689,10 @@ body {
         bottom: 10px;
     }
 
+    .album-title {
+        font-size: 1.15rem;
+    }
+
     /* On touch screens, swipe replaces the arrow buttons */
     .lightbox-nav {
         display: none;
@@ -400,15 +704,42 @@ body {
     }
 }
 
-/* Dark Mode Support */
+/* ===== Dark Mode — dusk on the mountain ===== */
 @media (prefers-color-scheme: dark) {
-    body {
-        background: #1a1a1a;
-        color: #f0f0f0;
+    :root {
+        --maroon: #f3e6d5;
+        --sky-top: #1f2a4d;
+        --sky-mid: #3a3a63;
+        --sky-low: #55446030;
+        --grass-hi: #35502b;
+        --grass-lo: #22371b;
+        --paper: #efe6d6;
+        --cream: #f3e6d5;
     }
 
-    .profile-subtitle {
-        color: #999;
+    body {
+        background: #55446030;
+        background-color: #4d3f58;
+    }
+
+    .sky {
+        background: linear-gradient(180deg, #1f2a4d 0%, #3a3a63 48%, #4d3f58 100%);
+    }
+
+    .cloud {
+        background: rgba(255, 255, 255, 0.22);
+    }
+
+    .sticker-pill {
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    }
+
+    .sticker-tag {
+        color: #4a1512;
+    }
+
+    .sticker-cursor path {
+        stroke: #4a1512;
     }
 
     .featured-card {
@@ -417,20 +748,6 @@ body {
     }
 
     .album-tile {
-        background: #262626;
-        box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.04), 0 2px 8px rgba(0, 0, 0, 0.4);
-    }
-
-    .album-count {
-        color: #777;
-    }
-
-    .footer-link {
-        color: #f0f0f0;
-        border-bottom-color: #555;
-    }
-
-    .footer-link:hover {
-        border-color: #f0f0f0;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.5);
     }
 }
