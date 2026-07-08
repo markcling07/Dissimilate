@@ -413,10 +413,11 @@ body {
 /* Paper photo-stack tiles with washi tape */
 .album-tile {
     position: relative;
-    width: 150px;
-    height: 150px;
+    width: 132px;
+    height: 132px;
     margin: 14px auto 20px;
-    border-radius: 18px;
+    /* uneven corners so the paper reads hand-cut, not machine-rounded */
+    border-radius: 34px 18px 30px 20px / 20px 32px 18px 34px;
     background: var(--paper);
     box-shadow: 0 10px 22px rgba(30, 42, 16, 0.32);
     transition: transform 0.25s ease;
@@ -425,6 +426,7 @@ body {
 
 .album-card:last-child .album-tile {
     transform: rotate(2deg);
+    border-radius: 18px 32px 20px 34px / 34px 20px 30px 18px;
 }
 
 /* washi tape strip across the top edge */
@@ -463,29 +465,29 @@ body {
 }
 
 .album-tile .mini-1 {
-    width: 64px;
-    height: 82px;
-    left: 16px;
-    top: 26px;
+    width: 82px;
+    height: 104px;
+    left: 2px;
+    top: 8px;
     transform: rotate(-14deg);
     z-index: 1;
 }
 
 .album-tile .mini-2 {
-    width: 60px;
-    height: 78px;
-    right: 16px;
-    top: 20px;
+    width: 78px;
+    height: 100px;
+    right: 2px;
+    top: 5px;
     transform: rotate(11deg);
     z-index: 2;
 }
 
 .album-tile .mini-3 {
-    width: 76px;
-    height: 96px;
+    width: 98px;
+    height: 124px;
     left: 50%;
-    margin-left: -38px;
-    bottom: 12px;
+    margin-left: -49px;
+    bottom: 2px;
     transform: rotate(-4deg);
     z-index: 3;
 }
@@ -668,29 +670,29 @@ body {
     }
 
     .album-tile {
-        width: 130px;
-        height: 130px;
+        width: 114px;
+        height: 114px;
     }
 
     .album-tile .mini-1 {
-        width: 54px;
-        height: 70px;
-        left: 13px;
-        top: 22px;
+        width: 68px;
+        height: 88px;
+        left: 4px;
+        top: 6px;
     }
 
     .album-tile .mini-2 {
-        width: 50px;
-        height: 66px;
-        right: 13px;
-        top: 17px;
+        width: 64px;
+        height: 84px;
+        right: 4px;
+        top: 4px;
     }
 
     .album-tile .mini-3 {
-        width: 64px;
-        height: 82px;
-        margin-left: -32px;
-        bottom: 10px;
+        width: 82px;
+        height: 104px;
+        margin-left: -41px;
+        bottom: 2px;
     }
 
     .album-title {
