@@ -40,7 +40,6 @@ html {
 }
 
 /* ===== Hero ===== */
-/* NOTE: swap IMG/SumagayaHero.jpg for a real summit photo when available */
 .hero {
     width: 100%;
 }
@@ -220,6 +219,48 @@ figcaption {
     color: #5b6874;
     margin-top: 0.5rem;
     padding: 0.75rem;
+}
+
+/* Three-across photo rows, ported from Apo.css. Each row holds photos
+   from a single author and a single camera — Raul's sets mix sharp DSLR
+   frames, low-res video stills and faded film scans, and side by side
+   the mismatch reads as a mistake. */
+.gallery-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    clear: both;
+}
+
+.gallery-row figure {
+    flex: 1 1 calc(33.333% - 1rem);
+    min-width: 200px;
+    margin: 0;
+    background: #f9fafb;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.gallery-row figcaption {
+    font-size: 11px;
+    padding: 0.5rem;
+}
+
+@media (max-width: 600px) {
+    .gallery-row figure {
+        flex: 1 1 100%;
+    }
+}
+
+.credit-link {
+    color: #dc2626;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.credit-link:hover {
+    color: #b91c1c;
 }
 
 strong {
