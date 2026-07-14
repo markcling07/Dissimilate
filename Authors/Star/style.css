@@ -1,0 +1,404 @@
+/* Star's author profile — editorial layout over a sea-teal gradient.
+   Structure follows the "Beach Ambience" reference; palette is Star's
+   homepage teal (#0e9488 family). Bespoke per author, like every
+   Authors/<Person>/index.html on this site. */
+
+:root {
+    --teal-deep: #0a6b62;
+    --teal: #0e9488;
+    --teal-soft: #d6f0ec;
+    --ink: #12312d;
+    --ink-soft: rgba(18, 49, 45, 0.72);
+    --paper: #ffffff;
+
+    /* Shadows tinted toward teal-slate, never pure black */
+    --shadow-sm: 0 6px 20px rgba(10, 60, 55, 0.14);
+    --shadow-md: 0 16px 44px rgba(10, 60, 55, 0.22);
+
+    --radius-sm: 10px;
+    --radius-card: 14px;
+    --radius-pill: 999px;
+
+    --space-section: clamp(3rem, 8vw, 6rem);
+    --space-gutter: clamp(1.25rem, 5vw, 3rem);
+
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Urbanist', sans-serif;
+    color: var(--ink);
+}
+
+/* The soft teal gradient the whole page sits on (the photo hero it once
+   blended with has been removed, so it starts light). */
+body {
+    background: linear-gradient(to bottom, #8cc5bc 0%, #aedcd4 45%, var(--teal-soft) 100%);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.profile {
+    overflow-x: hidden;
+}
+
+/* Small repeated nav rows — the reference uses these as section dividers */
+.mini-nav {
+    display: flex;
+    gap: clamp(0.9rem, 2.5vw, 1.75rem);
+}
+
+.mini-nav a {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: inherit;
+    opacity: 0.75;
+    transition: var(--transition);
+}
+
+.mini-nav a.is-current,
+.mini-nav a:hover {
+    opacity: 1;
+    font-weight: 800;
+}
+
+.mini-nav-dark {
+    color: var(--ink);
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+    display: inline-block;
+    padding: 0.65rem 1.5rem;
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.btn-solid {
+    background: var(--paper);
+    color: var(--ink);
+    box-shadow: var(--shadow-sm);
+}
+
+@media (hover: hover) {
+    .btn-solid:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+}
+
+/* ---------- Sections ---------- */
+
+.featured,
+.logs {
+    width: min(1160px, 100%);
+    margin: 0 auto;
+    padding: var(--space-section) var(--space-gutter) 0;
+}
+
+.section-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid rgba(18, 49, 45, 0.25);
+    padding-bottom: 0.7rem;
+    margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.section-label {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+}
+
+/* ---------- White polaroid frames (log cards) ---------- */
+
+.frame {
+    background: var(--paper);
+    padding: 10px;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-md);
+}
+
+.frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* ---------- Featured entry ---------- */
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+}
+
+/* Bare photo — no white polaroid frame */
+.featured-photo {
+    aspect-ratio: 3 / 4;
+    max-width: 420px;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.featured-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.featured-date {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-bottom: 0.75rem;
+}
+
+.featured-title {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+}
+
+.featured-desc {
+    max-width: 56ch;
+    color: var(--ink-soft);
+    margin-bottom: 1.5rem;
+}
+
+.author-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.75rem;
+    font-weight: 700;
+    font-size: 0.92rem;
+}
+
+.author-chip img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    /* Her face sits just above the middle of the portrait */
+    object-position: center 58%;
+    border: 2px solid var(--paper);
+    box-shadow: var(--shadow-sm);
+}
+
+/* On the light body, the solid button flips to teal */
+.featured .btn-solid,
+.logs .btn-solid {
+    background: var(--teal-deep);
+    color: var(--paper);
+}
+
+/* ---------- Log cards ---------- */
+
+.log-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1.5rem, 3.5vw, 2.5rem);
+}
+
+.log-card {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+}
+
+.log-img-wrap {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.log-img-wrap img {
+    transition: transform 0.6s ease;
+}
+
+.log-meta {
+    padding: 0.9rem 0.35rem 0.5rem;
+}
+
+.log-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 0.3rem;
+}
+
+.log-desc {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-bottom: 0.6rem;
+}
+
+.log-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal-deep);
+}
+
+@media (hover: hover) {
+    .log-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 22px 50px rgba(10, 60, 55, 0.28);
+    }
+    .log-card:hover .log-img-wrap img {
+        transform: scale(1.05);
+    }
+}
+
+/* ---------- Footer ---------- */
+
+.profile-footer {
+    width: min(1160px, 100%);
+    margin: 0 auto;
+    padding: var(--space-section) var(--space-gutter) clamp(2rem, 5vw, 3rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+}
+
+.profile-footer strong {
+    color: var(--ink);
+}
+
+.footer-back {
+    font-weight: 700;
+    color: var(--teal-deep);
+    text-decoration: none;
+}
+
+.footer-back:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Accessibility ---------- */
+
+a:focus-visible,
+.btn:focus-visible {
+    outline: 3px solid var(--teal-deep);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .log-card:hover,
+    .log-card:hover .log-img-wrap img,
+    .btn-solid:hover {
+        transform: none;
+    }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 700px) {
+    /* The label + nav don't fit on one 390px line; let them stack
+       instead of stretching the whole document sideways. */
+    .section-row {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        row-gap: 0.4rem;
+    }
+
+    /* The featured entry becomes one centered composition: photo on top,
+       everything beneath it centered to match. */
+    .featured-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .featured-photo {
+        max-width: 190px;
+        margin: 0 auto;
+    }
+    .featured-body {
+        text-align: center;
+    }
+    .featured-desc {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .author-chip {
+        justify-content: center;
+    }
+
+    /* Each log becomes a horizontal row: small thumb left, details right */
+    .log-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: 0 auto;
+        gap: 0.9rem;
+    }
+    .log-card {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.9rem;
+    }
+    .log-img-wrap {
+        flex: 0 0 92px;
+        width: 92px;
+        aspect-ratio: 4 / 5;
+    }
+    .log-meta {
+        flex: 1;
+        padding: 0;
+    }
+    .log-title {
+        font-size: 1rem;
+        margin-bottom: 0.2rem;
+    }
+    .log-desc {
+        font-size: 0.78rem;
+        margin-bottom: 0.4rem;
+    }
+    .log-tag {
+        font-size: 0.65rem;
+    }
+
+    .profile-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}

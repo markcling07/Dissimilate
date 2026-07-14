@@ -1336,6 +1336,42 @@ body {
     height: 16px;
 }
 
+/* Author profile links (currently only on Star's card) */
+.author-card-link {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+
+/* When the link wraps the card photo, it must fill the fixed-height
+   wrapper or the object-fit crop collapses. */
+.author-card-image-wrapper .author-card-link {
+    height: 100%;
+}
+
+.author-card-link:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+/* Two side-by-side actions when a card also links to a profile */
+.author-card-actions-row {
+    display: flex;
+    gap: 10px;
+}
+
+.author-card-actions-row .author-action-btn {
+    flex: 1;
+    padding: 14px 12px;
+    font-size: 0.88rem;
+}
+
+.author-profile-btn {
+    background-color: var(--ac-deep, #121212);
+    text-decoration: none;
+}
+
 /* Dark mode adjust for the button */
 [data-theme="dark"] .author-action-btn {
     background-color: #ffffff;
