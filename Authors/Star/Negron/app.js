@@ -11,10 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (playOverlay && customVideo) {
             playOverlay.addEventListener('click', () => {
+                // Once the reader has opted in, hand over to the native controls —
+                // they bring keyboard scrubbing, volume and fullscreen for free.
+                customVideo.controls = true;
                 customVideo.play();
                 wrapper.classList.add('playing');
             });
-            
+
             // Toggle play/pause by clicking the video itself
             customVideo.addEventListener('click', () => {
                 if (customVideo.paused) {
@@ -22,13 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     wrapper.classList.add('playing');
                 } else {
                     customVideo.pause();
-                    wrapper.classList.remove('playing');
                 }
             });
 
-            // Also handle when video is paused externally
+            // Pausing returns the poster overlay only if playback never really began.
             customVideo.addEventListener('pause', () => {
-                wrapper.classList.remove('playing');
+                if (customVideo.currentTime === 0) {
+                    wrapper.classList.remove('playing');
+                }
             });
         }
     });
@@ -42,137 +46,120 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.querySelector('.lightbox-prev');
     const nextBtn = document.querySelector('.lightbox-next');
 
-    // Collect all zoomable image sources currently active/visible in grid
+    const FALLBACK_CAPTION = 'Mt. Negron Expedition Journal';
+
     let activeImages = [];
     let currentIndex = 0;
+    let lastFocused = null;
+
+    // A gallery tile's caption: its heading, else its collage label, else the alt text.
+    function captionForItem(item) {
+        const h4 = item.querySelector('h4');
+        const label = item.querySelector('.collage-label');
+        const img = item.querySelector('img');
+        return (h4 && h4.textContent)
+            || (label && label.textContent)
+            || (img && img.getAttribute('alt'))
+            || FALLBACK_CAPTION;
+    }
 
     function buildActiveImageList() {
-        const galleryItems = Array.from(document.querySelectorAll('.gallery-item'))
-            .filter(item => item.style.display !== 'none');
-        
-        activeImages = galleryItems.map(item => {
-            const h4 = item.querySelector('h4');
-            const label = item.querySelector('.collage-label');
-            const img = item.querySelector('img');
-            let caption = 'Mt. Negron Expedition Journal';
-            if (h4) {
-                caption = h4.textContent;
-            } else if (label) {
-                caption = label.textContent;
-            } else if (img && img.getAttribute('alt')) {
-                caption = img.getAttribute('alt');
-            }
-            return {
+        activeImages = Array.from(document.querySelectorAll('.gallery-item'))
+            .filter(item => item.style.display !== 'none')
+            .map(item => ({
                 src: item.getAttribute('data-src'),
-                caption: caption
-            };
-        });
+                caption: captionForItem(item)
+            }));
+    }
+
+    function render() {
+        const { src, caption } = activeImages[currentIndex];
+        lightboxImg.src = src;
+        lightboxImg.alt = caption;
+        lightboxCaption.textContent = caption;
     }
 
     function openLightbox(src, caption) {
-        lightboxImg.src = src;
-        lightboxCaption.textContent = caption;
-        lightbox.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // block body scroll
-        
+        lastFocused = document.activeElement;
+
         currentIndex = activeImages.findIndex(img => img.src === src);
-        
-        // Handle images clicked outside the main gallery (e.g. featured tree, companions)
-        if (currentIndex === -1) {
+
+        // Images clicked outside a known collection open on their own.
+        const isSolo = currentIndex === -1;
+        if (isSolo) {
             activeImages = [{ src, caption }];
             currentIndex = 0;
-            prevBtn.style.display = 'none';
-            nextBtn.style.display = 'none';
-        } else {
-            prevBtn.style.display = 'block';
-            nextBtn.style.display = 'block';
         }
+        const single = isSolo || activeImages.length <= 1;
+        prevBtn.hidden = single;
+        nextBtn.hidden = single;
+
+        render();
+        lightbox.hidden = false;
+        lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // block body scroll
+        closeBtn.focus();
     }
 
     function closeLightbox() {
+        lightbox.hidden = true;
         lightbox.style.display = 'none';
         document.body.style.overflow = '';
+        if (lastFocused) lastFocused.focus();
     }
 
     function showNext() {
         if (activeImages.length <= 1) return;
         currentIndex = (currentIndex + 1) % activeImages.length;
-        lightboxImg.src = activeImages[currentIndex].src;
-        lightboxCaption.textContent = activeImages[currentIndex].caption;
+        render();
     }
 
     function showPrev() {
         if (activeImages.length <= 1) return;
         currentIndex = (currentIndex - 1 + activeImages.length) % activeImages.length;
-        lightboxImg.src = activeImages[currentIndex].src;
-        lightboxCaption.textContent = activeImages[currentIndex].caption;
+        render();
     }
 
-    // Attach click triggers to all image items
+    // Make a non-button element behave like one: focusable, and Enter/Space activates.
+    function makeActivatable(el, label, onActivate) {
+        el.setAttribute('role', 'button');
+        el.setAttribute('tabindex', '0');
+        el.setAttribute('aria-label', `View image: ${label}`);
+        el.addEventListener('click', onActivate);
+        el.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                onActivate();
+            }
+        });
+    }
+
     document.querySelectorAll('.gallery-item').forEach(item => {
-        item.addEventListener('click', () => {
+        makeActivatable(item, captionForItem(item), () => {
             buildActiveImageList();
-            const src = item.getAttribute('data-src');
-            const h4 = item.querySelector('h4');
-            const label = item.querySelector('.collage-label');
-            const img = item.querySelector('img');
-            let caption = 'Mt. Negron Expedition Journal';
-            if (h4) {
-                caption = h4.textContent;
-            } else if (label) {
-                caption = label.textContent;
-            } else if (img && img.getAttribute('alt')) {
-                caption = img.getAttribute('alt');
-            }
-            openLightbox(src, caption);
+            openLightbox(item.getAttribute('data-src'), captionForItem(item));
         });
     });
 
-    // Section 1 (Flora Grid) image cycling trigger
-    document.querySelectorAll('.flora-grid img').forEach(img => {
-        img.addEventListener('click', (e) => {
-            const targetSrc = e.target.getAttribute('src');
-            const sectionImages = Array.from(document.querySelectorAll('.flora-grid img'))
-                .filter(el => window.getComputedStyle(el).display !== 'none');
-            activeImages = sectionImages.map(el => ({
-                src: el.getAttribute('src'),
-                caption: el.getAttribute('alt') || 'Mt. Negron Expedition Journal'
-            }));
-            currentIndex = activeImages.findIndex(img => img.src === targetSrc);
-            openLightbox(targetSrc, activeImages[currentIndex].caption);
-            
-            if (activeImages.length <= 1) {
-                prevBtn.style.display = 'none';
-                nextBtn.style.display = 'none';
-            } else {
-                prevBtn.style.display = 'block';
-                nextBtn.style.display = 'block';
-            }
+    // The overlapping photo frames each get their own scoped carousel. Only the
+    // images actually visible at this breakpoint are included.
+    function wireScopedGallery(selector) {
+        document.querySelectorAll(`${selector} img`).forEach(img => {
+            const caption = img.getAttribute('alt') || FALLBACK_CAPTION;
+            makeActivatable(img, caption, () => {
+                activeImages = Array.from(document.querySelectorAll(`${selector} img`))
+                    .filter(el => window.getComputedStyle(el).display !== 'none')
+                    .map(el => ({
+                        src: el.getAttribute('src'),
+                        caption: el.getAttribute('alt') || FALLBACK_CAPTION
+                    }));
+                openLightbox(img.getAttribute('src'), caption);
+            });
         });
-    });
+    }
 
-    // Section 5 (Companions Grid) image cycling trigger
-    document.querySelectorAll('.companions-grid img').forEach(img => {
-        img.addEventListener('click', (e) => {
-            const targetSrc = e.target.getAttribute('src');
-            const sectionImages = Array.from(document.querySelectorAll('.companions-grid img'))
-                .filter(el => window.getComputedStyle(el).display !== 'none');
-            activeImages = sectionImages.map(el => ({
-                src: el.getAttribute('src'),
-                caption: el.getAttribute('alt') || 'Mt. Negron Expedition Journal'
-            }));
-            currentIndex = activeImages.findIndex(img => img.src === targetSrc);
-            openLightbox(targetSrc, activeImages[currentIndex].caption);
-            
-            if (activeImages.length <= 1) {
-                prevBtn.style.display = 'none';
-                nextBtn.style.display = 'none';
-            } else {
-                prevBtn.style.display = 'block';
-                nextBtn.style.display = 'block';
-            }
-        });
-    });
+    wireScopedGallery('.flora-grid');
+    wireScopedGallery('.companions-grid');
 
     closeBtn.addEventListener('click', closeLightbox);
     nextBtn.addEventListener('click', showNext);
@@ -182,25 +169,34 @@ document.addEventListener('DOMContentLoaded', () => {
     lightboxImg.addEventListener('click', showNext);
 
     lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-            closeLightbox();
-        }
+        if (e.target === lightbox) closeLightbox();
     });
 
-    // Keyboard navigation
+    // Keyboard navigation, plus a focus trap so Tab can't escape the open dialog.
     document.addEventListener('keydown', (e) => {
-        if (lightbox.style.display === 'flex') {
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowRight') showNext();
-            if (e.key === 'ArrowLeft') showPrev();
+        if (lightbox.hidden) return;
+
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+
+        if (e.key === 'Tab') {
+            const focusable = [closeBtn, prevBtn, nextBtn].filter(btn => !btn.hidden);
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
         }
     });
 
 
 
-
-
-    // --- 4. Interactive Packing Checklist ---
+    // --- 3. Interactive Packing Checklist ---
     const checkboxes = document.querySelectorAll('.checklist-item input');
     const progressBar = document.getElementById('packProgressBar');
     const progressText = document.getElementById('packProgressText');
