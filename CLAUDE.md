@@ -18,6 +18,13 @@ Deployed via **GitHub Pages** at https://markcling07.github.io/Dissimilate/. Pus
 
 - A PostToolUse hook runs `node .claude/scripts/check-refs.mjs --hook` after every file edit — it validates local href/src paths and `articles` array entries with exact-case matching. If it reports a broken reference, fix it before moving on.
 - `/add-content` scaffolds a new piece (folder + HTML/CSS/IMG skeleton + OG meta + articles-array entry); `/check-links` runs the full reference check. Prefer these over doing it by hand.
+- **One exception to "no build step": Astro essay sub-projects.** Cling's essays live as Astro + React (TS) projects in `Authors/Cling/<Essay>/_src/`; the **committed, servable artifact** is the built `index.html` + `assets/` one level up. Never hand-edit that `index.html` — edit `_src/src/` and run `npm run build` inside `_src/` (builds, then `publish.mjs` copies output up and relativizes asset paths). `node_modules/`, `_src/dist/`, `_src/.astro/` are gitignored. Everything else on the site stays no-build.
+
+## AI SEO (GEO/AEO) conventions
+
+- Root `robots.txt` (explicitly allows AI crawlers), `sitemap.xml`, and `llms.txt` exist. **When a piece goes live (isDraft flips to false), add its URL to `sitemap.xml` and, if noteworthy, `llms.txt`** — both are hand-maintained, percent-encoded absolute URLs.
+- Live pages carry a **JSON-LD Article block** (`<script type="application/ld+json">`) with headline/description/image/author taken from the page's own meta. Add one to every new page; the Astro layout does this automatically for Cling's essays.
+- Essay structure follows the answer-first pattern: TL;DR block up top, question-shaped H2s answered in their first sentence, lists for enumerable claims. The full text must be present in static HTML — AI crawlers don't run JS, so never gate essay content behind client-side rendering.
 
 ## Gotchas
 
