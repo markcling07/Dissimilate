@@ -1,0 +1,91 @@
+---
+/**
+ * ============================================================
+ *  PLACEHOLDER ESSAY — every paragraph below is scaffolding.
+ *  Replace the copy (and the frontmatter values) with the real
+ *  essay, then rebuild with `npm run build` inside _src/.
+ * ============================================================
+ *
+ * The structure itself is the AEO pattern to keep:
+ *  - TL;DR block first (engines lift self-contained summaries)
+ *  - question-shaped H2s, each answered in the first sentence below it
+ *  - lists for anything enumerable
+ *  - blockquote for the one line you'd want an AI to quote verbatim
+ */
+import EssayLayout from '../layouts/EssayLayout.astro';
+import ExpandableAside from '../components/ExpandableAside.tsx';
+
+const meta = {
+  // TODO: real title
+  title: 'Working Title',
+  // TODO: real one-sentence description (this feeds meta + JSON-LD)
+  description:
+    'A placeholder description of the essay — one clear sentence stating the claim the essay makes.',
+  canonicalUrl:
+    'https://markcling07.github.io/Dissimilate/Authors/Cling/The-Essay/',
+  ogImage:
+    'https://markcling07.github.io/Dissimilate/Authors/Cling/The-Essay/IMG/OG.jpg',
+  author: 'Cling',
+  datePublished: '2026-07-15',
+  displayDate: 'July 15, 2026',
+  category: 'Essay', // TODO: match the homepage category
+  readTime: '6 min read', // TODO
+};
+---
+
+<EssayLayout {...meta}>
+  <!-- TODO: real TL;DR — 2–3 sentences that answer the essay's core question
+       on their own. This is the block answer engines are most likely to cite. -->
+  <p class="tldr">
+    <strong>TL;DR</strong>
+    This is the placeholder summary. State the essay's central claim in two or
+    three self-contained sentences, so a reader — or an AI engine — who takes
+    only this block away still has the answer.
+  </p>
+
+  <!-- TODO: opening section. First H2 should be the question the essay exists
+       to answer, phrased the way someone would actually ask it. -->
+  <h2>What is this essay actually about?</h2>
+  <p>
+    Placeholder. Answer the H2's question directly in this first sentence, then
+    spend the rest of the section earning that answer. AI engines strongly
+    favour passages that stand alone: a question heading followed by a complete
+    answer is the most liftable shape there is.
+  </p>
+  <p>
+    Placeholder. Second paragraph deepens the argument. Keep each paragraph on
+    one idea.
+  </p>
+
+  <blockquote>
+    <!-- TODO: the one sentence you'd want quoted verbatim. -->
+    A placeholder for the essay's single most quotable line.
+  </blockquote>
+
+  <h2>Why does it matter?</h2>
+  <p>
+    Placeholder. Again: first sentence answers, rest supports. When a claim can
+    be enumerated, use a list —
+  </p>
+  <ul>
+    <li>Placeholder point one, phrased as a complete claim.</li>
+    <li>Placeholder point two.</li>
+    <li>Placeholder point three.</li>
+  </ul>
+
+  <ExpandableAside client:visible label="Side note">
+    <p>
+      This collapsible aside is the React island — TypeScript, hydrated only
+      when scrolled into view. Its text is server-rendered and open by default,
+      so crawlers and no-JS readers always see it; React merely adds the
+      collapse toggle. Use it for digressions that would break the essay's flow.
+    </p>
+  </ExpandableAside>
+
+  <h2>Where does that leave us?</h2>
+  <p>
+    Placeholder closing. Restate the claim with the weight the essay has now
+    earned, in language that survives being read in isolation.
+  </p>
+</EssayLayout>
+
