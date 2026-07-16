@@ -1,91 +1,348 @@
 ---
 /**
- * ============================================================
- *  PLACEHOLDER ESSAY — every paragraph below is scaffolding.
- *  Replace the copy (and the frontmatter values) with the real
- *  essay, then rebuild with `npm run build` inside _src/.
- * ============================================================
+ * Cling's essay — the June 2026 earthquake and its economic aftermath.
  *
- * The structure itself is the AEO pattern to keep:
- *  - TL;DR block first (engines lift self-contained summaries)
- *  - question-shaped H2s, each answered in the first sentence below it
- *  - lists for anything enumerable
- *  - blockquote for the one line you'd want an AI to quote verbatim
+ * DRAFT. Cling's text is placed verbatim; structure follows the AEO template
+ * (TL;DR block, question/section H2s, blockquote, list, React aside island).
+ * Rebuild with `npm run build` inside _src/ after edits.
+ *
+ * TODO before going live (flip isDraft:false in root index.html + add to sitemap):
+ *  - confirm the title + one-sentence description below (both are working drafts)
+ *  - drop real photos into IMG/ for the three situation cards + the OG card
  */
 import EssayLayout from '../layouts/EssayLayout.astro';
 import ExpandableAside from '../components/ExpandableAside.tsx';
 
 const meta = {
-  // TODO: real title
-  title: 'Working Title',
-  // TODO: real one-sentence description (this feeds meta + JSON-LD)
+  title: 'Investment in General Santos & Sarangani, still worth it?',
+  // WORKING DESCRIPTION — feeds meta + JSON-LD. Confirm or replace.
   description:
-    'A placeholder description of the essay — one clear sentence stating the claim the essay makes.',
+    'After the June 2026 earthquake devastated General Santos City and Sarangani, one resident counts the economic cost to workers and vendors — and asks whether business and capital are still worth pouring into the region.',
   canonicalUrl:
     'https://markcling07.github.io/Dissimilate/Authors/Cling/The-Essay/',
   ogImage:
     'https://markcling07.github.io/Dissimilate/Authors/Cling/The-Essay/IMG/OG.jpg',
   author: 'Cling',
-  datePublished: '2026-07-15',
-  displayDate: 'July 15, 2026',
-  category: 'Essay', // TODO: match the homepage category
-  readTime: '6 min read', // TODO
+  datePublished: '2026-07-16',
+  displayDate: 'July 16, 2026',
+  category: 'Essay',
+  readTime: '5 min read',
 };
 ---
 
 <EssayLayout {...meta}>
-  <!-- TODO: real TL;DR — 2–3 sentences that answer the essay's core question
-       on their own. This is the block answer engines are most likely to cite. -->
+  <p class="dedication">Everything for the Master,</p>
+
+  <!-- DRAFT TL;DR — written from Cling's material so the answer-first block isn't
+       empty. Rewrite in Cling's own words before publishing. -->
   <p class="tldr">
     <strong>TL;DR</strong>
-    This is the placeholder summary. State the essay's central claim in two or
-    three self-contained sentences, so a reader — or an AI engine — who takes
-    only this block away still has the answer.
+    The June 2026 earthquake shut down General Santos City's largest private
+    employers — SM, MGM, and KCC — and cut Glan off by road, erasing income for
+    over a thousand workers and the vendors who depend on them. Roughly 22 people
+    died. This is one resident's accounting of the economic aftermath, and an
+    honest question: is business and capital still worth pouring into our region?
   </p>
 
-  <!-- TODO: opening section. First H2 should be the question the essay exists
-       to answer, phrased the way someone would actually ask it. -->
-  <h2>What is this essay actually about?</h2>
+  <h2>I'll tell you the situation first.</h2>
   <p>
-    Placeholder. Answer the H2's question directly in this first sentence, then
-    spend the rest of the section earning that answer. AI engines strongly
-    favour passages that stand alone: a question heading followed by a complete
-    answer is the most liftable shape there is.
+    The June 2026 earthquake shook General Santos City and other parts of
+    Sarangani Province, including Jose Abad Santos, <em>though not part of
+    Sarangani,</em> in a most traumatic way.
   </p>
   <p>
-    Placeholder. Second paragraph deepens the argument. Keep each paragraph on
-    one idea.
+    Key establishments have ceased operations due to heavy structural damage:
+    SM Mall, MGM Store, and our very own KCC. These retailers are the largest
+    private employers in GenSan, collectively accounting for over 1,000 jobs.
+    With staff currently instructed not to report for work due to safety risks,
+    we are facing an immediate crisis.
   </p>
+
+  <!-- Situation cards. GenSan + Glan use public-domain photos (Wikimedia Commons);
+       JAS has no free-licensed image yet, so it keeps the placeholder. -->
+  <div class="situation-cards">
+    <figure class="situation-card">
+      <img
+        class="situation-photo"
+        src="./IMG/gensan-collapsed-calumpang.jpg"
+        width="1600"
+        height="900"
+        loading="lazy"
+        decoding="async"
+        alt="A search-and-rescue worker and dog inside a collapsed commercial building in Barangay Calumpang, General Santos"
+      />
+      <figcaption>
+        <span class="place">GenSan</span>Severe structural damage
+        <span class="credit">Photo: Philippine Coast Guard · public domain</span>
+      </figcaption>
+    </figure>
+    <figure class="situation-card">
+      <img
+        class="situation-photo"
+        src="./IMG/glan-highway.jpg"
+        width="1260"
+        height="1514"
+        loading="lazy"
+        decoding="async"
+        alt="A coastal highway in Glan buckled and split into slabs by the earthquake, with residents crossing on foot"
+      />
+      <figcaption>
+        <span class="place">Glan</span>Roads impassable
+        <span class="credit">Photo: Municipal Government of Glan · public domain</span>
+      </figcaption>
+    </figure>
+    <figure class="situation-card">
+      <img
+        class="situation-photo"
+        src="./IMG/philsa-jas-landslides.jpg"
+        width="960"
+        height="532"
+        loading="lazy"
+        decoding="async"
+        alt="Sentinel-2 satellite map by the Philippine Space Agency showing quake-triggered landslide areas outlined in red around barangays San Isidro, Nuing and Butulan in Jose Abad Santos, where a landslide dammed the river"
+      />
+      <figcaption>
+        <span class="place">JAS</span>River blocked &mdash; Lake
+        <span class="credit">Satellite map: PhilSA · Copernicus Sentinel-2 data</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <figure class="quake-map">
+    <img
+      src="./IMG/usgs-gensan-sarangani.jpg"
+      width="584"
+      height="496"
+      loading="lazy"
+      decoding="async"
+      alt="USGS ShakeMap zoomed to General Santos and Sarangani: the epicentre star sits just offshore south-west of General Santos, with the strongest shaking (orange) over General Santos, Sarangani and Koronadal"
+    />
+    <figcaption>
+      USGS ShakeMap, zoomed to General Santos and Sarangani — the epicentre (★)
+      sits just offshore south-west of the city, with the strongest shaking in
+      the warm-coloured zone over General Santos, Sarangani and Koronadal.
+      <span class="credit">Map: U.S. Geological Survey · public domain</span>
+    </figcaption>
+  </figure>
 
   <blockquote>
-    <!-- TODO: the one sentence you'd want quoted verbatim. -->
-    A placeholder for the essay's single most quotable line.
+    Roads are the arteries of the economy. They connect producers to markets,
+    workers to jobs, and communities to essential services.
   </blockquote>
 
-  <h2>Why does it matter?</h2>
   <p>
-    Placeholder. Again: first sentence answers, rest supports. When a claim can
-    be enumerated, use a list —
+    This road from Brgy. Lago up to Brgy. Kapatan is closed. It didn't even
+    reach Malapatan, let alone &ldquo;Tour Town Glan&rdquo;.
   </p>
-  <ul>
-    <li>Placeholder point one, phrased as a complete claim.</li>
-    <li>Placeholder point two.</li>
-    <li>Placeholder point three.</li>
-  </ul>
+  <p>The only way you can get in and out of Glan is by air or water.</p>
 
-  <ExpandableAside client:visible label="Side note">
+  <p class="heavy">
+    <em>At least 78 lives were claimed across the region — roughly 13 here in
+    General Santos and 18 in Sarangani — including 1 person who lives blocks
+    away from our place, whom Boss Toyo visited.</em>
+  </p>
+
+  <p>
+    Now look, I have a simple equation here. Please note that I am not an
+    economist.
+  </p>
+
+  <div class="equation">
+    <p class="formula"><em>n</em> &times; <em>s</em> = Total net loss
+      <span class="where">(where <em>n</em> = avg daily net &amp; <em>s</em> = days closed)</span>
+    </p>
+    <p class="cascade">
+      P460 &times; Days without work = 0 money.<br />
+      0 money for the family = uncertainty.<br />
+      Uncertain where to get money = utang and so on.
+    </p>
+  </div>
+
+  <p>
+    These families are now without a paycheck, with no clear indication of when
+    they can return to work.
+  </p>
+
+  <ExpandableAside client:visible label="To be clear">
     <p>
-      This collapsible aside is the React island — TypeScript, hydrated only
-      when scrolled into view. Its text is server-rendered and open by default,
-      so crawlers and no-JS readers always see it; React merely adds the
-      collapse toggle. Use it for digressions that would break the essay's flow.
+      And I am not saying that these businesses have not provided financial
+      assistance to their workers, okay? No.
     </p>
   </ExpandableAside>
 
-  <h2>Where does that leave us?</h2>
   <p>
-    Placeholder closing. Restate the claim with the weight the essay has now
-    earned, in language that survives being read in isolation.
+    Fewer tricycles doing byahe to the city; no karenderya, street food, or
+    vendors around these malls. That is 0 income for them as well.
+  </p>
+
+  <div class="equation">
+    <p class="formula"><em>W</em> &times; <em>d</em> = Total Income Loss
+      <span class="where">(where <em>W</em> = Daily <em>W</em>age &amp; <em>d</em> = days without work)</span>
+    </p>
+    <p class="cascade">
+      Avg daily net &times; No. days without selling = 0 money.<br />
+      0 money for the family = uncertainty.<br />
+      Uncertain where to get money = utang and so on.
+    </p>
+  </div>
+
+  <p>
+    These two equations are for the mentioned retailers. Now, imagine other
+    businesses affected, individuals who are stuck in Glan, cannot go to the
+    city for work. The cost of repair, the probations, food, water, electricity,
+    and more. Imagine the cash flow, all cash flowing out,
+  </p>
+
+  <p>
+    The immediate loss of income for our men creates a ripple effect that
+    weakens the entire local economy.
+  </p>
+
+  <h2>Okay so,</h2>
+  <p>
+    As someone raised in GenSan who frequents Sarangani, Glan, and Malapatan.
+    I have been wondering if business and capital are still worth pouring into
+    our region. The earthquake we experienced is not just a one-time,
+    aftershocks are never-ending.
+  </p>
+  <p>
+    Business operations cannot resume; schools have gone back to online classes,
+    and the trauma cannot be erased from the minds of our people. At even a
+    minor shake, we will rush outside. You cannot prank or joke with us
+    regarding an earthquake, our brains are wired to get out quickly.
   </p>
 </EssayLayout>
 
+<style>
+  .dedication {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+    color: var(--ink-soft);
+    margin-bottom: 2rem;
+  }
+
+  .heavy {
+    font-size: 1.15rem;
+  }
+
+  /* Situation cards — location + damage note, with a slot for a photo */
+  .situation-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .situation-card {
+    margin: 0;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: rgba(79, 99, 216, 0.03);
+  }
+
+  .situation-photo {
+    aspect-ratio: 3 / 2;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .situation-card .credit {
+    display: block;
+    margin-top: 0.45rem;
+    font-size: 0.66rem;
+    letter-spacing: 0.03em;
+    text-transform: none;
+    font-weight: 400;
+    color: var(--ink-soft);
+    opacity: 0.8;
+  }
+
+  .quake-map {
+    margin: 2.5rem 0;
+  }
+
+  .quake-map img {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+  }
+
+  .quake-map figcaption {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-top: 0.6rem;
+    text-align: center;
+  }
+
+  .quake-map .credit {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+    opacity: 0.8;
+  }
+
+  .situation-card figcaption {
+    text-align: left;
+    margin-top: 0;
+    padding: 0.85rem 1rem;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+
+  .situation-card .place {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 0.15rem;
+  }
+
+  /* Equations — Cling's stylised arithmetic */
+  .equation {
+    border-left: 4px solid var(--accent);
+    background: rgba(79, 99, 216, 0.04);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 1.1rem 1.4rem;
+    margin: 2rem 0;
+  }
+
+  .equation .formula {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+
+  .equation .where {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--ink-soft);
+    margin-top: 0.2rem;
+  }
+
+  .equation .cascade {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    line-height: 2;
+    margin-bottom: 0;
+  }
+</style>
