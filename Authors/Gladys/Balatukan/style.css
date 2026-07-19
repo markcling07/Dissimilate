@@ -478,6 +478,44 @@ main {
     aspect-ratio: 4 / 5;
 }
 
+/* Day one, desktop: the gate photo rides to the right of the
+   "Into the range" heading and prose instead of below them. */
+@media (min-width: 901px) {
+    #day-one {
+        display: grid;
+        grid-template-columns: 1fr minmax(360px, 460px);
+        column-gap: clamp(2rem, 4vw, 3.5rem);
+    }
+
+    #day-one>.ch-script,
+    #day-one>.chapter-kicker,
+    #day-one>h2,
+    #day-one>.prose {
+        grid-column: 1;
+    }
+
+    #day-one>.photo.wide {
+        grid-column: 2;
+        grid-row: 1 / 5;
+        align-self: start;
+        margin-top: 0.5rem;
+    }
+
+    /* A squarer crop fills the side column better than 16:10. */
+    #day-one>.photo.wide img {
+        aspect-ratio: 4 / 3;
+    }
+
+    #day-one>.grid {
+        grid-column: 1 / -1;
+    }
+
+    /* The photo takes over the doodle's corner. */
+    #day-one>.doodle-trail {
+        display: none;
+    }
+}
+
 figcaption {
     margin-top: 0.7rem;
     font-size: 0.78rem;
