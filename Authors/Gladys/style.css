@@ -129,10 +129,11 @@ a:focus-visible {
     display: inline-block;
     position: relative;
     font-family: var(--font-display);
-    font-weight: 800;
+    /* Thin display cut — the size carries the weight. */
+    font-weight: 500;
     font-size: clamp(3.4rem, 11vw, 7rem);
     line-height: 0.95;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
     color: var(--ink);
 }
 
@@ -228,10 +229,10 @@ a:focus-visible {
 
 .logs-heading {
     font-family: var(--font-display);
-    font-weight: 800;
+    font-weight: 500;
     font-size: clamp(2.2rem, 6vw, 4rem);
     line-height: 0.95;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
     color: var(--ink);
 }
 
@@ -276,10 +277,10 @@ a:focus-visible {
 
 .log-title {
     font-family: var(--font-display);
-    font-weight: 800;
+    font-weight: 600;
     font-size: clamp(1.1rem, 2.4vw, 1.45rem);
     line-height: 1.1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     color: var(--ink);
 }
 
