@@ -33,26 +33,6 @@
         <!-- Right Column: Content Area -->
         <main class="main-content">
 
-            <!-- Poster Hero (Diss-Design revamp) -->
-            <section class="poster-hero">
-                <div class="poster-row">
-                    <span>Dissimilate</span>
-                    <span>Est. 2025</span>
-                </div>
-                <div class="poster-center">
-                    <h1 class="poster-title">Curated Essays<br>&amp; Mountain Logs</h1>
-                    <p class="poster-sub">A digital journal of personal essays, philosophical reflections, and immersive mountain-climbing travel logs across the Philippines.</p>
-                    <a class="poster-pill" href="#library-section">
-                        <span class="poster-pill-dot"></span>
-                        Explore the Journal
-                    </a>
-                </div>
-                <div class="poster-row">
-                    <span>markcling07.github.io/Dissimilate</span>
-                    <span>№ 001</span>
-                </div>
-            </section>
-
             <!-- Hero Splash Section with Carousel -->
             <section class="hero-splash" id="hero-splash">
                 
@@ -507,7 +487,7 @@
                                     <span class="masl-lbl">Total MASL</span>
                                 </div>
                             </div>
-                            <span class="author-tag">Mt. Apo</span>
+                            <span class="author-tag">Mt. Kilakiron</span>
                             <p class="author-showcase-bio">Two summits, two photo albums — Mt. Apo's boulder fields and the Sumagaya&ndash;Lumot cloud forest, told through the friends made along the way.</p>
                             <div class="author-stats-row">
                                 <div class="author-stat-item">
@@ -630,6 +610,21 @@
         // Database of essays and pages
         const articles = [
             {
+                id: "mt-pulag-aki",
+                title: "Mt. Pulag",
+                author: "Aki",
+                category: "Mountains",
+                readTime: "3 min read",
+                path: "Authors/Aki/Pulag/index.html",
+                description: "Aki's photo journal of climbing Mt. Pulag — Luzon's highest peak at 2,926 meters, and the sea of clouds they call the playground of the gods.",
+                type: "mountain",
+                badge: "New",
+                isFeaturedHero: false,
+                img: "Authors/Aki/Pulag/IMG/Hero.jpg",
+                carouselImg: "Authors/Aki/Pulag/IMG/Play2.jpg",
+                isDraft: true
+            },
+            {
                 id: "mt-balatukan",
                 title: "Into the Moss — Mt. Balatukan",
                 author: "Gladys",
@@ -672,7 +667,7 @@
                 isFeaturedHero: false,
                 img: "Authors/Kim/Buko-buko Peak/IMG/Summit-Kim.jpg",
                 carouselImg: "Authors/Kim/Buko-buko Peak/IMG/Hero.jpg",
-                isDraft: false
+                isDraft: true
             },
             {
                 id: "mt-matutum",
@@ -695,14 +690,29 @@
                 author: "Cling",
                 category: "Essays",
                 readTime: "5 min read",
-                path: "Authors/Cling/The-Essay/index.html",
+                path: "Essays/Cling/The-Essay/index.html",
                 description: "After the June 2026 earthquake devastated General Santos City and Sarangani, one resident counts the economic cost to workers and vendors — and asks whether business and capital are still worth pouring into the region.",
                 type: "essay",
                 badge: "New",
                 isFeaturedHero: false,
-                img: "Authors/Cling/The-Essay/IMG/OG.jpg",
-                carouselImg: "Authors/Cling/The-Essay/IMG/OG.jpg",
+                img: "Essays/Cling/The-Essay/IMG/OG.jpg",
+                carouselImg: "Essays/Cling/The-Essay/IMG/OG.jpg",
                 isDraft: false
+            },
+            {
+                id: "cling-hiring-promotion",
+                title: "Hiring & Promotion: Alignment over Qualification",
+                author: "Cling",
+                category: "Essays",
+                readTime: "4 min read",
+                path: "Essays/Cling/Hiring-and-Promotion/index.html",
+                description: "Being qualified isn't enough to get hired or promoted — how alignment, behaviour, and departmental power quietly decide who actually moves up.",
+                type: "essay",
+                badge: "New",
+                isFeaturedHero: false,
+                img: "Essays/Cling/Hiring-and-Promotion/IMG/OG.jpg",
+                carouselImg: "Essays/Cling/Hiring-and-Promotion/IMG/OG.jpg",
+                isDraft: true
             },
             {
                 id: "ophiorrhiza-biflora",

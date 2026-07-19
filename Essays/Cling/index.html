@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cling — Essays · Dissimilate</title>
+  <meta name="description" content="Cling's author dashboard on Dissimilate — first-person essays on the economy, work, society, and the stories we tell ourselves." />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="https://markcling07.github.io/Dissimilate/Essays/Cling/" />
+  <meta property="og:title" content="Cling — Essays · Dissimilate" />
+  <meta property="og:description" content="First-person essays on the economy, work, society, and the stories we tell ourselves." />
+  <meta property="og:image" content="https://markcling07.github.io/Dissimilate/Essays/Cling/IMG/OG.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cling — Essays · Dissimilate" />
+  <meta name="twitter:description" content="First-person essays on the economy, work, society, and the stories we tell ourselves." />
+  <meta name="twitter:image" content="https://markcling07.github.io/Dissimilate/Essays/Cling/IMG/OG.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "url": "https://markcling07.github.io/Dissimilate/Essays/Cling/",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Cling",
+      "description": "Essayist from General Santos City writing first-person essays on the economy, work, and society, drawn from seven years in the BPO industry.",
+      "image": "https://markcling07.github.io/Dissimilate/Essays/Cling/IMG/OG.jpg",
+      "url": "https://markcling07.github.io/Dissimilate/Essays/Cling/"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #f4f5f8;
+      --panel: #ffffff;
+      --sidebar: #fbfbfd;
+      --ink: #16181f;
+      --muted: #6b7280;
+      --faint: #9aa1ad;
+      --line: #ececf1;
+      --line-soft: #f2f2f6;
+      --accent: #dc2626;
+      --accent-ink: #b91c1c;
+      --accent-soft: #fdeaea;
+      --green: #16a34a;
+      --green-soft: #e7f6ec;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow: 0 1px 2px rgba(20, 22, 40, .04), 0 8px 24px rgba(20, 22, 40, .05);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    ::selection { background: #f6c8c8; color: var(--ink); }
+
+    html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(60% 55% at 100% 0%, rgba(220, 38, 38, .07), transparent 60%),
+        radial-gradient(55% 50% at 0% 0%, rgba(236, 152, 197, .10), transparent 60%),
+        var(--bg);
+      min-height: 100vh;
+      letter-spacing: -0.011em;
+    }
+
+    .app { display: grid; grid-template-columns: 264px 1fr; min-height: 100vh; }
+
+    /* ---------- Sidebar ---------- */
+    .sidebar {
+      background: var(--sidebar);
+      border-right: 1px solid var(--line);
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; padding: 4px 8px; }
+    .brand-mark {
+      width: 30px; height: 30px; border-radius: 9px;
+      background: linear-gradient(135deg, var(--accent), #f2724b);
+      display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 15px;
+      box-shadow: 0 4px 10px rgba(220, 38, 38, .35);
+    }
+    .brand-name { font-weight: 700; font-size: 14px; letter-spacing: .01em; }
+
+    .workspace {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: 12px; padding: 8px 10px;
+    }
+    .workspace img {
+      width: 32px; height: 32px; border-radius: 8px; object-fit: cover; background: #e7e7ef;
+    }
+    .workspace .ws-meta { line-height: 1.15; flex: 1; min-width: 0; }
+    .workspace .ws-name { font-weight: 700; font-size: 13.5px; }
+    .workspace .ws-role { font-size: 11.5px; color: var(--faint); }
+    .workspace .ws-chev { color: var(--faint); flex-shrink: 0; }
+
+    .nav { display: flex; flex-direction: column; gap: 2px; }
+    .nav-label {
+      font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--faint); padding: 12px 12px 6px;
+    }
+    .nav-item {
+      display: flex; align-items: center; gap: 11px;
+      padding: 9px 12px; border-radius: 10px;
+      color: #3b3f4a; font-size: 13.5px; font-weight: 500;
+      text-decoration: none; cursor: pointer; border: 0; background: none; width: 100%;
+      font-family: inherit; text-align: left;
+    }
+    .nav-item svg { width: 18px; height: 18px; color: var(--faint); flex-shrink: 0; }
+    .nav-item.active {
+      background: var(--panel); color: var(--ink); font-weight: 600;
+      box-shadow: var(--shadow); border: 1px solid var(--line);
+    }
+    .nav-item.active svg { color: var(--accent); }
+    .nav-sub { display: flex; flex-direction: column; gap: 2px; margin-left: 30px; }
+    .nav-sub .nav-item { padding: 7px 12px; font-size: 13px; color: var(--muted); }
+    .nav-sub .nav-item .dot {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--faint); flex-shrink: 0;
+    }
+    .nav-sub .nav-item[data-filter="published"] .dot { background: var(--green); }
+    .nav-sub .nav-item.active { background: var(--accent-soft); color: var(--accent-ink); font-weight: 600; box-shadow: none; border: 0; }
+
+    .sidebar-foot { margin-top: auto; }
+    .back-link {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 12px; border-radius: 10px;
+      color: var(--muted); font-size: 13px; font-weight: 500; text-decoration: none;
+    }
+    .back-link:hover { color: var(--accent-ink); background: var(--accent-soft); }
+
+    /* ---------- Main ---------- */
+    .main { padding: 34px clamp(20px, 4vw, 52px) 60px; min-width: 0; }
+    .page-head { margin-bottom: 22px; }
+    .page-title { font-size: clamp(1.9rem, 3.4vw, 2.5rem); font-weight: 800; letter-spacing: -0.03em; }
+    .page-sub { color: var(--muted); font-size: 15px; margin-top: 6px; max-width: 640px; line-height: 1.55; }
+
+    .tabs { display: flex; gap: 6px; border-bottom: 1px solid var(--line); margin: 22px 0 26px; }
+    .tab {
+      border: 0; background: none; font-family: inherit; cursor: pointer;
+      padding: 10px 14px; font-size: 13.5px; font-weight: 600; color: var(--muted);
+      border-radius: 9px 9px 0 0; position: relative; top: 1px;
+    }
+    .tab.active { color: var(--accent-ink); background: var(--accent-soft); }
+
+    .section { margin-bottom: 34px; }
+    .section-title {
+      font-size: 15px; font-weight: 700; margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .section-count { color: var(--faint); font-weight: 600; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; }
+
+    .card {
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 18px 18px 16px;
+      display: flex; flex-direction: column; gap: 12px;
+      box-shadow: var(--shadow); transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .card-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11.5px; font-weight: 600; padding: 4px 10px; border-radius: 999px;
+    }
+    .badge.published { background: var(--green-soft); color: var(--green); }
+    .badge.draft { background: #f1f2f5; color: var(--muted); }
+    .badge .tick { width: 13px; height: 13px; }
+    .read { font-size: 12px; color: var(--faint); font-weight: 500; }
+
+    .card-title { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.25; min-height: 2.5em; }
+    .card-title .emoji { margin-right: 7px; }
+    .card-desc { font-size: 13px; color: var(--muted); line-height: 1.55; flex: 1; }
+
+    .tags-label { font-size: 11px; color: var(--faint); font-weight: 600; margin-top: 2px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-size: 11.5px; font-weight: 500; color: #4b4f5a;
+      background: var(--line-soft); border: 1px solid var(--line);
+      padding: 3px 9px; border-radius: 999px;
+    }
+
+    .card-foot {
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid var(--line-soft); padding-top: 13px; margin-top: 2px;
+      min-height: 48px;
+    }
+    .card-date { font-size: 12px; color: var(--faint); }
+    .read-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--accent-ink); font-size: 13px; font-weight: 600; text-decoration: none;
+    }
+    .read-link .arrow { transition: transform .18s ease; }
+    .soon {
+      width: 100%; text-align: center; padding: 9px; border-radius: 10px;
+      background: var(--line-soft); color: var(--faint); font-size: 12.5px; font-weight: 600;
+      border: 1px dashed var(--line);
+    }
+
+    .hidden { display: none !important; }
+
+    /* ---------- Interaction (gated) ---------- */
+    @media (hover: hover) {
+      .card:hover { transform: translateY(-3px); box-shadow: 0 2px 4px rgba(20,22,40,.05), 0 14px 34px rgba(20,22,40,.09); border-color: #e0e0ea; }
+      .read-link:hover .arrow { transform: translateX(3px); }
+      .nav-item:not(.active):hover { background: #f0f0f5; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 860px) {
+      .app { grid-template-columns: 1fr; }
+      .sidebar {
+        position: static; height: auto; flex-direction: row; flex-wrap: wrap;
+        align-items: center; gap: 12px; padding: 12px 16px;
+      }
+      .nav, .nav-label, .sidebar-foot { display: none; }
+      .workspace { margin-left: auto; }
+      .main { padding: 24px 18px 48px; }
+      .cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- ===== Sidebar ===== -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">D</div>
+        <span class="brand-name">Dissimilate</span>
+      </div>
+
+      <div class="workspace">
+        <img src="ClingDP.jfif" alt="Cling" />
+        <div class="ws-meta">
+          <div class="ws-name">Cling</div>
+          <div class="ws-role">Essayist</div>
+        </div>
+        <svg class="ws-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 9 12 5 16 9"></polyline><polyline points="16 15 12 19 8 15"></polyline></svg>
+      </div>
+
+      <nav class="nav">
+        <div class="nav-label">Workspace</div>
+        <button class="nav-item active" data-filter="all">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+          Overview
+        </button>
+
+        <div class="nav-label">Essays</div>
+        <div class="nav-sub">
+          <button class="nav-item" data-filter="all">
+            <span class="dot"></span> All essays
+          </button>
+          <button class="nav-item" data-filter="published">
+            <span class="dot"></span> Published
+          </button>
+          <button class="nav-item" data-filter="draft">
+            <span class="dot"></span> In progress
+          </button>
+        </div>
+
+        <div class="nav-label">More</div>
+        <a class="nav-item" href="#about">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path></svg>
+          About Cling
+        </a>
+      </nav>
+
+      <div class="sidebar-foot">
+        <a class="back-link" href="../../index.html">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          Back to Dissimilate
+        </a>
+      </div>
+    </aside>
+
+    <!-- ===== Main ===== -->
+    <main class="main">
+      <header class="page-head" id="about">
+        <h1 class="page-title">Cling</h1>
+        <!-- Placeholder bio drafted from Cling's own essays — swap in his words when he sends them. -->
+        <p class="page-sub">Cling writes first-person essays from General Santos City — on the economy, work, society, and the stories we tell ourselves. Seven years on the BPO floor taught him to distrust tidy explanations; these essays are what he found instead.</p>
+      </header>
+
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-filter="all">All essays</button>
+        <button class="tab" data-filter="published">Published</button>
+        <button class="tab" data-filter="draft">In progress</button>
+      </div>
+
+      <!-- Published -->
+      <section class="section" data-group="published">
+        <h2 class="section-title">Published <span class="section-count" data-count="published">(1)</span></h2>
+        <div class="cards">
+
+          <article class="card" data-status="published">
+            <div class="card-top">
+              <span class="badge published">
+                <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Published
+              </span>
+              <span class="read">5 min read</span>
+            </div>
+            <h3 class="card-title"><span class="emoji">🏙️</span>Investment in General Santos &amp; Sarangani, still worth it?</h3>
+            <p class="card-desc">After the June 2026 earthquake devastated General Santos City and Sarangani, one resident counts the economic cost — and asks whether investment is still worth it.</p>
+            <div class="tags-label">Topics</div>
+            <div class="tags"><span class="tag">Economy</span><span class="tag">Disaster</span><span class="tag">GenSan</span></div>
+            <div class="card-foot">
+              <span class="card-date">Jul 16, 2026</span>
+              <a class="read-link" href="The-Essay/index.html">Read essay <span class="arrow">→</span></a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- In progress -->
+      <section class="section" data-group="draft">
+        <h2 class="section-title">In progress <span class="section-count" data-count="draft">(8)</span></h2>
+        <div class="cards">
+
+          <article class="card" data-status="draft">
+            <div class="card-top">
+              <span class="badge draft">Draft</span>
+              <span class="read">4 min read</span>
+            </div>
+            <h3 class="card-title"><span class="emoji">💼</span>Hiring &amp; Promotion: Alignment over Qualification</h3>
+            <p class="card-desc">Being qualified isn't enough to get hired or promoted — how alignment, behaviour, and departmental power quietly decide who moves up.</p>
+            <div class="tags-label">Topics</div>
+            <div class="tags"><span class="tag">Workplace</span><span class="tag">Career</span><span class="tag">Power</span></div>
+            <div class="card-foot">
+              <span class="card-date">Draft</span>
+              <a class="read-link" href="Hiring-and-Promotion/index.html">Preview <span class="arrow">→</span></a>
+            </div>
+          </article>
+
+          <article class="card" data-status="draft">
+            <div class="card-top">
+              <span class="badge draft">Draft</span>
+            </div>
+            <h3 class="card-title"><span class="emoji">📱</span>They only want Screentime</h3>
+            <p class="card-desc">On saying something bold and controversial just to be noticed — and why siding with plain logic goes unseen.</p>
+            <div class="tags-label">Topics</div>
+            <div class="tags"><span class="tag">Media</span><span class="tag">Society</span></div>
+            <div class="card-foot"><span class="soon">Coming soon</span></div>
+          </article>
+
+          <article class="card" data-status="draft">
+            <div class="card-top">
+              <span class="badge draft">Draft</span>
+            </div>
+            <h3 class="card-title"><span class="emoji">💸</span>Complaining about the Economy</h3>
+            <p class="card-desc">Before you complain that the economy sucks — a case that you have to be in the game, taxed and working, before you get to.</p>
+            <div class="tags-label">Topics</div>
+            <div class="tags"><span class="tag">Economy</span><span class="tag">Politics</span></div>
+            <div class="card-foot"><span class="soon">Coming soon</span></div>
+          </article>
+
+          <article class="card" data-status="draft">
+            <div class="card-top">
+              <span class="badge draft">Draft</span>
+            </div>
+            <h3 class="card-title"><span class="emoji">🧠</span>Why is it so easy for people to say things about experiences they have never gone through?</h3>
+            <p class="card-desc">Judging lives you've never lived, seen through Construal-Level Theory and the idea of psychological distance.</p>
+            <div class="tags-label">Topics</div>
+            <div class="tags"><span class="tag">Psychology</span><span class="tag">Empathy</span></div>
+            <div class="card-foot"><span class="soon">Coming soon</span></div>
+          </article>
+
+          <article class="card" data-status="draft">
+            <div class="card-top">
+              <span class="badge draft">Draft</span>
+            </div>
+            <h3 class="card-title"><span class="emoji">🤝</span>You don't need to fire both</h3>
+            <p class="card-desc">On the "who would you fire — X or Y?" question, and why the honest answer is no one when two people already teamed up to get the job done.</p>
+            <div class="tags-label">Topics</div>
+            <div class="tags"><span class="tag">Workplace</span><span class="tag">Teamwork</span></div>
+            <div class="card-foot"><span class="soon">Coming soon</span></div>
+          </article>
+
+          <article class="card" data-status="draft">
+            <div class="card-top">
+              <span class="badge draft">Draft</span>
+            </div>
+            <h3 class="card-title"><span class="emoji">📹</span>LC Sign</h3>
+            <p class="card-desc">How one man's viral clips turned a sign-making business into a meme — and why handing that screen time to other employees keeps feeling awkward.</p>
+            <div class="tags-label">Topics</div>
+            <div class="tags"><span class="tag">Marketing</span><span class="tag">Virality</span><span class="tag">Media</span></div>
+            <div class="card-foot"><span class="soon">Coming soon</span></div>
+          </article>
+
+          <article class="card" data-status="draft">
+            <div class="card-top">
+              <span class="badge draft">Draft</span>
+            </div>
+            <h3 class="card-title"><span class="emoji">🛡️</span>Filipinos, financial literacy &amp; insurance</h3>
+            <p class="card-desc">Why insurance still can't crack the Philippine market — and whether "no financial literacy" is really what keeps most Filipinos skeptical of it.</p>
+            <div class="tags-label">Topics</div>
+            <div class="tags"><span class="tag">Economy</span><span class="tag">Insurance</span><span class="tag">Philippines</span></div>
+            <div class="card-foot"><span class="soon">Coming soon</span></div>
+          </article>
+
+          <article class="card" data-status="draft">
+            <div class="card-top">
+              <span class="badge draft">Draft</span>
+            </div>
+            <h3 class="card-title"><span class="emoji">🎓</span>Diploma vs non-holders</h3>
+            <p class="card-desc">The invisible wall degree-less workers hit — how "a degree is useless" content ignores the gatekeeping that quietly locks capable people out.</p>
+            <div class="tags-label">Topics</div>
+            <div class="tags"><span class="tag">Work</span><span class="tag">Education</span><span class="tag">Career</span></div>
+            <div class="card-foot"><span class="soon">Coming soon</span></div>
+          </article>
+
+        </div>
+      </section>
+
+      <p class="empty hidden" style="color:var(--faint);font-size:14px;padding:20px 0;">No essays in this view yet.</p>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      var tabs = document.querySelectorAll('.tab');
+      var navFilters = document.querySelectorAll('.nav-item[data-filter]');
+      var sections = document.querySelectorAll('.section[data-group]');
+
+      function apply(filter) {
+        sections.forEach(function (sec) {
+          var show = filter === 'all' || sec.getAttribute('data-group') === filter;
+          sec.classList.toggle('hidden', !show);
+        });
+        tabs.forEach(function (t) { t.classList.toggle('active', t.getAttribute('data-filter') === filter); });
+        navFilters.forEach(function (n) { n.classList.toggle('active', n.getAttribute('data-filter') === filter); });
+      }
+
+      tabs.forEach(function (t) { t.addEventListener('click', function () { apply(t.getAttribute('data-filter')); }); });
+      navFilters.forEach(function (n) {
+        n.addEventListener('click', function () {
+          var f = n.getAttribute('data-filter');
+          apply(f);
+          document.querySelector('.main').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

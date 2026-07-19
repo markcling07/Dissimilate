@@ -23,11 +23,20 @@ Site: https://markcling07.github.io/Dissimilate/
 - [Mt. Lumot × Mt. Sumagaya Traverse (Gladys)](https://markcling07.github.io/Dissimilate/Authors/Gladys/Sumagaya/): Gladys's graph-paper photo journal of the mossy-forest traverse.
 - [Into the Moss — Mt. Balatukan (Gladys)](https://markcling07.github.io/Dissimilate/Authors/Gladys/Balatukan/): three days through Camp Rosas Pandan and Camp Enting to the 2,450-MASL summit.
 
+## Essays
+
+- [Essays dashboard](https://markcling07.github.io/Dissimilate/Essays/): the shared author dashboard for Dissimilate's essayists — Cling, Obito, Makima, and Kuvira — listing published essays and drafts in progress.
+- [Investment in General Santos & Sarangani, still worth it?](https://markcling07.github.io/Dissimilate/Essays/Cling/The-Essay/): after the June 2026 earthquake, Cling counts the economic cost to workers and vendors of General Santos City and Sarangani — and asks whether business and capital are still worth pouring into the region.
+- [People Envy the Crown, Not the Weight](https://markcling07.github.io/Dissimilate/Essays/Obito/People-Envy-the-Crown/People-Envy-the-Crown.html): Obito's reflection on the invisible toll of success, power, and legacy.
+- [The Architecture of the Human Animal](https://markcling07.github.io/Dissimilate/Essays/Makima/The-Architecture-of-the-Human-Animal/The-Architecture-of-the-Human-Animal.html): Makima's exploration of human psychology, control, dependency, and validation.
+- [The Burden of Restoring Order](https://markcling07.github.io/Dissimilate/Essays/Kuvira/The-Burden-of-Restoring-Order/The-Burden-of-Restoring-Order.html): Kuvira's reflection on political philosophy, authority, and the discipline of restoring order.
+
 ## Author profiles
 
 - [Star](https://markcling07.github.io/Dissimilate/Authors/Star/): trail runner; three logs above.
 - [Shieka](https://markcling07.github.io/Dissimilate/Authors/Shieka/): album-style profile of her climbs.
 - [Gladys](https://markcling07.github.io/Dissimilate/Authors/Gladys/): graph-paper profile linking her two Misamis Oriental logs.
+- [Cling](https://markcling07.github.io/Dissimilate/Essays/Cling/): dashboard-style profile of his first-person essays on the economy, work, and society.
 
 ## Reference pages
 

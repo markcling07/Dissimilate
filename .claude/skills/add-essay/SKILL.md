@@ -1,6 +1,6 @@
 ---
 name: add-essay
-description: Publish a Cling essay from raw text into the Astro + React (TS) AEO template at Authors/Cling/ — fill the template, build, verify AI-crawlability, and wire it into the homepage, sitemap, and llms.txt. Triggered by the user with /add-essay.
+description: Publish a Cling essay from raw text into the Astro + React (TS) AEO template at Essays/Cling/ — fill the template, build, verify AI-crawlability, and wire it into the homepage, sitemap, and llms.txt. Triggered by the user with /add-essay.
 disable-model-invocation: true
 ---
 
@@ -10,11 +10,11 @@ Usage: `/add-essay <title, or paste the essay text>` (in `$ARGUMENTS`). The user
 supply the text and images across the next few messages — collect everything before building.
 
 Cling's essays are the site's one build-step exception (see CLAUDE.md → Tooling). The Astro
-project lives in `Authors/Cling/<Essay>/_src/`; the committed, servable artifact is the built
+project lives in `Essays/Cling/<Essay>/_src/`; the committed, servable artifact is the built
 `index.html` + `assets/` one level up. **Never hand-edit that `index.html`** — edit
 `_src/src/` and rebuild.
 
-The reference implementation is `Authors/Cling/The-Essay/` (the template scaffold, homepage
+The reference implementation is `Essays/Cling/The-Essay/` (the template scaffold, homepage
 id `cling-essay-wip`). The FIRST run of this skill consumes it: rename that folder to the real
 essay's name. Later runs copy it as a starter.
 
@@ -33,8 +33,8 @@ essay's name. Later runs copy it as a starter.
 ## Steps
 
 1. **Branch** off `main` if not already on a work branch.
-2. **Folder**: rename `Authors/Cling/The-Essay/` (first run) or copy it (later runs) to
-   `Authors/Cling/<Title-Slug>/`. Keep the slug filesystem-friendly; the site tolerates
+2. **Folder**: rename `Essays/Cling/The-Essay/` (first run) or copy it (later runs) to
+   `Essays/Cling/<Title-Slug>/`. Keep the slug filesystem-friendly; the site tolerates
    spaces but doesn't require them.
 3. **Fill the template** in `_src/src/pages/index.astro`:
    - `meta` block: title, description, canonicalUrl + ogImage (absolute, percent-encoded,

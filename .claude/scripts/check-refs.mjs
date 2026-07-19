@@ -19,7 +19,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..'); // .claude/scripts -> repo root
 
 const SKIP_DIRS = new Set(['.git', '.claude', 'node_modules']);
-const SKIP_REF = /^(https?:|\/\/|mailto:|tel:|data:|javascript:|#)/i;
+const SKIP_REF = /^(https?:|\/\/|mailto:|tel:|data:|javascript:|about:|#)/i;
 
 // Walk a relative path from `baseAbs` one segment at a time, requiring an
 // EXACT-case directory entry at each level. Returns {ok} or {ok:false, ci}

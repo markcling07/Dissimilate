@@ -1,0 +1,104 @@
+---
+/**
+ * Cling's essay — "Hiring & Promotion: Alignment over Qualification".
+ *
+ * Text is Cling's own (the polished version from the source doc), placed into
+ * the AEO template verbatim. Rebuild with `npm run build` inside _src/ after edits.
+ *
+ * DRAFT — before flipping isDraft:false in the root index.html:
+ *  - confirm the one-sentence description, the date, and the read time
+ *  - replace IMG/OG.jpg with a real 1200×630 share card
+ */
+import EssayLayout from '../layouts/EssayLayout.astro';
+
+const meta = {
+  title: 'Hiring & Promotion: Alignment over Qualification',
+  // WORKING DESCRIPTION — feeds meta + JSON-LD. Confirm or replace.
+  description:
+    "Being qualified isn't enough to get hired or promoted — a manager's-eye look at how alignment, behaviour, and departmental power quietly decide who actually moves up.",
+  canonicalUrl:
+    'https://markcling07.github.io/Dissimilate/Essays/Cling/Hiring-and-Promotion/',
+  ogImage:
+    'https://markcling07.github.io/Dissimilate/Essays/Cling/Hiring-and-Promotion/IMG/OG.jpg',
+  author: 'Cling',
+  datePublished: '2026-07-19',
+  displayDate: 'July 19, 2026',
+  category: 'Essay',
+  readTime: '4 min read',
+};
+---
+
+<EssayLayout {...meta}>
+  <p class="tldr">
+    <strong>TL;DR</strong>
+    Just because you are qualified, it doesn&rsquo;t mean you will be hired or
+    promoted. Even if you check all the boxes, you may still fall behind a certain
+    candidate &mdash; because employers and management often don&rsquo;t need raw
+    qualifications. They need alignment.
+  </p>
+
+  <p>
+    If the corporate world solely cared about efficiency, the most qualified
+    candidate would always win. Unfortunately, it doesn&rsquo;t work that way. When
+    you become a manager, your instinct shifts toward protecting your inner circle,
+    your existing structures, and your established workarounds.
+  </p>
+  <p>
+    This reality forced me to realize a hard truth: under the current system,
+    assuming I have what it takes, I cannot be promoted. Here is why.
+  </p>
+
+  <h2>1. The Threat of the High-Performer</h2>
+  <p>
+    Let&rsquo;s look at a common workplace scenario. You are an established manager
+    in a company. Your team and the neighboring teams are doing just fine, and
+    executive leadership assumes the operational ceiling has been reached.
+  </p>
+  <p>
+    Then, a new manager is hired. He is the &ldquo;best candidate&rdquo; &mdash;
+    deeply experienced and highly efficient. Suddenly, this new guy starts crushing
+    KPIs and exceeding expectations across all aspects of the job. Executive
+    leadership sees his potential and immediately puts him on the fast track for a
+    promotion.
+  </p>
+  <p>
+    But how does that make <em>you</em> feel? As a manager who has spent years
+    trying to maintain a comfortable, &ldquo;chill&rdquo; job, that high-performer
+    isn&rsquo;t a teammate &mdash; he is a threat who just raised the ceiling for
+    everyone else.
+  </p>
+
+  <h2>2. The Invisible Behavioral Filter</h2>
+  <p>
+    Because of this friction, corporate survival kicks in. If you are the person
+    trying to disrupt the status quo, the existing management structure will
+    notice. In fact, you are being observed right from the start.
+  </p>
+  <p>
+    The moment management hears that a disruptive high-performer is trying to apply
+    for a promotion, they have often already rejected them in their minds. This
+    rejection has everything to do with behavioral alignment. If you don&rsquo;t
+    &ldquo;behave&rdquo; or act like a traditional manager &mdash; which often means
+    protecting the peace rather than rocking the boat &mdash; you are filtered out
+    before the interview even begins.
+  </p>
+
+  <h2>3. Departmental Monopoly</h2>
+  <p>
+    The final barrier to pure meritocracy is corporate feudalism, or monopoly.
+    Imagine a company with five teams, and I am the boss of Team A. To secure my own
+    political power, I will actively ensure that <em>my</em> team members are the
+    ones promoted into neighboring managerial roles. If my co-managers used to work
+    under me, I successfully maintain control over the entire department and secure
+    my structure until I get promoted myself.
+  </p>
+  <p>
+    Because promotion in this environment is strictly controlled, delegated, and
+    vouched for, the game is rigged against outsiders.
+  </p>
+
+  <blockquote>
+    If you don&rsquo;t have that specific tribal connection, it doesn&rsquo;t matter
+    how good you are &mdash; you will never get the position.
+  </blockquote>
+</EssayLayout>

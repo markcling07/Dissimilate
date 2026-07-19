@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Essays · Dissimilate</title>
+  <meta name="description" content="The shared author dashboard for Dissimilate's essayists — Cling, Obito, Makima, and Kuvira — with essays on the economy, success, psychology, and the burden of order." />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://markcling07.github.io/Dissimilate/Essays/" />
+  <meta property="og:title" content="Essays · Dissimilate" />
+  <meta property="og:description" content="The shared author dashboard for Dissimilate's essayists — Cling, Obito, Makima, and Kuvira." />
+  <meta property="og:image" content="https://markcling07.github.io/Dissimilate/Essays/Makima/The-Architecture-of-the-Human-Animal/IMG/Makima-main.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Essays · Dissimilate" />
+  <meta name="twitter:description" content="The shared author dashboard for Dissimilate's essayists — Cling, Obito, Makima, and Kuvira." />
+  <meta name="twitter:image" content="https://markcling07.github.io/Dissimilate/Essays/Makima/The-Architecture-of-the-Human-Animal/IMG/Makima-main.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Essays · Dissimilate",
+    "description": "The shared author dashboard for Dissimilate's essayists — Cling, Obito, Makima, and Kuvira.",
+    "url": "https://markcling07.github.io/Dissimilate/Essays/",
+    "hasPart": [
+      {
+        "@type": "Article",
+        "headline": "Investment in General Santos & Sarangani, still worth it?",
+        "author": { "@type": "Person", "name": "Cling" },
+        "description": "After the June 2026 earthquake devastated General Santos City and Sarangani, one resident counts the economic cost — and asks whether investment is still worth it.",
+        "url": "https://markcling07.github.io/Dissimilate/Essays/Cling/The-Essay/"
+      },
+      {
+        "@type": "Article",
+        "headline": "People Envy the Crown, Not the Weight",
+        "author": { "@type": "Person", "name": "Obito" },
+        "description": "A personal reflection on the invisible toll of success, power, legacy, and the heavy burden carried by those who lead.",
+        "url": "https://markcling07.github.io/Dissimilate/Essays/Obito/People-Envy-the-Crown/People-Envy-the-Crown.html"
+      },
+      {
+        "@type": "Article",
+        "headline": "The Architecture of the Human Animal",
+        "author": { "@type": "Person", "name": "Makima" },
+        "description": "An exploration of human psychology, control mechanisms, the architecture of dependency, and the search for validation.",
+        "url": "https://markcling07.github.io/Dissimilate/Essays/Makima/The-Architecture-of-the-Human-Animal/The-Architecture-of-the-Human-Animal.html"
+      },
+      {
+        "@type": "Article",
+        "headline": "The Burden of Restoring Order",
+        "author": { "@type": "Person", "name": "Kuvira" },
+        "description": "A profound reflection on the political philosophy, authority, and structural discipline required to restore order to a fractured kingdom.",
+        "url": "https://markcling07.github.io/Dissimilate/Essays/Kuvira/The-Burden-of-Restoring-Order/The-Burden-of-Restoring-Order.html"
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #f4f5f8;
+      --panel: #ffffff;
+      --sidebar: #fbfbfd;
+      --ink: #16181f;
+      --muted: #6b7280;
+      --faint: #9aa1ad;
+      --line: #ececf1;
+      --line-soft: #f2f2f6;
+      --accent: #dc2626;
+      --accent-ink: #b91c1c;
+      --accent-soft: #fdeaea;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow: 0 1px 2px rgba(20, 22, 40, .04), 0 8px 24px rgba(20, 22, 40, .05);
+      /* per-author accents */
+      --cling: #4338ca;   --cling-soft: #e9e8fc;
+      --obito: #b45309;   --obito-soft: #fdf0e0;
+      --makima: #b91c1c;  --makima-soft: #fdeaea;
+      --kuvira: #15803d;  --kuvira-soft: #e7f6ec;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    ::selection { background: #f6c8c8; color: var(--ink); }
+
+    html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(60% 55% at 100% 0%, rgba(220, 38, 38, .07), transparent 60%),
+        radial-gradient(55% 50% at 0% 0%, rgba(236, 152, 197, .10), transparent 60%),
+        var(--bg);
+      min-height: 100vh;
+      letter-spacing: -0.011em;
+    }
+
+    .app { display: grid; grid-template-columns: 264px 1fr; min-height: 100vh; }
+
+    /* ---------- Sidebar ---------- */
+    .sidebar {
+      background: var(--sidebar);
+      border-right: 1px solid var(--line);
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; padding: 4px 8px; }
+    .brand-mark {
+      width: 30px; height: 30px; border-radius: 9px;
+      background: linear-gradient(135deg, var(--accent), #f2724b);
+      display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 15px;
+      box-shadow: 0 4px 10px rgba(220, 38, 38, .35);
+    }
+    .brand-name { font-weight: 700; font-size: 14px; letter-spacing: .01em; }
+
+    .workspace {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: 12px; padding: 8px 10px;
+    }
+    .workspace .ws-mark {
+      width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
+      background: linear-gradient(135deg, #1f2937, #4b5563);
+      display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 14px;
+    }
+    .workspace .ws-meta { line-height: 1.15; flex: 1; min-width: 0; }
+    .workspace .ws-name { font-weight: 700; font-size: 13.5px; }
+    .workspace .ws-role { font-size: 11.5px; color: var(--faint); }
+    .workspace .ws-chev { color: var(--faint); flex-shrink: 0; }
+
+    .nav { display: flex; flex-direction: column; gap: 2px; }
+    .nav-label {
+      font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--faint); padding: 12px 12px 6px;
+    }
+    .nav-item {
+      display: flex; align-items: center; gap: 11px;
+      padding: 9px 12px; border-radius: 10px;
+      color: #3b3f4a; font-size: 13.5px; font-weight: 500;
+      text-decoration: none; cursor: pointer; border: 0; background: none; width: 100%;
+      font-family: inherit; text-align: left;
+    }
+    .nav-item svg { width: 18px; height: 18px; color: var(--faint); flex-shrink: 0; }
+    .nav-item.active {
+      background: var(--panel); color: var(--ink); font-weight: 600;
+      box-shadow: var(--shadow); border: 1px solid var(--line);
+    }
+    .nav-item.active svg { color: var(--accent); }
+    .nav-sub { display: flex; flex-direction: column; gap: 2px; margin-left: 30px; }
+    .nav-sub .nav-item { padding: 7px 12px; font-size: 13px; color: var(--muted); }
+    .nav-sub .nav-item .dot {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--faint); flex-shrink: 0;
+    }
+    .nav-sub .nav-item .ava {
+      width: 19px; height: 19px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
+      border: 1px solid var(--line);
+    }
+    /* per-image framing so faces land inside the circle crop */
+    .ava-obito { object-position: center 30%; }
+    .ava-makima { object-position: center 28%; }
+    .ava-kuvira { object-position: center 10%; }
+    .nav-sub .nav-item[data-filter="cling"] .dot { background: var(--cling); }
+    .nav-sub .nav-item[data-filter="obito"] .dot { background: var(--obito); }
+    .nav-sub .nav-item[data-filter="makima"] .dot { background: var(--makima); }
+    .nav-sub .nav-item[data-filter="kuvira"] .dot { background: var(--kuvira); }
+    .nav-sub .nav-item.active { background: var(--accent-soft); color: var(--accent-ink); font-weight: 600; box-shadow: none; border: 0; }
+
+    /* Collapsible category */
+    .nav-cat {
+      display: flex; align-items: center; gap: 11px;
+      padding: 9px 12px; border-radius: 10px;
+      color: #3b3f4a; font-size: 13.5px; font-weight: 600;
+      cursor: pointer; border: 0; background: none; width: 100%;
+      font-family: inherit; text-align: left;
+    }
+    .nav-cat > svg { width: 18px; height: 18px; color: var(--faint); flex-shrink: 0; }
+    .nav-cat .chev { width: 15px; height: 15px; margin-left: auto; transition: transform .2s ease; }
+    .nav-cat[aria-expanded="true"] .chev { transform: rotate(180deg); }
+    .nav-drop { overflow: hidden; max-height: 0; transition: max-height .28s ease; }
+    .nav-drop.open { max-height: 560px; }
+    .nav-drop .nav-label { padding-top: 8px; }
+
+    .sidebar-foot { margin-top: auto; }
+    .back-link {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 12px; border-radius: 10px;
+      color: var(--muted); font-size: 13px; font-weight: 500; text-decoration: none;
+    }
+    .back-link:hover { color: var(--accent-ink); background: var(--accent-soft); }
+
+    /* ---------- Main ---------- */
+    .main { padding: 34px clamp(20px, 4vw, 52px) 60px; min-width: 0; }
+    .page-head { margin-bottom: 22px; }
+    .page-title-row { display: flex; align-items: center; gap: 14px; }
+    .head-ava {
+      width: 54px; height: 54px; border-radius: 16px; object-fit: cover;
+      border: 1px solid var(--line); box-shadow: var(--shadow); display: none;
+      cursor: pointer; position: relative; transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .head-ava.show { display: block; }
+    .head-ava.open { box-shadow: 0 0 0 3px var(--accent-soft), var(--shadow); }
+    @media (hover: hover) {
+      .head-ava:hover { transform: translateY(-2px); box-shadow: 0 0 0 3px var(--accent-soft), var(--shadow); }
+    }
+    .page-title { font-size: clamp(1.9rem, 3.4vw, 2.5rem); font-weight: 800; letter-spacing: -0.03em; }
+    .head-hint { font-size: 11.5px; color: var(--faint); font-weight: 500; margin-top: 3px; }
+    .page-sub { color: var(--muted); font-size: 15px; margin-top: 6px; max-width: 640px; line-height: 1.55; }
+
+    /* Author detail card (revealed by clicking the header avatar) */
+    .author-detail {
+      margin-top: 16px; max-width: 640px; overflow: hidden;
+      max-height: 0; opacity: 0; transition: max-height .3s ease, opacity .25s ease, margin-top .3s ease;
+    }
+    .author-detail.open { max-height: 340px; opacity: 1; }
+    .author-detail-inner {
+      border: 1px solid var(--line); border-radius: var(--radius);
+      background: var(--panel); box-shadow: var(--shadow); padding: 18px 20px;
+    }
+    .ad-slogan {
+      font-size: 16.5px; font-style: italic; font-weight: 500; color: var(--ink);
+      line-height: 1.4; border-left: 3px solid var(--accent); padding-left: 13px; margin-bottom: 16px;
+    }
+    .ad-stats { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
+    .ad-block { display: flex; flex-direction: column; gap: 6px; }
+    .ad-num { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
+    .ad-lbl { font-size: 10.5px; color: var(--faint); font-weight: 700; text-transform: uppercase; letter-spacing: .12em; }
+    .ad-fields { display: flex; flex-wrap: wrap; gap: 6px; }
+    .ad-fields .tag {
+      font-size: 11.5px; font-weight: 500; color: #4b4f5a;
+      background: var(--line-soft); border: 1px solid var(--line);
+      padding: 3px 9px; border-radius: 999px;
+    }
+
+    .tabs { display: flex; gap: 6px; border-bottom: 1px solid var(--line); margin: 22px 0 26px; flex-wrap: wrap; }
+    .tab {
+      border: 0; background: none; font-family: inherit; cursor: pointer;
+      padding: 10px 14px; font-size: 13.5px; font-weight: 600; color: var(--muted);
+      border-radius: 9px 9px 0 0; position: relative; top: 1px;
+    }
+    .tab.active { color: var(--accent-ink); background: var(--accent-soft); }
+
+    .section { margin-bottom: 34px; }
+    .section-title {
+      font-size: 15px; font-weight: 700; margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .section-count { color: var(--faint); font-weight: 600; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; }
+
+    .card {
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 18px 18px 16px;
+      display: flex; flex-direction: column; gap: 12px;
+      box-shadow: var(--shadow); transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .card-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11.5px; font-weight: 600; padding: 3px 10px 3px 4px; border-radius: 999px;
+    }
+    .badge .ava {
+      width: 18px; height: 18px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
+    }
+    .badge.cling { background: var(--cling-soft); color: var(--cling); }
+    .badge.obito { background: var(--obito-soft); color: var(--obito); }
+    .badge.makima { background: var(--makima-soft); color: var(--makima); }
+    .badge.kuvira { background: var(--kuvira-soft); color: var(--kuvira); }
+    .read { font-size: 12px; color: var(--faint); font-weight: 500; }
+
+    .card-title { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.25; min-height: 2.5em; }
+    .card-title .emoji { margin-right: 7px; }
+    .card-desc { font-size: 13px; color: var(--muted); line-height: 1.55; flex: 1; }
+
+    .tags-label { font-size: 11px; color: var(--faint); font-weight: 600; margin-top: 2px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-size: 11.5px; font-weight: 500; color: #4b4f5a;
+      background: var(--line-soft); border: 1px solid var(--line);
+      padding: 3px 9px; border-radius: 999px;
+    }
+
+    .card-foot {
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid var(--line-soft); padding-top: 13px; margin-top: 2px;
+      min-height: 48px;
+    }
+    .card-cat { font-size: 12px; color: var(--faint); }
+    .read-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--accent-ink); font-size: 13px; font-weight: 600; text-decoration: none;
+    }
+    .read-link .arrow { transition: transform .18s ease; }
+    .soon {
+      width: 100%; text-align: center; padding: 9px; border-radius: 10px;
+      background: var(--line-soft); color: var(--faint); font-size: 12.5px; font-weight: 600;
+      border: 1px dashed var(--line);
+    }
+
+    .hidden { display: none !important; }
+
+    /* ---------- Essay viewer (in-page popup) ---------- */
+    .viewer {
+      position: fixed; inset: 0; z-index: 50;
+      display: flex; align-items: center; justify-content: center;
+      padding: clamp(10px, 3vw, 36px);
+      background: rgba(20, 22, 40, .55);
+      -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+      opacity: 0; pointer-events: none; transition: opacity .2s ease;
+    }
+    .viewer.open { opacity: 1; pointer-events: auto; }
+    .viewer-panel {
+      background: var(--panel); border-radius: var(--radius);
+      width: min(1080px, 100%); height: 100%;
+      display: flex; flex-direction: column; overflow: hidden;
+      box-shadow: 0 24px 70px rgba(20, 22, 40, .35);
+      transform: translateY(14px) scale(.985); transition: transform .2s ease;
+    }
+    .viewer.open .viewer-panel { transform: none; }
+    .viewer-bar {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 12px 10px 18px; border-bottom: 1px solid var(--line);
+      background: var(--sidebar); flex-shrink: 0;
+    }
+    .viewer-title {
+      font-size: 13.5px; font-weight: 700; flex: 1; min-width: 0;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .viewer-open-full {
+      color: var(--muted); font-size: 12.5px; font-weight: 600; text-decoration: none;
+      padding: 7px 11px; border-radius: 9px; border: 1px solid var(--line);
+      background: var(--panel); flex-shrink: 0;
+    }
+    .viewer-close {
+      border: 0; background: var(--panel); cursor: pointer; color: var(--muted);
+      width: 34px; height: 34px; border-radius: 9px; border: 1px solid var(--line);
+      display: grid; place-items: center; flex-shrink: 0; font-family: inherit;
+    }
+    .viewer-frame { border: 0; width: 100%; height: 100%; flex: 1; background: #fff; }
+    body.viewer-locked { overflow: hidden; }
+    @media (hover: hover) {
+      .viewer-open-full:hover { color: var(--accent-ink); border-color: #e8c8c8; background: var(--accent-soft); }
+      .viewer-close:hover { color: var(--accent-ink); border-color: #e8c8c8; background: var(--accent-soft); }
+    }
+    @media (max-width: 860px) {
+      .viewer { padding: 0; }
+      .viewer-panel { border-radius: 0; width: 100%; }
+    }
+
+    /* ---------- Interaction (gated) ---------- */
+    @media (hover: hover) {
+      .card:hover { transform: translateY(-3px); box-shadow: 0 2px 4px rgba(20,22,40,.05), 0 14px 34px rgba(20,22,40,.09); border-color: #e0e0ea; }
+      .read-link:hover .arrow { transform: translateX(3px); }
+      .nav-item:not(.active):hover { background: #f0f0f5; }
+      .nav-cat:hover { background: #f0f0f5; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 860px) {
+      .app { grid-template-columns: 1fr; }
+      .sidebar {
+        position: static; height: auto; flex-direction: row; flex-wrap: wrap;
+        align-items: center; gap: 12px; padding: 12px 16px;
+      }
+      .nav, .nav-label, .sidebar-foot { display: none; }
+      .workspace { margin-left: auto; }
+      .main { padding: 24px 18px 48px; }
+      .cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- ===== Sidebar ===== -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">D</div>
+        <span class="brand-name">Dissimilate</span>
+      </div>
+
+      <div class="workspace">
+        <div class="ws-mark">E</div>
+        <div class="ws-meta">
+          <div class="ws-name">Essays</div>
+          <div class="ws-role">4 authors</div>
+        </div>
+        <svg class="ws-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 9 12 5 16 9"></polyline><polyline points="16 15 12 19 8 15"></polyline></svg>
+      </div>
+
+      <nav class="nav">
+        <div class="nav-label">Workspace</div>
+        <button class="nav-item active" data-filter="all">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+          Overview
+        </button>
+
+        <button class="nav-cat" id="af-toggle" aria-expanded="false" aria-controls="af-drop">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          Authors &amp; Fields
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="nav-drop" id="af-drop">
+          <div class="nav-label">Authors</div>
+          <div class="nav-sub">
+            <button class="nav-item" data-filter="all">
+              <span class="dot"></span> All essays
+            </button>
+            <button class="nav-item" data-filter="cling">
+              <img class="ava" src="Cling/ClingDP.jfif" alt="" /> Cling
+            </button>
+            <button class="nav-item" data-filter="obito">
+              <img class="ava ava-obito" src="Obito/People-Envy-the-Crown/IMG/Obito.jpg" alt="" /> Obito
+            </button>
+            <button class="nav-item" data-filter="makima">
+              <img class="ava ava-makima" src="Makima/The-Architecture-of-the-Human-Animal/IMG/Makima-main.jpg" alt="" /> Makima
+            </button>
+            <button class="nav-item" data-filter="kuvira">
+              <img class="ava ava-kuvira" src="Kuvira/The-Burden-of-Restoring-Order/IMG/Kuvira-1.jpg" alt="" /> Kuvira
+            </button>
+          </div>
+          <div class="nav-label">Fields</div>
+          <div class="nav-sub">
+            <button class="nav-item" data-field="Economy">
+              <span class="dot"></span> Economy
+            </button>
+            <button class="nav-item" data-field="Workplace">
+              <span class="dot"></span> Workplace
+            </button>
+            <button class="nav-item" data-field="Career">
+              <span class="dot"></span> Career
+            </button>
+            <button class="nav-item" data-field="Psychology">
+              <span class="dot"></span> Psychology
+            </button>
+            <button class="nav-item" data-field="Media">
+              <span class="dot"></span> Media
+            </button>
+            <button class="nav-item" data-field="Success">
+              <span class="dot"></span> Success
+            </button>
+            <button class="nav-item" data-field="Order">
+              <span class="dot"></span> Order
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <div class="sidebar-foot">
+        <a class="back-link" href="../index.html">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          Back to Dissimilate
+        </a>
+      </div>
+    </aside>
+
+    <!-- ===== Main ===== -->
+    <main class="main">
+      <header class="page-head">
+        <div class="page-title-row">
+          <img class="head-ava" id="head-ava" src="" alt="" title="Click for details" />
+          <div>
+            <h1 class="page-title">Essays</h1>
+            <p class="head-hint hidden" id="head-hint">Tap the photo for details ↑</p>
+          </div>
+        </div>
+        <p class="page-sub">The shared author dashboard for Dissimilate's essayists. Four voices — Cling, Obito, Makima, and Kuvira — writing on the economy and work, the weight of success, the architecture of the human mind, and the burden of restoring order.</p>
+        <div class="author-detail" id="author-detail">
+          <div class="author-detail-inner">
+            <p class="ad-slogan" id="ad-slogan"></p>
+            <div class="ad-stats">
+              <div class="ad-block">
+                <span class="ad-num" id="ad-count"></span>
+                <span class="ad-lbl">Submissions</span>
+              </div>
+              <div class="ad-block">
+                <div class="ad-fields" id="ad-fields"></div>
+                <span class="ad-lbl">Fields</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-filter="all">All essays</button>
+        <button class="tab" data-filter="cling">Cling</button>
+        <button class="tab" data-filter="obito">Obito</button>
+        <button class="tab" data-filter="makima">Makima</button>
+        <button class="tab" data-filter="kuvira">Kuvira</button>
+      </div>
+
+      <section class="section">
+        <h2 class="section-title">Published <span class="section-count">(4)</span></h2>
+        <div class="cards">
+
+          <article class="card" data-author="cling">
+            <div class="card-top">
+              <span class="badge cling"><img class="ava" src="Cling/ClingDP.jfif" alt="" />Cling</span>
+              <span class="read">5 min read</span>
+            </div>
+            <h3 class="card-title"><span class="emoji">🏙️</span>Investment in General Santos &amp; Sarangani, still worth it?</h3>
+            <p class="card-desc">After the June 2026 earthquake devastated General Santos City and Sarangani, one resident counts the economic cost — and asks whether investment is still worth it.</p>
+            <div class="tags-label">Topics</div>
+            <div class="tags"><span class="tag">Economy</span><span class="tag">Disaster</span><span class="tag">GenSan</span></div>
+            <div class="card-foot">
+              <span class="card-cat">Jul 16, 2026</span>
+              <a class="read-link" href="Cling/The-Essay/index.html">Read essay <span class="arrow">→</span></a>
+            </div>
+          </article>
+
+          <article class="card" data-author="obito">
+            <div class="card-top">
+              <span class="badge obito"><img class="ava ava-obito" src="Obito/People-Envy-the-Crown/IMG/Obito.jpg" alt="" />Obito</span>
+              <span class="read">3 min read</span>
+            </div>
+            <h3 class="card-title"><span class="emoji">👑</span>People Envy the Crown, Not the Weight</h3>
+            <p class="card-desc">A personal reflection on the invisible toll of success, power, legacy, and the heavy burden carried by those who lead.</p>
+            <div class="tags-label">Topics</div>
+            <div class="tags"><span class="tag">Success</span><span class="tag">Power</span><span class="tag">Legacy</span></div>
+            <div class="card-foot">
+              <span class="card-cat">Success and Suffering</span>
+              <a class="read-link" href="Obito/People-Envy-the-Crown/People-Envy-the-Crown.html">Read essay <span class="arrow">→</span></a>
+            </div>
+          </article>
+
+          <article class="card" data-author="makima">
+            <div class="card-top">
+              <span class="badge makima"><img class="ava ava-makima" src="Makima/The-Architecture-of-the-Human-Animal/IMG/Makima-main.jpg" alt="" />Makima</span>
+              <span class="read">8 min read</span>
+            </div>
+            <h3 class="card-title"><span class="emoji">🧠</span>The Architecture of the Human Animal</h3>
+            <p class="card-desc">An exploration of human psychology, control mechanisms, the architecture of dependency, and the search for validation.</p>
+            <div class="tags-label">Topics</div>
+            <div class="tags"><span class="tag">Psychology</span><span class="tag">Control</span><span class="tag">Desire</span></div>
+            <div class="card-foot">
+              <span class="card-cat">Psychology</span>
+              <a class="read-link" href="Makima/The-Architecture-of-the-Human-Animal/The-Architecture-of-the-Human-Animal.html">Read essay <span class="arrow">→</span></a>
+            </div>
+          </article>
+
+          <article class="card" data-author="kuvira">
+            <div class="card-top">
+              <span class="badge kuvira"><img class="ava ava-kuvira" src="Kuvira/The-Burden-of-Restoring-Order/IMG/Kuvira-1.jpg" alt="" />Kuvira</span>
+              <span class="read">11 min read</span>
+            </div>
+            <h3 class="card-title"><span class="emoji">⚖️</span>The Burden of Restoring Order</h3>
+            <p class="card-desc">A profound reflection on the political philosophy, authority, and structural discipline required to restore order to a fractured kingdom.</p>
+            <div class="tags-label">Topics</div>
+            <div class="tags"><span class="tag">Order</span><span class="tag">Authority</span><span class="tag">Politics</span></div>
+            <div class="card-foot">
+              <span class="card-cat">Order and Chaos</span>
+              <a class="read-link" href="Kuvira/The-Burden-of-Restoring-Order/The-Burden-of-Restoring-Order.html">Read essay <span class="arrow">→</span></a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">In progress <span class="section-count">(8)</span></h2>
+        <div class="cards">
+
+          <article class="card" data-author="cling">
+            <div class="card-top">
+              <span class="badge cling"><img class="ava" src="Cling/ClingDP.jfif" alt="" />Cling</span>
+              <span class="read">4 min read</span>
+            </div>
+            <h3 class="card-title"><span class="emoji">💼</span>Hiring &amp; Promotion: Alignment over Qualification</h3>
+            <p class="card-desc">Being qualified isn't enough to get hired or promoted — how alignment, behaviour, and departmental power quietly decide who moves up.</p>
+            <div class="tags-label">Topics</div>
+            <div class="tags"><span class="tag">Workplace</span><span class="tag">Career</span><span class="tag">Power</span></div>
+            <div class="card-foot">
+              <span class="card-cat">Draft</span>
+              <a class="read-link" href="Cling/Hiring-and-Promotion/index.html">Preview <span class="arrow">→</span></a>
+            </div>
+          </article>
+
+          <article class="card" data-author="cling">
+            <div class="card-top">
+              <span class="badge cling"><img class="ava" src="Cling/ClingDP.jfif" alt="" />Cling</span>
+            </div>
+            <h3 class="card-title"><span class="emoji">📱</span>They only want Screentime</h3>
+            <p class="card-desc">On saying something bold and controversial just to be noticed — and why siding with plain logic goes unseen.</p>
+            <div class="tags-label">Topics</div>
+            <div class="tags"><span class="tag">Media</span><span class="tag">Society</span></div>
+            <div class="card-foot"><span class="soon">Coming soon</span></div>
+          </article>
+
+          <article class="card" data-author="cling">
+            <div class="card-top">
+              <span class="badge cling"><img class="ava" src="Cling/ClingDP.jfif" alt="" />Cling</span>
+            </div>
+            <h3 class="card-title"><span class="emoji">💸</span>Complaining about the Economy</h3>
+            <p class="card-desc">Before you complain that the economy sucks — a case that you have to be in the game, taxed and working, before you get to.</p>
+            <div class="tags-label">Topics</div>
+            <div class="tags"><span class="tag">Economy</span><span class="tag">Politics</span></div>
+            <div class="card-foot"><span class="soon">Coming soon</span></div>
+          </article>
+
+          <article class="card" data-author="cling">
+            <div class="card-top">
+              <span class="badge cling"><img class="ava" src="Cling/ClingDP.jfif" alt="" />Cling</span>
+            </div>
+            <h3 class="card-title"><span class="emoji">🧠</span>Why is it so easy for people to say things about experiences they have never gone through?</h3>
+            <p class="card-desc">Judging lives you've never lived, seen through Construal-Level Theory and the idea of psychological distance.</p>
+            <div class="tags-label">Topics</div>
+            <div class="tags"><span class="tag">Psychology</span><span class="tag">Empathy</span></div>
+            <div class="card-foot"><span class="soon">Coming soon</span></div>
+          </article>
+
+          <article class="card" data-author="cling">
+            <div class="card-top">
+              <span class="badge cling"><img class="ava" src="Cling/ClingDP.jfif" alt="" />Cling</span>
+            </div>
+            <h3 class="card-title"><span class="emoji">🤝</span>You don't need to fire both</h3>
+            <p class="card-desc">On the "who would you fire — X or Y?" question, and why the honest answer is no one when two people already teamed up to get the job done.</p>
+            <div class="tags-label">Topics</div>
+            <div class="tags"><span class="tag">Workplace</span><span class="tag">Teamwork</span></div>
+            <div class="card-foot"><span class="soon">Coming soon</span></div>
+          </article>
+
+          <article class="card" data-author="cling">
+            <div class="card-top">
+              <span class="badge cling"><img class="ava" src="Cling/ClingDP.jfif" alt="" />Cling</span>
+            </div>
+            <h3 class="card-title"><span class="emoji">📹</span>LC Sign</h3>
+            <p class="card-desc">How one man's viral clips turned a sign-making business into a meme — and why handing that screen time to other employees keeps feeling awkward.</p>
+            <div class="tags-label">Topics</div>
+            <div class="tags"><span class="tag">Marketing</span><span class="tag">Virality</span><span class="tag">Media</span></div>
+            <div class="card-foot"><span class="soon">Coming soon</span></div>
+          </article>
+
+          <article class="card" data-author="cling">
+            <div class="card-top">
+              <span class="badge cling"><img class="ava" src="Cling/ClingDP.jfif" alt="" />Cling</span>
+            </div>
+            <h3 class="card-title"><span class="emoji">🛡️</span>Filipinos, financial literacy &amp; insurance</h3>
+            <p class="card-desc">Why insurance still can't crack the Philippine market — and whether "no financial literacy" is really what keeps most Filipinos skeptical of it.</p>
+            <div class="tags-label">Topics</div>
+            <div class="tags"><span class="tag">Economy</span><span class="tag">Insurance</span><span class="tag">Philippines</span></div>
+            <div class="card-foot"><span class="soon">Coming soon</span></div>
+          </article>
+
+          <article class="card" data-author="cling">
+            <div class="card-top">
+              <span class="badge cling"><img class="ava" src="Cling/ClingDP.jfif" alt="" />Cling</span>
+            </div>
+            <h3 class="card-title"><span class="emoji">🎓</span>Diploma vs non-holders</h3>
+            <p class="card-desc">The invisible wall degree-less workers hit — how "a degree is useless" content ignores the gatekeeping that quietly locks capable people out.</p>
+            <div class="tags-label">Topics</div>
+            <div class="tags"><span class="tag">Work</span><span class="tag">Education</span><span class="tag">Career</span></div>
+            <div class="card-foot"><span class="soon">Coming soon</span></div>
+          </article>
+
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ===== Essay viewer (in-page popup) ===== -->
+  <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Essay viewer">
+    <div class="viewer-panel">
+      <div class="viewer-bar">
+        <span class="viewer-title" id="viewer-title"></span>
+        <a class="viewer-open-full" id="viewer-open-full" href="#" target="_blank" rel="noopener">Open full page ↗</a>
+        <button class="viewer-close" id="viewer-close" aria-label="Close essay viewer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <iframe class="viewer-frame" id="viewer-frame" title="Essay"></iframe>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var tabs = document.querySelectorAll('.tab');
+      var navFilters = document.querySelectorAll('.nav-item[data-filter]');
+      var fieldFilters = document.querySelectorAll('.nav-item[data-field]');
+      var sections = document.querySelectorAll('.section');
+      var pageTitle = document.querySelector('.page-title');
+      var pageSub = document.querySelector('.page-sub');
+      var headAva = document.getElementById('head-ava');
+      var headHint = document.getElementById('head-hint');
+      var authorDetail = document.getElementById('author-detail');
+      var adSlogan = document.getElementById('ad-slogan');
+      var adCount = document.getElementById('ad-count');
+      var adFields = document.getElementById('ad-fields');
+
+      var AUTHOR_HEADS = {
+        all: {
+          title: 'Essays',
+          sub: "The shared author dashboard for Dissimilate's essayists. Four voices — Cling, Obito, Makima, and Kuvira — writing on the economy and work, the weight of success, the architecture of the human mind, and the burden of restoring order."
+        },
+        cling: {
+          title: 'Cling',
+          sub: "Cling writes first-person essays from General Santos City — on the economy, work, society, and the stories we tell ourselves. Seven years on the BPO floor taught him to distrust tidy explanations; these essays are what he found instead.",
+          img: 'Cling/ClingDP.jfif', imgClass: '',
+          slogan: '“Distrust the tidy explanation.”',
+          fields: ['Economy', 'Workplace', 'Psychology', 'Media']
+        },
+        obito: {
+          title: 'Obito',
+          sub: "Obito writes on success, power, and legacy — the invisible toll carried by those who lead, and why people envy the crown but never its weight.",
+          img: 'Obito/People-Envy-the-Crown/IMG/Obito.jpg', imgClass: 'ava-obito',
+          slogan: '“They envy the crown, never its weight.”',
+          fields: ['Success', 'Power', 'Legacy']
+        },
+        makima: {
+          title: 'Makima',
+          sub: "Makima writes on human psychology — control, dependency, desire, and the search for validation that shapes the architecture of the human animal.",
+          img: 'Makima/The-Architecture-of-the-Human-Animal/IMG/Makima-main.jpg', imgClass: 'ava-makima',
+          slogan: '“Every choice has an architect.”',
+          fields: ['Psychology', 'Control', 'Desire']
+        },
+        kuvira: {
+          title: 'Kuvira',
+          sub: "Kuvira writes on order and chaos — political philosophy, authority, and the structural discipline it takes to restore a fractured kingdom.",
+          img: 'Kuvira/The-Burden-of-Restoring-Order/IMG/Kuvira-1.jpg', imgClass: 'ava-kuvira',
+          slogan: '“Someone must carry the weight of order.”',
+          fields: ['Order', 'Authority', 'Politics']
+        }
+      };
+
+      function countSubmissions(author) {
+        return document.querySelectorAll('.card[data-author="' + author + '"]').length;
+      }
+
+      function fillDetail(author, head) {
+        adSlogan.textContent = head.slogan;
+        adCount.textContent = countSubmissions(author);
+        adFields.innerHTML = '';
+        head.fields.forEach(function (f) {
+          var chip = document.createElement('span');
+          chip.className = 'tag';
+          chip.textContent = f;
+          adFields.appendChild(chip);
+        });
+      }
+
+      function collapseDetail() {
+        authorDetail.classList.remove('open');
+        headAva.classList.remove('open');
+      }
+
+      function updateHead(kind, value) {
+        var head = kind === 'author' ? (AUTHOR_HEADS[value] || AUTHOR_HEADS.all) : AUTHOR_HEADS.all;
+        var isAuthor = kind === 'author' && head.img;
+        collapseDetail();
+        if (isAuthor) {
+          headAva.src = head.img;
+          headAva.className = 'head-ava show ' + head.imgClass;
+          headAva.alt = head.title;
+          headHint.classList.remove('hidden');
+          fillDetail(value, head);
+        } else {
+          headAva.className = 'head-ava';
+          headAva.removeAttribute('src');
+          headAva.alt = '';
+          headHint.classList.add('hidden');
+        }
+        if (kind === 'field') {
+          pageTitle.textContent = value;
+          pageSub.textContent = 'Essays in the ' + value + ' field, from across Dissimilate’s essayists.';
+          return;
+        }
+        pageTitle.textContent = head.title;
+        pageSub.textContent = head.sub;
+      }
+
+      function cardMatches(c, kind, value) {
+        if (value === 'all') return true;
+        if (kind === 'author') return c.getAttribute('data-author') === value;
+        var tags = c.querySelectorAll('.tag');
+        for (var i = 0; i < tags.length; i++) {
+          if (tags[i].textContent.trim() === value) return true;
+        }
+        return false;
+      }
+
+      function apply(kind, value) {
+        updateHead(kind, value);
+        sections.forEach(function (sec) {
+          var shown = 0;
+          sec.querySelectorAll('.card[data-author]').forEach(function (c) {
+            var show = cardMatches(c, kind, value);
+            c.classList.toggle('hidden', !show);
+            if (show) shown++;
+          });
+          sec.querySelector('.section-count').textContent = '(' + shown + ')';
+          sec.classList.toggle('hidden', shown === 0);
+        });
+        var authorValue = kind === 'author' ? value : null;
+        tabs.forEach(function (t) { t.classList.toggle('active', t.getAttribute('data-filter') === authorValue); });
+        navFilters.forEach(function (n) { n.classList.toggle('active', n.getAttribute('data-filter') === authorValue); });
+        fieldFilters.forEach(function (n) { n.classList.toggle('active', kind === 'field' && n.getAttribute('data-field') === value); });
+      }
+
+      function scrollToTop() {
+        document.querySelector('.main').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      headAva.addEventListener('click', function () {
+        var open = authorDetail.classList.toggle('open');
+        headAva.classList.toggle('open', open);
+        headHint.classList.toggle('hidden', open);
+      });
+
+      tabs.forEach(function (t) { t.addEventListener('click', function () { apply('author', t.getAttribute('data-filter')); }); });
+      navFilters.forEach(function (n) {
+        n.addEventListener('click', function () { apply('author', n.getAttribute('data-filter')); scrollToTop(); });
+      });
+      fieldFilters.forEach(function (n) {
+        n.addEventListener('click', function () { apply('field', n.getAttribute('data-field')); scrollToTop(); });
+      });
+
+      /* ----- "Authors & Fields" drop-down ----- */
+      var afToggle = document.getElementById('af-toggle');
+      var afDrop = document.getElementById('af-drop');
+      afToggle.addEventListener('click', function () {
+        var open = afDrop.classList.toggle('open');
+        afToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      /* ----- Essay viewer: open essays in-page instead of navigating away ----- */
+      var viewer = document.getElementById('viewer');
+      var frame = document.getElementById('viewer-frame');
+      var viewerTitle = document.getElementById('viewer-title');
+      var openFull = document.getElementById('viewer-open-full');
+      var closeBtn = document.getElementById('viewer-close');
+
+      function openViewer(href, title) {
+        frame.src = href;
+        viewerTitle.textContent = title;
+        openFull.href = href;
+        viewer.classList.add('open');
+        document.body.classList.add('viewer-locked');
+        closeBtn.focus();
+      }
+      function closeViewer() {
+        viewer.classList.remove('open');
+        document.body.classList.remove('viewer-locked');
+        frame.src = 'about:blank';
+      }
+
+      document.querySelectorAll('.card .read-link').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          var card = link.closest('.card');
+          var title = card.querySelector('.card-title').textContent.trim();
+          openViewer(link.getAttribute('href'), title);
+        });
+      });
+
+      closeBtn.addEventListener('click', closeViewer);
+      viewer.addEventListener('click', function (e) { if (e.target === viewer) closeViewer(); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && viewer.classList.contains('open')) closeViewer();
+      });
+    })();
+  </script>
+</body>
+</html>

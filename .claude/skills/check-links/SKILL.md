@@ -30,8 +30,8 @@ clean and `2` when problems exist.
   only under different case or a different character (e.g. ASCII `x` vs `×` U+00D7, or `.jpg`
   vs `.JPG`). Fix the reference to match the real on-disk name exactly.
 - **Not found on disk** — the target genuinely doesn't exist. Either the file is missing or the
-  path is wrong. Check for the legacy/duplicate folders documented in `CLAUDE.md` (e.g.
-  `Essays/Order & Chaos/` vs the live `Essays/Order and Chaos/`).
+  path is wrong. Check for the legacy/duplicate folders documented in `CLAUDE.md` (e.g. ASCII
+  `Authors/Allison/Kotkot x Bukaw/` vs `Authors/Star/Kotkot × Bukaw/` with the `×` U+00D7).
 - **Known noise**: legacy non-live pages (e.g. `Essays/Mountains/Why We Climb/`) may contain
   stale links. When doing a full-repo scan, focus on files you actually edited or that the
   `articles` array references; ignore breakage inside folders `CLAUDE.md` marks as non-live.
