@@ -441,9 +441,11 @@ main {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-/* Day one's four small shots ride a single line. */
+/* Day one's four small shots ride a single line, spanning the full
+   column so the row closes flush with the gate photo above it. */
 .grid.quad {
     grid-template-columns: repeat(4, 1fr);
+    max-width: none;
 }
 
 .photo a,
