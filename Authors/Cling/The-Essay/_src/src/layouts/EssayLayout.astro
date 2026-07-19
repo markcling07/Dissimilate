@@ -90,15 +90,13 @@ const jsonLd = {
     <main class="essay-page">
       <article>
         <header class="essay-header">
-          <p class="kicker">
-            <span>{p.category}</span>
-            {p.readTime && (
-              <Fragment>
-                <span aria-hidden="true">·</span>
-                <span>{p.readTime}</span>
-              </Fragment>
-            )}
-          </p>
+          {(p.category || p.readTime) && (
+            <p class="kicker">
+              {p.category && <span>{p.category}</span>}
+              {p.category && p.readTime && <span aria-hidden="true">·</span>}
+              {p.readTime && <span>{p.readTime}</span>}
+            </p>
+          )}
           <h1 class="essay-title">{p.title}</h1>
           <p class="byline">
             By <a href="../">{p.author}</a> ·
