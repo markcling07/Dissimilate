@@ -186,11 +186,16 @@ a:focus-visible {
     color: var(--ink-soft);
 }
 
+/* Instagram, pinned to the page's top-right corner — the social
+   counterweight to the ridge doodle on the left. */
 .hero-social {
+    position: absolute;
+    top: clamp(1rem, 4vh, 2.5rem);
+    right: 0;
+    z-index: 2;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    margin-top: clamp(1.4rem, 3.5vh, 2rem);
     font-size: 0.9rem;
     font-weight: 600;
     color: var(--pen);
@@ -422,6 +427,10 @@ a:focus-visible {
         width: 120px;
         left: -28px;
         top: 0.5rem;
+    }
+
+    .hero-social {
+        top: 0.85rem;
     }
 
     .hero-copy {
