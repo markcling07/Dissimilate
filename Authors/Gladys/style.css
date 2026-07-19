@@ -272,7 +272,9 @@ a:focus-visible {
 }
 
 .log-meta {
-    padding: 1rem 0.25rem 1.2rem;
+    /* Flush with the card edge — title, description and tag share
+       one left line with the photo. */
+    padding: 1rem 0 1.2rem;
 }
 
 .log-title {
