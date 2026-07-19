@@ -17,9 +17,25 @@
     --text-muted: #b45309;
     --card-bg: rgba(26, 17, 10, 0.75);
     --card-border: rgba(217, 119, 6, 0.25);
-    --shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
     --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    
+
+    /* Text on photography, where the cream tokens would be too solid */
+    --text-soft: rgba(254, 243, 199, 0.75);
+    --text-faint: rgba(254, 243, 199, 0.6);
+
+    /* Shadows are tinted toward the espresso ground, never pure black */
+    --shadow-sm: 0 6px 20px rgba(30, 15, 4, 0.45);
+    --shadow-md: 0 16px 44px rgba(30, 15, 4, 0.65);
+    --shadow: var(--shadow-md);
+
+    --radius-sm: 12px;
+    --radius-card: 20px;
+    --radius-pill: 50px;
+
+    /* Fluid spacing — replaces most of the hand-tuned breakpoint ladder */
+    --space-section: clamp(3.5rem, 9vw, 7rem);
+    --space-gutter: clamp(1.25rem, 5vw, 2rem);
+
     /* Sunbeam overlay color */
     --overlay-color: rgba(245, 158, 11, 0.08);
 }
@@ -99,7 +115,7 @@ body {
 
 /* Sections & Layout */
 .section {
-    padding: 7rem 2rem;
+    padding: var(--space-section) var(--space-gutter);
     position: relative;
 }
 
@@ -112,21 +128,57 @@ body {
 .hero {
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 2rem;
     position: relative;
+    background-image: url('IMG/View5.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
+/* Vignette to the page ground, plus a flat scrim so the cream type holds
+   its contrast over the bright patches of sky in the photo. */
 .hero-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, transparent 30%, var(--bg-primary) 90%);
+    inset: 0;
+    background:
+        radial-gradient(circle at center, transparent 30%, var(--bg-primary) 90%),
+        linear-gradient(to bottom, rgba(18, 11, 6, 0.55), rgba(18, 11, 6, 0.7));
     z-index: 1;
     pointer-events: none;
+}
+
+/* Poster masthead — top and bottom rules that frame the hero as a printed plate.
+   Shared across Star's three logs; the № numbers them as a series. */
+.poster-row {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    /* Keep the rule legible over the brighter patches of the hero photo. */
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
+}
+
+.poster-row-top {
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 0.9rem;
+}
+
+.poster-row-bottom {
+    border-top: 1px solid var(--card-border);
+    padding-top: 0.9rem;
 }
 
 .hero-content {
@@ -134,6 +186,9 @@ body {
     z-index: 2;
     text-align: center;
     max-width: 900px;
+    /* The hero is now a column: masthead / content / masthead */
+    margin: auto 0;
+    padding: 2rem 0;
 }
 
 .hero-date {
@@ -244,23 +299,12 @@ body {
     line-height: 1.7;
 }
 
-.lead-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    font-style: italic;
-    line-height: 1.45;
-    color: var(--text-secondary);
-    border-left: 3px solid var(--accent);
-    padding-left: 1.5rem;
-    margin: 2rem 0;
-}
-
 /* Featured Card Image Frame */
 .featured-img-wrapper {
     position: relative;
-    border-radius: 20px;
+    border-radius: var(--radius-card);
     overflow: hidden;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-md);
     aspect-ratio: 4/3;
     border: 1px solid var(--card-border);
 }
@@ -275,34 +319,6 @@ body {
 
 .featured-img-wrapper:hover .featured-img {
     transform: scale(1.05);
-}
-
-/* Photo Gallery Grid Controls */
-.gallery-controls {
-    display: flex;
-    justify-content: center;
-    gap: 0.75rem;
-    margin-bottom: 3.5rem;
-    flex-wrap: wrap;
-}
-
-.filter-btn {
-    background: transparent;
-    border: 1px solid var(--card-border);
-    color: var(--text-primary);
-    padding: 0.6rem 1.4rem;
-    border-radius: 30px;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: var(--transition);
-}
-
-.filter-btn:hover, .filter-btn.active {
-    background: var(--accent);
-    border-color: var(--accent-light);
-    box-shadow: 0 4px 15px rgba(var(--accent-rgb), 0.35);
 }
 
 /* Dynamic Gallery Grid */
@@ -697,6 +713,11 @@ body {
     transition: var(--transition);
 }
 
+.checklist-item input:focus-visible {
+    outline: 2px solid var(--accent-light);
+    outline-offset: 3px;
+}
+
 .checklist-item input::after {
     content: '✓';
     font-size: 0.8rem;
@@ -991,5 +1012,58 @@ body {
     }
     .stat-desc {
         font-size: 0.65rem;
+    }
+}
+
+/* Fixed attachment is a compositor cost on desktop and a no-op or janky on
+   mobile Safari — drop it to scroll on small screens. */
+@media (max-width: 768px) {
+    .hero,
+    .full-bleed-quote {
+        background-attachment: scroll;
+    }
+}
+
+/* Keyboard focus for the gallery/photo triggers, which are now activatable. */
+.gallery-item:focus-visible,
+.featured-img:focus-visible,
+.collage-img-base:focus-visible,
+.collage-img-overlay:focus-visible,
+.waterfall-img:focus-visible,
+.companion-img:focus-visible,
+.back-btn:focus-visible,
+.lightbox-close:focus-visible,
+.lightbox-nav:focus-visible {
+    outline: 3px solid var(--accent-light);
+    outline-offset: 4px;
+}
+
+/* Respect a reduced-motion preference: stop the drifting sunbeams, flatten the
+   parallax, and neutralise the transform-based hovers. */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .sunbeams {
+        animation: none;
+    }
+
+    .hero,
+    .full-bleed-quote {
+        background-attachment: scroll;
+    }
+
+    .gallery-item:hover img,
+    .featured-img-wrapper:hover .featured-img,
+    .stat-card:hover,
+    .collage-img-base:hover,
+    .collage-img-overlay:hover {
+        transform: none;
     }
 }

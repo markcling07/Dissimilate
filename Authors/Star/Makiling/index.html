@@ -40,11 +40,15 @@
     <main>
         <!-- Hero Section -->
         <section class="hero">
+            <div class="poster-row poster-row-top">
+                <span>Star · Dissimilate</span>
+                <span>2026</span>
+            </div>
+
             <div class="hero-content">
                 <p class="hero-date">May 31, 2026</p>
                 <h1 class="hero-title">Mt. Makiling Traverse</h1>
 
-                
                 <!-- Quick Stats Grid -->
                 <div class="hero-stats">
                     <div class="stat-card">
@@ -63,7 +67,11 @@
                         <span class="stat-desc">Total Traverse</span>
                     </div>
                 </div>
+            </div>
 
+            <div class="poster-row poster-row-bottom">
+                <span>Mountain Log</span>
+                <span>№ 003</span>
             </div>
         </section>
 
@@ -76,7 +84,7 @@
                     </div>
                     <div class="story-featured-card">
                         <div class="featured-img-wrapper">
-                            <img class="featured-img" src="IMG/Kaygandamo,makiling.webp" alt="Kay Ganda mo, Makiling">
+                            <img loading="lazy" decoding="async" class="featured-img" src="IMG/Kaygandamo,makiling.webp" alt="Kay Ganda mo, Makiling">
                         </div>
                     </div>
                 </div>
@@ -94,16 +102,16 @@
                     
                     <div class="gallery-grid-small" style="margin-top: 2rem;">
                         <div class="gallery-item-original">
-                            <img class="gallery-img-original" src="IMG/Rafflesia.jfif" alt="Rare Rafflesia Bloom">
+                            <img loading="lazy" decoding="async" class="gallery-img-original" src="IMG/Rafflesia.jfif" alt="Rare Rafflesia Bloom">
                         </div>
                         <div class="gallery-item-original">
-                            <img class="gallery-img-original" src="IMG/Person.webp" alt="That's me, struggling">
+                            <img loading="lazy" decoding="async" class="gallery-img-original" src="IMG/Person.webp" alt="That's me, struggling">
                         </div>
                         <div class="gallery-item-original">
-                            <img class="gallery-img-original crop-top" src="IMG/Tree1.jfif" alt="Towering Dipterocarp Trees">
+                            <img loading="lazy" decoding="async" class="gallery-img-original crop-top" src="IMG/Tree1.jfif" alt="Towering Dipterocarp Trees">
                         </div>
                         <div class="gallery-item-original">
-                            <img class="gallery-img-original" src="IMG/Plant1.jfif" alt="Pachystachys">
+                            <img loading="lazy" decoding="async" class="gallery-img-original" src="IMG/Plant1.jfif" alt="Pachystachys">
                         </div>
                     </div>
                     
@@ -125,8 +133,8 @@
                             <p class="scrapbook-desc">Makiling felt like stepping into a fairytale book. The biodiversity on the mountain was incredible, you could almost feel the life in every tree and every corner of the forest.</p>
                         </div>
                         <div class="collage-frame">
-                            <img class="collage-img-base gallery-img-original" src="IMG/Start.webp" alt="Beginning the hike through Batangas farmlands">
-                            <img class="collage-img-overlay gallery-img-original" src="IMG/35db107a-29e6-4ddc-9294-b05ffb4adb45.jfif" alt="Vibrant mossy trail tunnels on Sipit path">
+                            <img loading="lazy" decoding="async" class="collage-img-base gallery-img-original" src="IMG/Start.webp" alt="Beginning the hike through Batangas farmlands">
+                            <img loading="lazy" decoding="async" class="collage-img-overlay gallery-img-original" src="IMG/35db107a-29e6-4ddc-9294-b05ffb4adb45.jfif" alt="Vibrant mossy trail tunnels on Sipit path">
                         </div>
                     </div>
                 </div>
@@ -137,13 +145,13 @@
                         <div class="collage-frame" style="height: auto;">
                             <div class="filmstrip-grid">
                                 <div class="filmstrip-card">
-                                    <img class="filmstrip-img gallery-img-original" src="IMG/Station21.webp" alt="Preparing for the summit scrambles at Station 21">
+                                    <img loading="lazy" decoding="async" class="filmstrip-img gallery-img-original" src="IMG/Station21.webp" alt="Preparing for the summit scrambles at Station 21">
                                 </div>
                                 <div class="filmstrip-card">
-                                    <img class="filmstrip-img gallery-img-original" src="IMG/View.jfif" alt="Misty summit peak with zero clearing">
+                                    <img loading="lazy" decoding="async" class="filmstrip-img gallery-img-original" src="IMG/View.jfif" alt="Misty summit peak with zero clearing">
                                 </div>
                                 <div class="filmstrip-card">
-                                    <img class="filmstrip-img gallery-img-original" src="IMG/Person1.webp" alt="Trail running the long UPLB descent slopes">
+                                    <img loading="lazy" decoding="async" class="filmstrip-img gallery-img-original" src="IMG/Person1.webp" alt="Trail running the long UPLB descent slopes">
                                 </div>
                             </div>
                         </div>
@@ -166,8 +174,8 @@
                             <p class="scrapbook-desc">Since we took the lead, I’m also grateful that we got the chance to visit the Mudspring. The three of us intentionally made time for that little side quest, haha. And just as I expected, it was absolutely worth it.</p>
                         </div>
                         <div class="collage-frame">
-                            <img class="collage-img-base gallery-img-original" src="IMG/MudSpring.webp" alt="Sulfur steam rising from bubbling hot pools at Mudspring">
-                            <img class="collage-img-overlay gallery-img-original" src="IMG/Coffee1.jfif" alt="Wild coffee tree leaves on the mountain trail">
+                            <img loading="lazy" decoding="async" class="collage-img-base gallery-img-original" src="IMG/MudSpring.webp" alt="Sulfur steam rising from bubbling hot pools at Mudspring">
+                            <img loading="lazy" decoding="async" class="collage-img-overlay gallery-img-original" src="IMG/Coffee1.jfif" alt="Wild coffee tree leaves on the mountain trail">
                         </div>
                     </div>
                 </div>
@@ -206,9 +214,10 @@
                                 <span>Peak 2 Summit (1109m)</span>
                                 <span>Laguna Base (100m)</span>
                             </div>
+                            <label class="visually-hidden" for="elevationSlider">Traverse position, from the Batangas trailhead to the Laguna exit</label>
                             <input type="range" id="elevationSlider" min="0" max="100" value="50" class="custom-slider">
-                            
-                            <div class="stats-display" id="statsDisplay">
+
+                            <div class="stats-display" id="statsDisplay" aria-live="polite">
                                 <div class="stat-box">
                                     <span class="box-label">Checkpoint</span>
                                     <span class="box-val" id="cpLabel">Peak 2 Peak</span>
@@ -224,14 +233,15 @@
                             </div>
                         </div>
 
-                        <div class="terrain-graph">
-                            <div class="graph-bar" style="height: 15%;"></div>
-                            <div class="graph-bar" style="height: 35%;"></div>
-                            <div class="graph-bar" style="height: 60%;"></div>
-                            <div class="graph-bar active" style="height: 100%;"></div>
-                            <div class="graph-bar" style="height: 75%;"></div>
-                            <div class="graph-bar" style="height: 40%;"></div>
-                            <div class="graph-bar" style="height: 10%;"></div>
+                        <!-- One bar per checkpoint; heights are proportional to the
+                             real elevations in app.js (1109m summit = 100%). -->
+                        <div class="terrain-graph" aria-hidden="true">
+                            <div class="graph-bar" style="height: 14%;"></div>
+                            <div class="graph-bar" style="height: 41%;"></div>
+                            <div class="graph-bar" style="height: 29%;"></div>
+                            <div class="graph-bar" style="height: 80%;"></div>
+                            <div class="graph-bar" style="height: 100%;"></div>
+                            <div class="graph-bar" style="height: 9%;"></div>
                         </div>
                     </div>
 
@@ -292,12 +302,12 @@
     </main>
 
     <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox-modal">
-        <button class="lightbox-close" id="lightboxClose">&times;</button>
-        <button class="lightbox-prev" id="lightboxPrev">&#10094;</button>
-        <button class="lightbox-next" id="lightboxNext">&#10095;</button>
+    <div id="lightbox" class="lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lightboxCaption" hidden>
+        <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image viewer">&times;</button>
+        <button class="lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous image">&#10094;</button>
+        <button class="lightbox-next" id="lightboxNext" type="button" aria-label="Next image">&#10095;</button>
         <div class="lightbox-content-wrapper">
-            <img id="lightboxImg" class="lightbox-img" src="" alt="">
+            <img loading="lazy" decoding="async" id="lightboxImg" class="lightbox-img" src="" alt="">
             <p id="lightboxCaption" class="lightbox-caption"></p>
         </div>
     </div>
@@ -311,57 +321,85 @@
             const closeBtn = document.getElementById('lightboxClose');
             const prevBtn = document.getElementById('lightboxPrev');
             const nextBtn = document.getElementById('lightboxNext');
-            
+
             const galleryImages = Array.from(document.querySelectorAll('.gallery-img-original'));
             let currentIndex = 0;
-            
-            function openLightbox(index) {
+            let lastFocused = null;
+
+            function render(index) {
                 currentIndex = index;
                 const img = galleryImages[currentIndex];
                 lightboxImg.src = img.src;
                 lightboxImg.alt = img.alt;
+                // The alt text on this page is authored caption prose, so it does double duty.
                 lightboxCaption.textContent = img.alt || '';
+            }
+
+            function openLightbox(index) {
+                lastFocused = document.activeElement;
+                render(index);
+                lightbox.hidden = false;
                 lightbox.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
+                closeBtn.focus();
             }
-            
+
             function closeLightbox() {
+                lightbox.hidden = true;
                 lightbox.style.display = 'none';
                 document.body.style.overflow = '';
+                if (lastFocused) lastFocused.focus();
             }
-            
+
             function showNext() {
-                currentIndex = (currentIndex + 1) % galleryImages.length;
-                openLightbox(currentIndex);
+                render((currentIndex + 1) % galleryImages.length);
             }
-            
+
             function showPrev() {
-                currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-                openLightbox(currentIndex);
+                render((currentIndex - 1 + galleryImages.length) % galleryImages.length);
             }
-            
+
             galleryImages.forEach((img, index) => {
                 const trigger = img.closest('.gallery-item-original') || img;
-                trigger.addEventListener('click', () => {
-                    openLightbox(index);
+                trigger.setAttribute('role', 'button');
+                trigger.setAttribute('tabindex', '0');
+                trigger.setAttribute('aria-label', `View image: ${img.alt || 'photo'}`);
+                trigger.addEventListener('click', () => openLightbox(index));
+                trigger.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openLightbox(index);
+                    }
                 });
             });
-            
+
             closeBtn.addEventListener('click', closeLightbox);
             nextBtn.addEventListener('click', showNext);
             prevBtn.addEventListener('click', showPrev);
-            
+
             lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) {
-                    closeLightbox();
-                }
+                if (e.target === lightbox) closeLightbox();
             });
-            
+
             document.addEventListener('keydown', (e) => {
-                if (lightbox.style.display === 'flex') {
-                    if (e.key === 'Escape') closeLightbox();
-                    if (e.key === 'ArrowRight') showNext();
-                    if (e.key === 'ArrowLeft') showPrev();
+                if (lightbox.hidden) return;
+
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowRight') showNext();
+                if (e.key === 'ArrowLeft') showPrev();
+
+                // Keep Tab inside the open dialog.
+                if (e.key === 'Tab') {
+                    const focusable = [closeBtn, prevBtn, nextBtn];
+                    const first = focusable[0];
+                    const last = focusable[focusable.length - 1];
+                    if (e.shiftKey && document.activeElement === first) {
+                        e.preventDefault();
+                        last.focus();
+                    } else if (!e.shiftKey && document.activeElement === last) {
+                        e.preventDefault();
+                        first.focus();
+                    }
                 }
             });
         });

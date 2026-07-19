@@ -1,27 +1,41 @@
 /* Custom Theme and Styles for Mt. Negron Hike Photo Journal */
-
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Urbanist:wght@300;400;500;600;700;800;900&display=swap');
+/* Fonts are loaded via <link> in index.html — an @import here would be
+   render-blocking and serialised behind this stylesheet. */
 
 /* Design Tokens & CSS Variables */
 :root {
     /* Volcanic Ash & Moonlit Water Palette */
     --bg-primary: #08080a;
     --bg-secondary: #0f0f14;
-    --bg-tertiary: #181820;
     --accent: #08b3c5;
     --accent-light: #00f5d4;
     --accent-gold: #d97706;
     --accent-rgb: 8, 179, 197;
+    /* The mint used for glows — was written out as raw rgba ~10 times. */
+    --accent-light-rgb: 0, 245, 212;
     --text-primary: #f8fafc;
     --text-secondary: #cbd5e1;
     --text-muted: #64748b;
     --card-bg: rgba(15, 15, 20, 0.75);
     --card-border: rgba(8, 179, 197, 0.2);
-    --shadow: 0 16px 48px rgba(0, 0, 0, 0.7);
     --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    
-    /* Moonbeam overlay color */
-    --overlay-color: rgba(0, 245, 212, 0.04);
+
+    /* Shadows are tinted toward the volcanic ground, never pure black */
+    --shadow-sm: 0 6px 20px rgba(2, 8, 10, 0.5);
+    --shadow-md: 0 16px 48px rgba(2, 8, 10, 0.7);
+    --shadow: var(--shadow-md);
+
+    --radius-sm: 12px;
+    --radius-card: 20px;
+    --radius-pill: 50px;
+
+    /* Fluid spacing — replaces most of the hand-tuned breakpoint ladder */
+    --space-section: clamp(3.5rem, 9vw, 7rem);
+    --space-gutter: clamp(1.25rem, 5vw, 2rem);
+
+    /* The bleed offset that stitches sections into the parallax planes.
+       Was hardcoded as 120px in eight places across four breakpoints. */
+    --bleed: 120px;
 }
 
 /* Global Reset */
@@ -103,22 +117,18 @@ body {
 
 /* Sections & Layout */
 .section {
-    padding: 7rem 2rem;
+    padding: var(--space-section) var(--space-gutter);
     position: relative;
 }
 
-#story {
-    margin-top: -120px;
-    padding-top: calc(7rem + 120px);
-    background: linear-gradient(to bottom, transparent, var(--bg-primary) 120px, var(--bg-primary));
-    position: relative;
-    z-index: 5;
-}
-
+/* These two sections are pulled up under the parallax planes above them and
+   fade in from transparent, so the photo dissolves into the dark rather than
+   butting against a hard edge. */
+#story,
 #companions {
-    margin-top: -120px;
-    padding-top: calc(7rem + 120px);
-    background: linear-gradient(to bottom, transparent, var(--bg-primary) 120px, var(--bg-primary));
+    margin-top: calc(-1 * var(--bleed));
+    padding-top: calc(var(--space-section) + var(--bleed));
+    background: linear-gradient(to bottom, transparent, var(--bg-primary) var(--bleed), var(--bg-primary));
     position: relative;
     z-index: 5;
 }
@@ -136,6 +146,7 @@ body {
     background-position: center;
     background-attachment: fixed;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 2rem;
@@ -144,13 +155,40 @@ body {
 
 .hero-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: radial-gradient(circle at center, transparent 30%, var(--bg-primary) 95%);
     z-index: 1;
     pointer-events: none;
+}
+
+/* Poster masthead — top and bottom rules that frame the hero as a printed plate.
+   Shared across Star's three logs; the № numbers them as a series. */
+.poster-row {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    /* Keep the rule legible over the brighter patches of the hero photo. */
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
+}
+
+.poster-row-top {
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 0.9rem;
+}
+
+.poster-row-bottom {
+    border-top: 1px solid var(--card-border);
+    padding-top: 0.9rem;
 }
 
 .hero-content {
@@ -159,6 +197,8 @@ body {
     text-align: center;
     max-width: 900px;
     animation: fadeInUp 1.2s ease-out;
+    margin: auto 0;
+    padding: 2rem 0;
 }
 
 .hero-date {
@@ -253,8 +293,6 @@ body {
     margin-top: 0.3rem;
 }
 
-
-
 /* Story Section Split Layout */
 .story-grid {
     display: grid;
@@ -303,17 +341,6 @@ p {
     line-height: 1.75;
 }
 
-.lead-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    font-style: italic;
-    line-height: 1.45;
-    color: var(--accent-light);
-    border-left: 3px solid var(--accent);
-    padding-left: 1.5rem;
-    margin: 2rem 0;
-}
-
 /* Custom Highlight Video Player Card */
 .video-card-wrapper {
     position: relative;
@@ -334,12 +361,16 @@ p {
 }
 
 /* Video Control Overlay */
+/* A real <button>, so reset the browser chrome it ships with. */
 .video-overlay-play {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    color: inherit;
     background: rgba(8, 8, 10, 0.4);
     display: flex;
     align-items: center;
@@ -347,6 +378,11 @@ p {
     cursor: pointer;
     z-index: 3;
     transition: opacity 0.5s ease;
+}
+
+.video-overlay-play:focus-visible {
+    outline: 3px solid var(--accent-light);
+    outline-offset: -4px;
 }
 
 .play-btn-circle {
@@ -391,59 +427,16 @@ p {
     align-items: center;
 }
 
-.featured-img-wrapper {
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--card-border);
-}
-
-.featured-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.8s ease;
-    cursor: zoom-in;
-    display: block;
-}
-
 .featured-img-wrapper:hover .featured-img {
     transform: scale(1.05);
 }
 
 /* Photo Gallery Controls */
-.gallery-controls {
-    display: flex;
-    justify-content: center;
-    gap: 0.75rem;
-    margin-bottom: 3.5rem;
-    flex-wrap: wrap;
-}
-
-.filter-btn {
-    background: transparent;
-    border: 1px solid var(--card-border);
-    color: var(--text-primary);
-    padding: 0.6rem 1.4rem;
-    border-radius: 30px;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: var(--transition);
-}
-
-.filter-btn:hover, .filter-btn.active {
-    background: var(--accent);
-    border-color: var(--accent-light);
-    box-shadow: 0 4px 15px rgba(var(--accent-rgb), 0.35);
-}
 
 .gallery-section {
-    margin-bottom: -120px;
-    padding-bottom: calc(7rem + 120px);
-    background: linear-gradient(to bottom, var(--bg-primary) calc(100% - 120px), transparent);
+    margin-bottom: calc(-1 * var(--bleed));
+    padding-bottom: calc(var(--space-section) + var(--bleed));
+    background: linear-gradient(to bottom, var(--bg-primary) calc(100% - var(--bleed)), transparent);
     position: relative;
     z-index: 5;
 }
@@ -492,13 +485,6 @@ p {
     color: var(--text-primary);
     margin-bottom: 0.25rem;
     font-weight: 600;
-}
-
-.gallery-info p {
-    font-size: 0.8rem;
-    color: var(--accent-light);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
 }
 
 .gallery-item:hover .gallery-img {
@@ -653,10 +639,6 @@ p {
 }
 
 .companions-mobile-title {
-    display: none;
-}
-
-.companions-mobile-sliced {
     display: none;
 }
 
@@ -818,14 +800,19 @@ p {
     -webkit-appearance: none;
     width: 20px;
     height: 20px;
+    flex-shrink: 0;
     border: 2px solid var(--card-border);
     border-radius: 6px;
-    outline: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: var(--transition);
+}
+
+.checklist-item input:focus-visible {
+    outline: 2px solid var(--accent-light);
+    outline-offset: 3px;
 }
 
 .checklist-item input::after {
@@ -1117,20 +1104,8 @@ p {
 }
 
 @media (max-width: 768px) {
-    .section {
-        padding: 4.5rem 1.5rem;
-    }
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
-    }
-    #story {
-        padding-top: calc(4.5rem + 120px);
-    }
-    .gallery-section {
-        padding-bottom: calc(4.5rem + 120px);
-    }
-    #companions {
-        padding-top: calc(4.5rem + 120px);
     }
     .hero-title {
         font-size: 3rem;
@@ -1184,18 +1159,6 @@ p {
 }
 
 @media (max-width: 600px) {
-    .section {
-        padding: 3rem 1.5rem;
-    }
-    #story {
-        padding-top: calc(3rem + 120px);
-    }
-    .gallery-section {
-        padding-bottom: calc(3rem + 120px);
-    }
-    #companions {
-        padding-top: calc(3rem + 120px);
-    }
     .gallery-grid {
         display: flex;
         overflow-x: auto;
@@ -1350,5 +1313,61 @@ p {
     }
     #companions .story-text .showcase-title {
         display: none;
+    }
+}
+
+/* Keyboard focus for the photo triggers, which are now activatable, and for
+   the lightbox chrome. */
+.gallery-item:focus-visible,
+.flora-grid img:focus-visible,
+.companions-grid img:focus-visible,
+.back-btn:focus-visible,
+.lightbox-close:focus-visible,
+.lightbox-nav:focus-visible {
+    outline: 3px solid var(--accent-light);
+    outline-offset: 4px;
+}
+
+/* Fixed attachment is a compositor cost on desktop and a no-op or janky on
+   mobile Safari — drop it to scroll on small screens. */
+@media (max-width: 768px) {
+    .hero,
+    .full-bleed-quote {
+        background-attachment: scroll;
+    }
+}
+
+/* Respect a reduced-motion preference: stop the drifting fog, flatten the
+   parallax, and neutralise the transform-based hovers. */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .fog-1,
+    .fog-2 {
+        animation: none;
+    }
+
+    .hero,
+    .full-bleed-quote {
+        background-attachment: scroll;
+    }
+
+    .hero-content {
+        animation: none;
+    }
+
+    .stat-card:hover,
+    .gallery-item:hover img,
+    .flora-frame:hover img,
+    .companions-frame:hover img,
+    .collage-card:hover {
+        transform: none;
     }
 }

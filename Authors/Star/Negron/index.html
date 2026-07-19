@@ -22,6 +22,9 @@
     <meta name="twitter:description" content="An interactive photo journal documenting a major 24+ hour backtrail traverse hike of Mt. Negron (Pampanga's Highest Peak) with 16 river crossings.">
     <meta name="twitter:image" content="https://markcling07.github.io/Dissimilate/Authors/Star/Negron/IMG/og-share.jpg">
     <!-- Google Fonts & Stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Urbanist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -36,6 +39,12 @@
         <!-- Hero Banner Section -->
         <section class="hero">
             <div class="hero-overlay"></div>
+
+            <div class="poster-row poster-row-top">
+                <span>Star · Dissimilate</span>
+                <span>2026</span>
+            </div>
+
             <div class="hero-content">
                 <span class="hero-date">May 3, 2026</span>
                 <h1 class="hero-title">Mt. Negron</h1>
@@ -60,6 +69,11 @@
                     </div>
                 </div>
             </div>
+
+            <div class="poster-row poster-row-bottom">
+                <span>Mountain Log</span>
+                <span>№ 001</span>
+            </div>
         </section>
 
         <!-- 01: Unli-Assaults & Cloud Forest -->
@@ -67,9 +81,9 @@
             <div class="container story-wrapper">
                 <div class="flora-grid">
                     <div class="flora-frame">
-                        <img class="flora-img-base" src="IMG/Mossy.webp" alt="Grid collage of cloud forest flora: curled fern, purple berries, and mossy trees in Mt. Negron">
-                        <img class="flora-img-overlay-1" src="IMG/683731363_17936004081232409_5127503251877090323_n.webp" alt="Buti di ko na tanggal yung sign,">
-                        <img class="flora-img-overlay-2" src="IMG/683747304_17936004102232409_6245927600494149761_n.webp" alt="Star sitting on a thick moss-covered tree branch looking out at the cloud forest of Mt. Negron">
+                        <img loading="lazy" decoding="async" class="flora-img-base" src="IMG/Mossy.webp" alt="Grid collage of cloud forest flora: curled fern, purple berries, and mossy trees in Mt. Negron">
+                        <img loading="lazy" decoding="async" class="flora-img-overlay-1" src="IMG/683731363_17936004081232409_5127503251877090323_n.webp" alt="Buti di ko na tanggal yung sign,">
+                        <img loading="lazy" decoding="async" class="flora-img-overlay-2" src="IMG/683747304_17936004102232409_6245927600494149761_n.webp" alt="Star sitting on a thick moss-covered tree branch looking out at the cloud forest of Mt. Negron">
                         
                         <!-- Overlay Heading for Mobile -->
                         <h2 class="flora-mobile-title"><span>Zambales Cloud Forest</span><br>Unli-Assaults &amp; Mossy Trails</h2>
@@ -81,10 +95,10 @@
                         <!-- Mobile-only Star Photos Grid -->
                         <div class="flora-mobile-overlays">
                             <div class="flora-mobile-card">
-                                <img src="IMG/683731363_17936004081232409_5127503251877090323_n.webp" alt="Buti di ko na tanggal yung sign,">
+                                <img loading="lazy" decoding="async" src="IMG/683731363_17936004081232409_5127503251877090323_n.webp" alt="Buti di ko na tanggal yung sign,">
                             </div>
                             <div class="flora-mobile-card">
-                                <img src="IMG/683747304_17936004102232409_6245927600494149761_n.webp" alt="Star sitting on a thick moss-covered tree branch looking out at the cloud forest of Mt. Negron">
+                                <img loading="lazy" decoding="async" src="IMG/683747304_17936004102232409_6245927600494149761_n.webp" alt="Star sitting on a thick moss-covered tree branch looking out at the cloud forest of Mt. Negron">
                             </div>
                         </div>
                     </div>
@@ -104,10 +118,10 @@
                     <div class="story-featured-card">
                         <!-- Custom styled HTML5 video player wrapper -->
                         <div class="video-card-wrapper">
-                            <div class="video-overlay-play">
-                                <div class="play-btn-circle" title="Play River Crossing Video"></div>
-                            </div>
-                            <video class="custom-video" preload="metadata" loop>
+                            <button class="video-overlay-play" type="button" aria-label="Play the river crossing video">
+                                <span class="play-btn-circle"></span>
+                            </button>
+                            <video class="custom-video" preload="metadata" loop playsinline>
                                 <source src="IMG/Crossing1.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
@@ -129,16 +143,16 @@
                     <div class="worth-it-collage">
                         <!-- Three highlighted images -->
                         <div class="collage-card large-card gallery-item vistas" data-src="IMG/684741443_17936003979232409_8549402588563627301_n.webp">
-                            <img src="IMG/684741443_17936003979232409_8549402588563627301_n.webp" alt="Star sitting on a scenic peak boulder looking out at rolling hills">
+                            <img loading="lazy" decoding="async" src="IMG/684741443_17936003979232409_8549402588563627301_n.webp" alt="Star sitting on a scenic peak boulder looking out at rolling hills">
                             <span class="collage-label">The Peak Outlook</span>
                         </div>
                         <div class="collage-sub-grid">
                             <div class="collage-card sub-card gallery-item vistas" data-src="IMG/683775034_17936003910232409_7597785375817899291_n.webp">
-                                <img src="IMG/683775034_17936003910232409_7597785375817899291_n.webp" alt="Golden sunlight illuminating the slopes and valleys of Mt. Negron">
+                                <img loading="lazy" decoding="async" src="IMG/683775034_17936003910232409_7597785375817899291_n.webp" alt="Golden sunlight illuminating the slopes and valleys of Mt. Negron">
                                 <span class="collage-label">Golden Slopes</span>
                             </div>
                             <div class="collage-card sub-card gallery-item vistas" data-src="IMG/684720893_17936003970232409_1006901645093761320_n.webp">
-                                <img src="IMG/684720893_17936003970232409_1006901645093761320_n.webp" alt="Panoramic vertical view down to valleys and distant plain horizons from high peaks">
+                                <img loading="lazy" decoding="async" src="IMG/684720893_17936003970232409_1006901645093761320_n.webp" alt="Panoramic vertical view down to valleys and distant plain horizons from high peaks">
                                 <span class="collage-label">Summit Horizon</span>
                             </div>
                         </div>
@@ -166,21 +180,17 @@
                         <!-- Mobile-only Companions Photos Grid -->
                         <div class="flora-mobile-overlays">
                             <div class="flora-mobile-card">
-                                <img src="IMG/Zen1.webp" alt="Muntik na mahulog diyan,">
+                                <img loading="lazy" decoding="async" src="IMG/Zen1.webp" alt="Muntik na mahulog diyan,">
                             </div>
                             <div class="flora-mobile-card">
-                                <img src="IMG/Pole.webp" alt="When hiking,
-I don't recommend having nail extensions. 
-You cannot grip your pole and other things along the hike,">
+                                <img loading="lazy" decoding="async" src="IMG/Pole.webp" alt="When hiking, I don't recommend having nail extensions. You cannot grip your pole and other things along the hike,">
                             </div>
                         </div>
                     </div>
                     <div class="companions-frame">
-                        <img class="companions-img-base" src="IMG/GroupPic.PNG" alt="Happy to be with these guys,">
-                        <img class="companions-img-overlay-1" src="IMG/Zen1.webp" alt="Muntik na mahulog diyan,">
-                        <img class="companions-img-overlay-2" src="IMG/Pole.webp" alt="When hiking,
-I don't recommend having nail extensions. 
-You cannot grip your pole and other things along the hike,">
+                        <img loading="lazy" decoding="async" class="companions-img-base" src="IMG/GroupPic.PNG" alt="Happy to be with these guys,">
+                        <img loading="lazy" decoding="async" class="companions-img-overlay-1" src="IMG/Zen1.webp" alt="Muntik na mahulog diyan,">
+                        <img loading="lazy" decoding="async" class="companions-img-overlay-2" src="IMG/Pole.webp" alt="When hiking, I don't recommend having nail extensions. You cannot grip your pole and other things along the hike,">
                         
                         <!-- Overlay Heading for Mobile -->
                         <h2 class="companions-mobile-title">Strangers to Friends</h2>
@@ -196,10 +206,10 @@ You cannot grip your pole and other things along the hike,">
                     <div class="story-featured-card">
                         <!-- Custom styled HTML5 video player wrapper -->
                         <div class="video-card-wrapper">
-                            <div class="video-overlay-play">
-                                <div class="play-btn-circle" title="Play River Crossing Video"></div>
-                            </div>
-                            <video class="custom-video" preload="metadata" loop>
+                            <button class="video-overlay-play" type="button" aria-label="Play the trail support video">
+                                <span class="play-btn-circle"></span>
+                            </button>
+                            <video class="custom-video" preload="metadata" loop playsinline>
                                 <source src="IMG/Crossing2.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
@@ -273,84 +283,84 @@ You cannot grip your pole and other things along the hike,">
                 <div class="gallery-grid">
                     <!-- Mountain Vistas -->
                     <div class="gallery-item vistas" data-src="IMG/683646077_17936004030232409_5752581426867544404_n.webp">
-                        <img class="gallery-img" src="IMG/683646077_17936004030232409_5752581426867544404_n.webp" alt="Mt. Negron peak view from a distance under light blue clouds">
+                        <img loading="lazy" decoding="async" class="gallery-img" src="IMG/683646077_17936004030232409_5752581426867544404_n.webp" alt="Mt. Negron peak view from a distance under light blue clouds">
                         <div class="gallery-info">
                             <h4>Mt. Negron Landmark</h4>
                         </div>
                     </div>
                     
                     <div class="gallery-item vistas" data-src="IMG/683775034_17936003910232409_7597785375817899291_n.webp">
-                        <img class="gallery-img" src="IMG/683775034_17936003910232409_7597785375817899291_n.webp" alt="Golden sunlight illuminating the slopes and valleys of Mt. Negron">
+                        <img loading="lazy" decoding="async" class="gallery-img" src="IMG/683775034_17936003910232409_7597785375817899291_n.webp" alt="Golden sunlight illuminating the slopes and valleys of Mt. Negron">
                         <div class="gallery-info">
                             <h4>Golden Slopes</h4>
                         </div>
                     </div>
 
                     <div class="gallery-item vistas" data-src="IMG/683875612_17936004093232409_5662044300352419771_n.webp">
-                        <img class="gallery-img" src="IMG/683875612_17936004093232409_5662044300352419771_n.webp" alt="Hiker sitting on a large boulder looking down at vast green valleys under a dramatic sky">
+                        <img loading="lazy" decoding="async" class="gallery-img" src="IMG/683875612_17936004093232409_5662044300352419771_n.webp" alt="Hiker sitting on a large boulder looking down at vast green valleys under a dramatic sky">
                         <div class="gallery-info">
                             <h4>Valleys of Zambales</h4>
                         </div>
                     </div>
 
                     <div class="gallery-item vistas" data-src="IMG/684741443_17936003979232409_8549402588563627301_n.webp">
-                        <img class="gallery-img" src="IMG/684741443_17936003979232409_8549402588563627301_n.webp" alt="Star sitting on a scenic peak boulder looking out at rolling hills">
+                        <img loading="lazy" decoding="async" class="gallery-img" src="IMG/684741443_17936003979232409_8549402588563627301_n.webp" alt="Star sitting on a scenic peak boulder looking out at rolling hills">
                         <div class="gallery-info">
                             <h4>The Peak Outlook</h4>
                         </div>
                     </div>
 
                     <div class="gallery-item vistas" data-src="IMG/684720893_17936003970232409_1006901645093761320_n.webp">
-                        <img class="gallery-img" src="IMG/684720893_17936003970232409_1006901645093761320_n.webp" alt="Panoramic vertical view down to valleys and distant plain horizons from high peaks">
+                        <img loading="lazy" decoding="async" class="gallery-img" src="IMG/684720893_17936003970232409_1006901645093761320_n.webp" alt="Panoramic vertical view down to valleys and distant plain horizons from high peaks">
                         <div class="gallery-info">
                             <h4>Summit Horizon</h4>
                         </div>
                     </div>
 
                     <div class="gallery-item vistas" data-src="IMG/688762680_17936003997232409_7395137549392965902_n.webp">
-                        <img class="gallery-img" src="IMG/688762680_17936003997232409_7395137549392965902_n.webp" alt="Green mountain ridges stretching to the horizon under puffy white clouds from a rocky edge">
+                        <img loading="lazy" decoding="async" class="gallery-img" src="IMG/688762680_17936003997232409_7395137549392965902_n.webp" alt="Green mountain ridges stretching to the horizon under puffy white clouds from a rocky edge">
                         <div class="gallery-info">
                             <h4>Undulating Ridges</h4>
                         </div>
                     </div>
 
                     <div class="gallery-item vistas" data-src="IMG/684842322_17936004063232409_8151745029702791722_n.webp">
-                        <img class="gallery-img" src="IMG/684842322_17936004063232409_8151745029702791722_n.webp" alt="Rugged green slopes showing the steep trail ridges of Mt. Negron">
+                        <img loading="lazy" decoding="async" class="gallery-img" src="IMG/684842322_17936004063232409_8151745029702791722_n.webp" alt="Rugged green slopes showing the steep trail ridges of Mt. Negron">
                         <div class="gallery-info">
                             <h4>Volcanic Ridges</h4>
                         </div>
                     </div>
 
                     <div class="gallery-item vistas" data-src="IMG/683731363_17936004081232409_5127503251877090323_n.webp">
-                        <img class="gallery-img" src="IMG/683731363_17936004081232409_5127503251877090323_n.webp" alt="Star sitting next to the Mt. Negron trail signpost">
+                        <img loading="lazy" decoding="async" class="gallery-img" src="IMG/683731363_17936004081232409_5127503251877090323_n.webp" alt="Star sitting next to the Mt. Negron trail signpost">
                         <div class="gallery-info">
                             <h4>Trail Signpost</h4>
                         </div>
                     </div>
 
                     <div class="gallery-item vistas" data-src="IMG/683747304_17936004102232409_6245927600494149761_n.webp">
-                        <img class="gallery-img" src="IMG/683747304_17936004102232409_6245927600494149761_n.webp" alt="Star sitting on a thick moss-covered tree branch looking out at the cloud forest of Mt. Negron">
+                        <img loading="lazy" decoding="async" class="gallery-img" src="IMG/683747304_17936004102232409_6245927600494149761_n.webp" alt="Star sitting on a thick moss-covered tree branch looking out at the cloud forest of Mt. Negron">
                         <div class="gallery-info">
                             <h4>Tree Branch Sit</h4>
                         </div>
                     </div>
 
                     <div class="gallery-item vistas" data-src="IMG/689243255_17936004006232409_5858486746353885864_n.webp">
-                        <img class="gallery-img" src="IMG/689243255_17936004006232409_5858486746353885864_n.webp" alt="Moonlight reflecting on the river water in the dark during the descent dip">
+                        <img loading="lazy" decoding="async" class="gallery-img" src="IMG/689243255_17936004006232409_5858486746353885864_n.webp" alt="Moonlight reflecting on the river water in the dark during the descent dip">
                         <div class="gallery-info">
                             <h4>Midnight River Sanctuary</h4>
                         </div>
                     </div>
 
                     <div class="gallery-item vistas" data-src="IMG/GroupPic.PNG">
-                        <img class="gallery-img" src="IMG/GroupPic.PNG" alt="Happy to be with these guys,">
+                        <img loading="lazy" decoding="async" class="gallery-img" src="IMG/GroupPic.PNG" alt="Happy to be with these guys,">
                         <div class="gallery-info">
                             <h4>Trail Companions</h4>
                         </div>
                     </div>
 
                     <div class="gallery-item vistas" data-src="IMG/Zen1.webp">
-                        <img class="gallery-img" src="IMG/Zen1.webp" alt="Star meditating on a rock overlooking the mountains">
+                        <img loading="lazy" decoding="async" class="gallery-img" src="IMG/Zen1.webp" alt="Star meditating on a rock overlooking the mountains">
                         <div class="gallery-info">
                             <h4>Zen Meditation</h4>
                         </div>
@@ -360,28 +370,28 @@ You cannot grip your pole and other things along the hike,">
 
                     <!-- Trail Details -->
                     <div class="gallery-item details" data-src="IMG/684604914_17936004051232409_5613211975504667097_n.webp">
-                        <img class="gallery-img" src="IMG/684604914_17936004051232409_5613211975504667097_n.webp" alt="Sunburst shining through tall green wild grass on the trail ridges">
+                        <img loading="lazy" decoding="async" class="gallery-img" src="IMG/684604914_17936004051232409_5613211975504667097_n.webp" alt="Sunburst shining through tall green wild grass on the trail ridges">
                         <div class="gallery-info">
                             <h4>Sunburst Flare</h4>
                         </div>
                     </div>
 
                     <div class="gallery-item details" data-src="IMG/686492295_17936004018232409_2714397020420488913_n.webp">
-                        <img class="gallery-img" src="IMG/686492295_17936004018232409_2714397020420488913_n.webp" alt="Mountain stream cascading down as a small waterfall through rocky volcanic gorges">
+                        <img loading="lazy" decoding="async" class="gallery-img" src="IMG/686492295_17936004018232409_2714397020420488913_n.webp" alt="Mountain stream cascading down as a small waterfall through rocky volcanic gorges">
                         <div class="gallery-info">
                             <h4>Volcanic Cascade</h4>
                         </div>
                     </div>
 
                     <div class="gallery-item details" data-src="IMG/Mossy.webp">
-                        <img class="gallery-img" src="IMG/Mossy.webp" alt="Collage of cloud forest flora: curled fern, purple berries, and mossy trees in Mt. Negron">
+                        <img loading="lazy" decoding="async" class="gallery-img" src="IMG/Mossy.webp" alt="Collage of cloud forest flora: curled fern, purple berries, and mossy trees in Mt. Negron">
                         <div class="gallery-info">
                             <h4>Cloud Forest Flora</h4>
                         </div>
                     </div>
 
                     <div class="gallery-item details" data-src="IMG/Pole.webp">
-                        <img class="gallery-img" src="IMG/Pole.webp" alt="When hiking, I don't recommend having nail extensions. You cannot grip your pole and other things along the hike,">
+                        <img loading="lazy" decoding="async" class="gallery-img" src="IMG/Pole.webp" alt="When hiking, I don't recommend having nail extensions. You cannot grip your pole and other things along the hike,">
                         <div class="gallery-info">
                             <h4>Trekking Pole Support</h4>
                         </div>
@@ -402,12 +412,12 @@ You cannot grip your pole and other things along the hike,">
     </main>
 
     <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox-modal">
-        <button class="lightbox-close">&times;</button>
-        <button class="lightbox-nav lightbox-prev">&#10094;</button>
-        <button class="lightbox-nav lightbox-next">&#10095;</button>
+    <div id="lightbox" class="lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lightboxCaption" hidden>
+        <button class="lightbox-close" type="button" aria-label="Close image viewer">&times;</button>
+        <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous image">&#10094;</button>
+        <button class="lightbox-nav lightbox-next" type="button" aria-label="Next image">&#10095;</button>
         <div class="lightbox-content-wrapper">
-            <img id="lightboxImg" class="lightbox-img" src="" alt="">
+            <img loading="lazy" decoding="async" id="lightboxImg" class="lightbox-img" src="" alt="">
             <p id="lightboxCaption" class="lightbox-caption"></p>
         </div>
     </div>
