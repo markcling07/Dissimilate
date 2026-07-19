@@ -1,0 +1,410 @@
+/* ============================================================
+   Gladys — author profile
+
+   The graph-paper scrapbook world her two logs share: warm
+   off-white grid, near-black Archivo display, Quicksand body,
+   green-pen doodles, one coral accent.
+   ============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    /* Canvas */
+    --ground: #f7f5f0;
+    --grid-line: #e5e2d6;
+    --card-bg: #edeae2;
+
+    /* Ink */
+    --ink: #1a1a1a;
+    --ink-soft: #6b7064;
+
+    /* Pen + accent */
+    --pen: #4a7c59;
+    /* Coral appears exactly ONCE on the page — the hero asterisk. */
+    --accent: #e8836b;
+
+    /* Shape */
+    --radius-card: 18px;
+
+    --font-display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+    --font-body: 'Quicksand', 'Trebuchet MS', sans-serif;
+
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body {
+    background:
+        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px),
+        var(--ground);
+    background-size: 72px 72px;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-weight: 500;
+    overflow-x: clip;
+}
+
+::selection {
+    background: var(--pen);
+    color: var(--ground);
+}
+
+a:focus-visible {
+    outline: 3px solid var(--pen);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.doodle {
+    position: absolute;
+    stroke: var(--pen);
+    stroke-width: 2.5;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    pointer-events: none;
+}
+
+.doodle-asterisk {
+    stroke: none;
+    color: var(--accent);
+}
+
+.profile {
+    width: min(92vw, 1080px);
+    margin-inline: auto;
+}
+
+/* ============================================================
+   Hero — name left, portrait card right
+   ============================================================ */
+
+.hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: clamp(14px, 2vw, 32px);
+    align-content: center;
+    min-height: 88svh;
+    padding-block: clamp(3rem, 9vh, 6rem) clamp(3rem, 8vh, 5rem);
+}
+
+.doodle-ridge {
+    top: clamp(0.75rem, 4vh, 2.5rem);
+    left: -44px;
+    width: clamp(120px, 16vw, 220px);
+}
+
+.hero-copy {
+    grid-column: 1 / 8;
+    align-self: center;
+}
+
+.hero-kicker {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+}
+
+.hero-name {
+    margin-top: 0.9rem;
+    display: inline-block;
+    position: relative;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(3.4rem, 11vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+}
+
+.squiggle {
+    position: absolute;
+    left: 1%;
+    bottom: -0.14em;
+    width: 98%;
+    height: auto;
+    stroke: var(--pen);
+    stroke-width: 3;
+    stroke-linecap: round;
+    fill: none;
+}
+
+.hero-bio {
+    margin-top: clamp(1.2rem, 3vh, 1.8rem);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 40ch;
+    color: var(--ink);
+}
+
+.hero-stats {
+    display: flex;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    margin-top: clamp(1.6rem, 4vh, 2.4rem);
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.stat-value {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    letter-spacing: -0.02em;
+    color: var(--ink);
+}
+
+.stat-label {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+}
+
+.hero-card {
+    grid-column: 8 / 13;
+    align-self: center;
+    line-height: 0;
+}
+
+.hero-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+    background: var(--card-bg);
+    border-radius: var(--radius-card);
+}
+
+.doodle-asterisk {
+    bottom: -26px;
+    left: 40%;
+    width: 76px;
+    z-index: 2;
+}
+
+/* ============================================================
+   The logs
+   ============================================================ */
+
+.logs {
+    position: relative;
+    padding-block: clamp(2rem, 6vh, 4rem) clamp(1rem, 3vh, 2rem);
+    border-top: 1px solid var(--grid-line);
+}
+
+.doodle-trail {
+    top: clamp(2rem, 5vh, 3.5rem);
+    right: 2%;
+    width: 120px;
+}
+
+.logs-heading {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+}
+
+.logs-heading span {
+    display: block;
+}
+
+.log-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(14px, 2.5vw, 28px);
+    margin-top: clamp(1.6rem, 4vh, 2.6rem);
+}
+
+.log-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-radius: var(--radius-card);
+    transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+}
+
+.log-img {
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    line-height: 0;
+}
+
+.log-img img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    background: var(--card-bg);
+}
+
+.log-meta {
+    padding: 1rem 0.25rem 1.2rem;
+}
+
+.log-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+}
+
+.log-cross {
+    color: var(--pen);
+    font-size: 0.78em;
+}
+
+.log-desc {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 42ch;
+}
+
+.log-tag {
+    display: inline-block;
+    margin-top: 0.7rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pen);
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+
+.colophon {
+    padding-block: clamp(2.5rem, 6vh, 4rem) clamp(2.5rem, 6vh, 4rem);
+    border-top: 1px solid var(--grid-line);
+    text-align: center;
+    margin-top: clamp(2rem, 5vh, 3.5rem);
+}
+
+.doodle-compass {
+    position: static;
+    display: block;
+    width: 50px;
+    margin: 0 auto 1.2rem;
+}
+
+.colophon-sign {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+}
+
+.colophon-links {
+    margin-top: 1.4rem;
+}
+
+.colophon-links a {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--pen);
+    text-decoration: underline wavy;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 5px;
+    transition: text-decoration-style 0.2s ease;
+}
+
+/* ============================================================
+   Motion & hover
+   ============================================================ */
+
+@media (hover: hover) {
+    .log-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 32px rgba(26, 26, 26, 0.1);
+    }
+
+    .colophon-links a:hover {
+        text-decoration-style: solid;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .log-card {
+        transition: none;
+    }
+}
+
+/* ============================================================
+   Mobile
+   ============================================================ */
+
+@media (max-width: 600px) {
+    body {
+        background-size: 56px 56px;
+    }
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        padding-block: clamp(2rem, 6vh, 3rem) 3rem;
+    }
+
+    .doodle-ridge {
+        width: 120px;
+        left: -28px;
+        top: 0.5rem;
+    }
+
+    .hero-copy {
+        padding-top: clamp(3.5rem, 10vh, 5rem);
+    }
+
+    .hero-card {
+        margin-top: 1.6rem;
+    }
+
+    .doodle-asterisk {
+        width: 52px;
+        bottom: -18px;
+    }
+
+    .doodle-trail {
+        width: 84px;
+        right: -16px;
+        top: 1.5rem;
+    }
+
+    .log-grid {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+    }
+}

@@ -27,6 +27,7 @@ Site: https://markcling07.github.io/Dissimilate/
 
 - [Star](https://markcling07.github.io/Dissimilate/Authors/Star/): trail runner; three logs above.
 - [Shieka](https://markcling07.github.io/Dissimilate/Authors/Shieka/): album-style profile of her climbs.
+- [Gladys](https://markcling07.github.io/Dissimilate/Authors/Gladys/): graph-paper profile linking her two Misamis Oriental logs.
 
 ## Reference pages
 
