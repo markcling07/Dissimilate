@@ -186,6 +186,36 @@ a:focus-visible {
     color: var(--ink-soft);
 }
 
+.hero-social {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: clamp(1.4rem, 3.5vh, 2rem);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--pen);
+    text-decoration: none;
+}
+
+/* Underline the handle only — a wavy line under the doodle reads
+   as a mistake. */
+.hero-social span {
+    text-decoration: underline wavy;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 5px;
+    transition: text-decoration-style 0.2s ease;
+}
+
+.ig-doodle {
+    width: 20px;
+    height: 20px;
+    stroke: var(--pen);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: rotate(-4deg);
+}
+
 .hero-card {
     /* Four columns, not five — the portrait reads as a snapshot,
        not a poster. */
@@ -358,6 +388,10 @@ a:focus-visible {
     }
 
     .colophon-links a:hover {
+        text-decoration-style: solid;
+    }
+
+    .hero-social:hover span {
         text-decoration-style: solid;
     }
 }
