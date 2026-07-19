@@ -242,7 +242,7 @@ a:focus-visible {
 .log-grid {
     display: grid;
     /* Capped card width keeps the log photos modest. */
-    grid-template-columns: repeat(2, minmax(0, 440px));
+    grid-template-columns: repeat(2, minmax(0, 380px));
     gap: clamp(14px, 2.5vw, 28px);
     margin-top: clamp(1.6rem, 4vh, 2.6rem);
 }
@@ -407,12 +407,22 @@ a:focus-visible {
         top: 1.5rem;
     }
 
+    /* The two logs stay on one line even on the phone — small
+       side-by-side cards with compact type. */
     .log-grid {
-        grid-template-columns: 1fr;
-        gap: 1.8rem;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
     }
 
-    .log-card {
-        max-width: 84%;
+    .log-title {
+        font-size: 0.95rem;
+    }
+
+    .log-desc {
+        font-size: 0.78rem;
+    }
+
+    .log-tag {
+        font-size: 0.6rem;
     }
 }
