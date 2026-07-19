@@ -20,3 +20,8 @@ _refs/
 
 # Claude Code local (per-machine) settings
 .claude/settings.local.json
+
+# Astro essay sub-projects (Authors/*/*/_src): deps and raw build output
+node_modules/
+Authors/*/*/_src/dist/
+Authors/*/*/_src/.astro/
