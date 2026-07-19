@@ -186,7 +186,9 @@ a:focus-visible {
 }
 
 .hero-card {
-    grid-column: 8 / 13;
+    /* Four columns, not five — the portrait reads as a snapshot,
+       not a poster. */
+    grid-column: 9 / 13;
     align-self: center;
     line-height: 0;
 }
@@ -239,7 +241,8 @@ a:focus-visible {
 
 .log-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* Capped card width keeps the log photos modest. */
+    grid-template-columns: repeat(2, minmax(0, 440px));
     gap: clamp(14px, 2.5vw, 28px);
     margin-top: clamp(1.6rem, 4vh, 2.6rem);
 }
@@ -390,6 +393,7 @@ a:focus-visible {
 
     .hero-card {
         margin-top: 1.6rem;
+        max-width: 84%;
     }
 
     .doodle-asterisk {
@@ -406,5 +410,9 @@ a:focus-visible {
     .log-grid {
         grid-template-columns: 1fr;
         gap: 1.8rem;
+    }
+
+    .log-card {
+        max-width: 84%;
     }
 }
